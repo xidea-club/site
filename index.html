@@ -285,7 +285,7 @@ return t + e.sort().join(",");
 }
 function ce(t, e) {
 var a = Ia(t, e);
-K(a), t && e && (fe(t, e), nn(t, e, zt), rn());
+K(a), t && e && (fe(t, e), ln(t, e, zt), nn());
 }
 function fe(t, e) {
 Zt = t, Vt = e, zt = Math.min(Zt, Vt) / 6 | 0, Ut = 0 | Math.min(zt / 4, 20), Qt = 2.18 * zt | 0, 
@@ -1155,46 +1155,51 @@ function zi(t, e) {
 var a = Math.min(t / Ri | 0, 7), r = e / Ni | 0;
 return Ei[8 * r + a];
 }
-function rn() {
-for (var t = tn * mr, e = nt()(ln, on, 0, 0, Zi, t), a = t, r = an.children, i = 0; i < r.length; i++) vn(e, r[i], a, a += t);
+function nn() {
+tn = en * mr;
+for (var t = nt()(on, vn, 0, 0, Zi, tn), e = tn, a = rn.children, r = 0; r < a.length; r++) cn(t, a[r], e, e += tn);
 }
-function nn(t, e, a) {
-tn = a, en = tn * gr, Zi = t, Vi = e, an = new Qi({
+function ln(t, e, a) {
+en = a, an = en * gr, Zi = t, Vi = e, rn = new Qi({
 title: "Home",
 children: v()
 });
-for (var r = an.children, i = r.length; i--; ) r[i].loaded = !1;
-an.id = 0, an.x = 0, an.y = 0;
+for (var r = rn.children, i = r.length; i--; ) r[i].loaded = !1;
+rn.id = 0, rn.x = 0, rn.y = 0;
 }
-function ln(t, e, a) {
+function on(t, e, a) {
 var r = ia(), i = r.width / 2;
 t.fillStyle = "#fff", t.fillRect(0, 0, e, a), t.drawImage(r, e - a, a / 2 - i);
 }
-function on() {}
 function vn(t, e, a, r) {
+var i = an, n = Zi - tn + i, l = tn / 2;
+console.log([ n, l, pt([ a, r ], [ n, l ]), i ]), pt([ a, r ], [ n, l ]) <= i && (se(rn), 
+xe({}));
+}
+function cn(t, e, a, r) {
 function i(t, a, r) {
 var n = Ki(i), l = n[0];
 (e[1] != e.data.updateTime || e[2] != r) && (e[1] = e.data.updateTime, e[2] = r, 
-l.width = a, l.height = r, cn(l.getContext("2d"), e, a, r)), t.drawImage(l, 0, 0);
+l.width = a, l.height = r, fn(l.getContext("2d"), e, a, r)), t.drawImage(l, 0, 0);
 }
 function n(t) {
 1 == t && se(e);
 }
 t(i, n, 0, a, Zi, r);
 }
-function cn(t, e, a, r) {
-e.scale = en / tn;
+function fn(t, e, a, r) {
+e.scale = an / en;
 var i = Ze(e), n = e.data, l = r / 8 | 0, o = r / 4;
 t.lineWidth = 4, t.fillStyle = "#fff", t.strokeStyle = "#f2f2f2", t.fillRect(0, 0, a, r), 
-t.strokeRect(0, 0, a, r), t.drawImage(i, a - r, r / 2 - en), t.font = "bold " + l + "px " + lr, 
+t.strokeRect(0, 0, a, r), t.drawImage(i, a - r, r / 2 - an), t.font = "bold " + l + "px " + lr, 
 t.fillStyle = "#888", t.textAlign = "left", t.baseLine = 0, t.textBaseline = "middle";
 var v = 10;
 t.fillText(yr, v, o), t.fillText(wr, v, 2 * o), t.fillStyle = "#999", t.font = " " + l + "px " + lr;
 var c = e.edit || (e.edit = 10 * Math.random() | 0);
 t.fillText("节点：" + c + "个 修改" + ((986.756 * c & 63) + 1) + "次", v, 3 * o), v += t.measureText(yr).width, 
-t.fillText(fn(n.createTime), v, o), t.fillText(fn(n.updateTime), v, 2 * o);
+t.fillText(sn(n.createTime), v, o), t.fillText(sn(n.updateTime), v, 2 * o);
 }
-function fn(t) {
+function sn(t) {
 function e(t, e) {
 return e.length > 1 ? ("000" + t).slice(-e.length) : t;
 }
@@ -1568,7 +1573,7 @@ Yi("🎄,🎠,🏈,🎹", "🎄,🎤,🎶,🎣,🎯,⚽"), Yi("😀,👍,💗,�
 Yi("📅,💰,📈,⌛", "⏰,💰,💹"), Yi("🍴,🎂,🎀,👒", "🍭,🍲,🍎,🍸"), Yi("💣,📏,🔬,🔐", "🔓,🔒,⚓,🔧,🔍,🔔,🔕,💡,💎,💣"), 
 Yi("📞,📌,👥,💬", "👤,👥,💬,💭,📞,📩"), Yi("🐧,🐣,🍄,🔆", "🐌,🌹,🔆,⛅,❄,☁,💧"), 
 Yi("🚊,🚔,🏠,💒", "🏡,🚀,🚄,⛵,🚲"), Yi("⛔,🚭,🚦,✅", "✅,❎,❓,❗,⁉,㊙,🚩");
-var Zi, Vi, tn, en, an, Ui = "娱乐,表情,数字,居家,杂物,沟通,自然,城市,抽象".split(","), Qi = ge, Ki = dt("canvas", 16);
+var Zi, Vi, tn, en, an, rn, Ui = "娱乐,表情,数字,居家,杂物,沟通,自然,城市,抽象".split(","), Qi = ge, Ki = dt("canvas", 16);
 return {
 dispatchEvent: g,
 init: ce

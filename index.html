@@ -8,7 +8,7 @@ body,html,canvas{margin:0;padding:0;}
 body,html{width: 100%;height:100%;}
 canvas{/*transform-origin:0 0;transform:scale(0.5,0.5);/* */}
 </style>
-<meta name="viewport" />
+<meta name="viewport" value="user-scalable=no"/>
 <script>var compass = function() {
 function s(e) {
 for (var r, a = e.split(/\r\n?|\n/), t = [], n = 0; n < a.length; n++) {
@@ -61,8 +61,8 @@ function T() {
 for (var e = ((new Date() >> 24 | 4095) << 24).toString(16) + (4095 * Math.random() | 0).toString(16); e.length < 6; ) e += "0";
 return e;
 }
-function P(e, a) {
-ve(a), E(e);
+function k(e, a) {
+fe(a), E(e);
 }
 function E(e) {
 e != G && (X = !0), G = e, $ || L(B), $ = 1;
@@ -71,10 +71,9 @@ function B() {
 var e = +new Date();
 $ = -1;
 var a = H.getContext("2d");
-if (null != H.nativeId) {
+if (X && (X = !1, a.clearRect(0, 0, H.width, H.height)), null != H.nativeId) {
 O && console.error("invalid depth status!!!"), O++;
 try {
-X && (X = !1, a.clearRect(0, 0, H.width, H.height));
 var t = G(a);
 } finally {
 H.commit(!0);
@@ -96,41 +95,42 @@ q += +e;
 }
 function oe(e, a) {
 if (H != e) {
-for (var t = z.length; t--; ) e.addEventListener(z[t], de);
-H = e, a && ve(a);
+H = e;
+for (var t = z.length; t--; ) H.addEventListener(z[t], de, !1);
+a && fe(a);
 }
 }
 function ve(e) {
+for (var a = e.length; a--; ) H.removeEventListener(e[a], de, !1);
+}
+function fe(e) {
 ue(!0);
 var a = Q;
 return Q = e, a;
 }
-function fe(e, a, t) {
+function ce(e, a, t) {
 U = new Date(), ae = 0, V && clearTimeout(V), V = setTimeout(function() {
 V = 0, Q(0, e, ie, le, 0 | re, 0 | ne);
 }, Br), Q(-1, e, ie = a, le = t, re = a, ne = t);
 }
-function ce(e, a, t) {
+function se(e, a, t) {
 V && (Math.abs(a - ie) > ee || Math.abs(t - le) > ee) && (V = clearTimeout(V)), 
 ae++, re = .8 * re + .2 * a, ne = .8 * ne + .2 * t, Q(-2, e, ie, le, 0 | re, 0 | ne);
 }
-function se(e, a, t) {
+function he(e, a, t) {
 function r() {
 V && new Date() - U < Or ? Z = setTimeout(r, Or) : (0 > ae && Q(K, e, ie, le, a, t), 
-3 == K && prompt(Y.join("\n")), K = 0);
+3 == K && prompt(Y.join("\n")), Z = K = 0);
 }
 try {
 V && (V = clearTimeout(V), K ? (K++, clearTimeout(Z)) : K = 1, Z = setTimeout(r, Or)), 
-Q(-3, e, ie, le, a, t);
+Q(-3, e, ie, le, a, t, K);
 } finally {
 ue();
 }
 }
-function he(e) {
-for (var a = e.length; a--; ) H.removeEventListener(e[a], de);
-}
 function ue(e) {
-V && (V = clearTimeout(V)), e && Z && (Z = clearTimeout(Z)), ae = -1, te = null;
+V && (V = clearTimeout(V)), e && Z && (Z = clearTimeout(Z), K = 0), ae = -1, te = null;
 }
 function de(e) {
 try {
@@ -138,22 +138,22 @@ var a = new Date(), t = e.changedTouches && e.changedTouches[0] || e, r = t.clie
 switch (e.type) {
 case "touchstart":
 var a = new Date();
-z.length > 6 && he(z.splice(4));
+z.length > 6 && ve(z.splice(4));
 case "mousedown":
-e.preventDefault(), 0 > ae && fe(e, r, n);
+0 > ae && ce(e, r, n);
 break;
 case "mousemove":
-z.length > 6 && he(z.splice(0, 4));
+z.length > 6 && ve(z.splice(0, 4));
 case "touchmove":
 if (0 > ae) break;
-ce(e, r, n), e.preventDefault();
+se(e, r, n), e.preventDefault();
 break;
 case "touchend":
 case "touchcancel":
 case "mouseout":
 case "mouseup":
 if (0 > ae) break;
-se(e, r, n);
+he(e, r, n);
 break;
 default:
 console.warn("unknow event:", e.type, e);
@@ -202,7 +202,7 @@ i = Math.min(i + 10 + .1 * r, t), E(f);
 l = d;
 }
 var v, e = [], a = [], t = [], r = [], n = 0, i = 0, l = 0, o = 0;
-return P(f, c), function(n, i, l, v, c, s) {
+return k(f, c), function(n, i, l, v, c, s) {
 s > o && (o = s);
 var h = e.indexOf(n);
 return h >= 0 ? (i && (a[h] = i, c > l && t.splice(4 * h, 4, l, v, c, s)), r.indexOf(n) < 0 && r.push(n), 
@@ -332,7 +332,7 @@ va = e, fa = a, na = Math.min(va, fa) / 6 | 0, ia = 0 | Math.min(na / 4, 20), la
 Wt(va, fa, na, ia), sa && Ja(sa);
 }
 function xa(e) {
-ve(ga), ba(e);
+fe(ga), ba(e);
 for (var a = e.children, t = a.length; t--; ) a[t].scale = br;
 Ja(sa = e);
 }
@@ -342,9 +342,9 @@ Ca(t, a);
 }
 function Ca(e, a) {
 function t(e) {
-Jt(), ve(ga), a && a(e), e && Ma();
+Jt(), fe(ga), a && a(e), e && Ma();
 }
-Jn(e, t);
+Wn(e, t);
 }
 function Ma(e) {
 for (e = e || sa; e; ) {
@@ -382,11 +382,11 @@ r.unshift(r.pop())) : n ? (t.splice(e, 1), r.splice(e, 1), a > e && a--, t.splic
 r.splice(a, 0, n.data)) : (n = ha.node, ha = null, n.parent = sa, t.splice(a, 0, n), 
 r.splice(a, 0, n.data)), Ma(), Ja(sa);
 }
-function ka(e, a) {
+function Pa(e, a) {
 var t = JSON.parse(JSON.stringify(sa.children[e].data));
-Pa(t, a);
+ka(t, a);
 }
-function Pa(e, a, t) {
+function ka(e, a, t) {
 function i(t) {
 t && (n.splice(a, 0, r), sa.data.children.splice(a, 0, e), Ja(sa));
 }
@@ -525,38 +525,34 @@ function Ha(e, a) {
 var t = a[0] - e[0], r = a[1] - e[1], n = Math.acos(t / Math.sqrt(t * t + r * r)) || 0;
 return r > 0 && (n = oa - n), n;
 }
-function at(e, a, t, r, n, i) {
+function at(e, a, t, r, n, i, l) {
 switch (e) {
 case -1:
-Qa = [ n, i ], Va && (Va = Va.cancel()), Za = null, Ua = Ga(t, r), Ka = Ua >= 0 && (1 & Ua) + 1, 
+Qa = [ n, i ], Va && (Va = Va.cancel()), Za = null, Ua = Ga(t, r), Ka = 0 == Ua ? 2 : Ua > 0 && (1 & Ua) + 1, 
 -2 == Ua && (Va = Oa(), Va && (Va.index = -2, Va.move(n, i, Ua)));
-var l = new Date();
-Or > l - et ? 2 == Ka && tt(2) : 1 == Ka && tt(1), et = l;
+var o = new Date();
+et = o;
 break;
 case -2:
 if (null != Va) {
-var o = Ga(n, i, !0);
-Va.move(n, i, o), Za = o;
+var v = Ga(n, i, !0);
+Va.move(n, i, v), Za = v;
 } else (Ua > 0 || null == Ua) && Ya(Qa, Qa = [ n, i ]);
 break;
 case -3:
-Va && nt(a, n, i);
+Va && nt(a, n, i), Ka && l == Ka && tt(l);
 break;
 case 0:
 if (Ua > 0 && 1 & Ua) {
-var v = Ua >> 1;
-Va = ra(v), Va.index = v;
+var f = Ua >> 1;
+Va = ra(f), Va.index = f;
 }
 break;
 case 1:
-1 != Ka && tt(1);
-break;
 case 2:
-2 != Ka && tt(2);
+Ka != e && tt(e, "base");
 break;
-case 3:
-tt(e);
-}
+case 3:        }
 }
 function tt(e) {
 if (Ua > 0) if (1 & Ua) {
@@ -569,17 +565,17 @@ var a = "", t = {
 title: a,
 children: []
 };
-Pa(t, e);
+ka(t, e);
 }
 function nt() {
 var r = Va.index;
 if (-2 == Za) Ea(r, Va); else if (null == Za) Va = -2 == r ? Ea(r, Va) : Va.cancel(); else if (Va = Va.cancel(), 
-0 == Za) ka(r, r + 1); else if (Za > 0) {
+0 == Za) Pa(r, r + 1); else if (Za > 0) {
 var n = Za >> 1;
 1 & Za ? r != n && Aa(r, n) : Da(r, n);
 } else if (-1 == Za) {
 var i = Ba(r);
-ja(), Pa(i.data);
+ja(), ka(i.data);
 }
 }
 function ft(e, a) {
@@ -720,7 +716,7 @@ a;
 }
 function Wt(e, a, t, r) {
 xt.width = Ft.width = bt = e, xt.height = Ft.height = Tt = a, Mt = t, It = .8 * Mt, 
-kt = Math.min(r >> 2, 126), ft(t, r), Jt();
+Pt = Math.min(r >> 2, 126), ft(t, r), Jt();
 }
 function Jt() {
 Yt = null, E($t);
@@ -729,18 +725,18 @@ function Lt() {
 E($t);
 }
 function $t() {
-if (null != Pt) {
+if (null != kt) {
 var a = [], t = [], r = [], n = Qt(a, t, r), i = a.length < 2, l = i && Ut();
-l ? n = !0 : l = Pt, vr.apply(r, l), a == Yt ? (Ct.clearRect(0, 0, bt, Tt), i && (fr.apply(Ct, l), 
+l ? n = !0 : l = kt, vr.apply(r, l), a == Yt ? (Ct.clearRect(0, 0, bt, Tt), i && (fr.apply(Ct, l), 
 Kt(Ct, t))) : (St.clearRect(0, 0, bt, Tt), St != Ct && (Ct.clearRect(0, 0, bt, Tt), 
-Yt = a + ""), i ? Kt(Ct, t) : (fr.apply(St, l), Kt(St, t)), xt.commit && xt.commit(), 
-console.log("commit back canvas!!")), cr(Pt[0]), Kt(Ct, r), Ct.globalAlpha = 1;
+Yt = a + ""), i ? Kt(Ct, t) : (fr.apply(St, l), Kt(St, t)), xt.commit && xt.commit()), 
+cr(kt[0]), Kt(Ct, r), Ct.globalAlpha = 1;
 for (var o = Dt.length; o--; ) Dt[o]() && (n = !0);
 return n;
 }
 }
 function Qt(e, a, t) {
-var r = Vt(), n = Pt[0], i = n.parent, l = i && i.id;
+var r = Vt(), n = kt[0], i = n.parent, l = i && i.id;
 Gt += +new Date();
 var o = n.children, v = Bt && Bt.hit || null, f = dt(jt, Bt, v), c = o.length;
 for (e.push([ -1, -2, 0 ].indexOf(v)), a.push([ 1, f, bt - It, It - f.height ]), 
@@ -761,7 +757,7 @@ var e = new Date() - Ot;
 if (wr > e) {
 var a = e / wr;
 if (1 > a) {
-for (var t = [ Pt[0] ], r = 1; r < Pt.length; r++) t.push(pr(Pt[r], Et[r], a));
+for (var t = [ kt[0] ], r = 1; r < kt.length; r++) t.push(pr(kt[r], Et[r], a));
 return Et = t;
 }
 Et = 0;
@@ -815,7 +811,7 @@ e.x = r, e.y = n, e.alpha = gr(e.animAlpha, a), 1 == a ? (e.animStart = null, e.
 e.animX = null, e.animY = null, e.animAlpha = null, e.scale = Math.max(t, br), t = 1) : t /= e.scale || 1;
 } else var r = e.x, n = e.y;
 if (Bt && e.scale < 1 && Bt.id != e.id) {
-var i = Pt[3], l = Pt[1], o = Pt[2], v = Bt.x - r, f = Bt.y - n, c = Math.min(i - Mt, 2 * Mt), s = Math.sqrt(v * v + f * f), h = Bt.x - l, u = Bt.y - o, d = Math.sqrt(h * h + u * u);
+var i = kt[3], l = kt[1], o = kt[2], v = Bt.x - r, f = Bt.y - n, c = Math.min(i - Mt, 2 * Mt), s = Math.sqrt(v * v + f * f), h = Bt.x - l, u = Bt.y - o, d = Math.sqrt(h * h + u * u);
 if (d > Mt && c > s && Math.abs(d - i) < c) {
 var p = l - r, g = o - n, m = g / i, y = p / i, w = v * g - f * p > 0 ? 1 : -1, F = l + h / d * i - r, x = o + u / d * i - n;
 s = (1 - s / c) * Math.sqrt(F * F + x * x), r -= m * s * w, n += y * s * w;
@@ -846,7 +842,7 @@ Bt = null, ar(e, e.x, e.y, br || .8, 1), mr(Dt, o), Lt();
 };
 }
 function or() {
-Ot = new Date(), Et = Pt, Pt = arguments, Lt();
+Ot = new Date(), Et = kt, kt = arguments, Lt();
 }
 function vr(e, a, t, r, n, i, l, o) {
 var v = this, f = mt(null == Bt ? 0 : 1), s = f.width / 2, h = Bt && Bt.hit, u = h && 1 & ~h && Mt;
@@ -857,16 +853,16 @@ l += o;
 }
 }
 function fr(e, a, t, r, n, i) {
-this.strokeStyle = "#ddd", this.lineWidth = kt, this.beginPath(), this.arc(a, t, r, -i, -n, !1), 
+this.strokeStyle = "#ddd", this.lineWidth = Pt, this.beginPath(), this.arc(a, t, r, -i, -n, !1), 
 this.stroke(), sr(this, e, e.parent);
 }
 function cr(e) {
-Ct.strokeStyle = "#ddd", Ct.lineWidth = kt / 2, sr(Ct, e, e.children[0], Mt);
+Ct.strokeStyle = "#ddd", Ct.lineWidth = Pt / 2, sr(Ct, e, e.children[0], Mt);
 }
 function sr(e, a, t, r) {
 if (t && t.id) {
 var n = a.x, i = a.y, l = t.x, o = t.y;
-r && (r = 1 - r / (i == Pt[2] ? Pt[3] : be([ n, i ], [ l, o ])), n = pr(n, l, r), 
+r && (r = 1 - r / (i == kt[2] ? kt[3] : be([ n, i ], [ l, o ])), n = pr(n, l, r), 
 i = pr(i, o, r)), e.beginPath(), e.moveTo(n, i), e.lineTo(l, o), e.stroke();
 }
 }
@@ -969,19 +965,19 @@ function vn(e, a, t, r, n) {
 function u(e, a, t) {
 e.fillStyle = "#ddd", e.fillRect(0, 0, a, t);
 }
-e(u, function() {}, 0, t, r, n), nn = a, ln = nn.data;
+e(u, function() {}, 0, t, r, n), ln = a, on = ln.data;
 var i = t >> 3, l = t + i, o = 0 | .8 * t, v = l + o + i, f = n - v - i, c = .6 * o | 0, s = .3 * o | 0, h = [ "left:", i, "px;width:", r - i - i, "px;border:0;margin:0;padding:0;position:absolute;z-index:9;display:block;font-size:" ];
-if (null == tn) {
+if (null == rn) {
 var d = document.body;
-tn = document.createElement("input"), rn = document.createElement("textarea"), tn.placeholder = "输入显示标题", 
-rn.placeholder = "添加详细注备", tn.setAttribute("style", h.concat(c, "px;top:", l, "px;height:", o, "px").join("")), 
-rn.setAttribute("style", h.concat(s, "px;top:", v, "px;height:", f, "px").join("")), 
-d.appendChild(tn), d.appendChild(rn);
+rn = document.createElement("input"), nn = document.createElement("textarea"), rn.placeholder = "输入显示标题", 
+nn.placeholder = "添加详细注备", rn.setAttribute("style", h.concat(c, "px;top:", l, "px;height:", o, "px").join("")), 
+nn.setAttribute("style", h.concat(s, "px;top:", v, "px;height:", f, "px").join("")), 
+d.appendChild(rn), d.appendChild(nn);
 } else {
-if ("block" == tn.style.display) return;
-tn.style.display = "block", rn.style.display = "block";
+if ("block" == rn.style.display) return;
+rn.style.display = "block", nn.style.display = "block";
 }
-tn.value = ln.title || "", rn.value = ln.content || "";
+rn.value = on.title || "", nn.value = on.content || "";
 }
 function Sn(e, a, t, r, n) {
 var i = n / 3.2, l = .618 * t, o = i + l, v = i + 1.2 * l, f = n;
@@ -1076,35 +1072,33 @@ mn -= v, pn(An);
 } else -3 == e && pn(An);
 }
 function qn(e, a, t) {
-e.addEventListener("touchstart", Wn, !1), On = a, Bn = t;
+On = a, Bn = t;
 }
-function Wn() {
-0 == En && jn && on();
+function Wn(e, a) {
+Pn = e, kn = Hn(e), Rn = On / 6 | 0, jn = a, Gn(e.data.title ? En : 0), tn();
 }
-function Jn(e, a) {
-kn = e, Pn = Hn(e), Rn = On / 6 | 0, jn = a, Gn(e.data.title ? En : 0);
+function Jn(e, a, t) {
+e.clearRect(e, 0, 0, a, t), Se(e, 0, t, 0, a, Nn, En, zn), En || window.scrollTo(0, 0);
 }
 function Ln(e, a, t) {
-e.clearRect(e, 0, 0, a, t), Se(e, 0, t, 0, a, Nn, En, zn);
-}
-function $n(e, a, t) {
 if (-1 == e) {
 var n = 0 | 4 * t / On, i = Nn.length - 1;
-if (n && 0 == En && an(), n >= i) {
-var l = JSON.stringify(Pn), o = JSON.stringify(Hn(kn)), v = kn.childColors;
-if (v) for (var f = kn.children, c = f.length; c--; ) f[c].data.fill = v[(c + 1) % v.length], 
-f[c].dirty = 1;
-jn(l != o || v), jn = null;
-} else n >= 0 && n != En && Gn(n);
+n && 0 == En && an(), n >= i ? $n() : n != En && (Gn(n), n || tn());
 }
+}
+function $n() {
+var e = JSON.stringify(kn), a = JSON.stringify(Hn(Pn)), t = Pn.childColors;
+if (t) for (var r = Pn.children, n = r.length; n--; ) r[n].data.fill = t[(n + 1) % t.length], 
+r[n].dirty = 1;
+jn(e != a || t), jn = null;
 }
 function Gn(e) {
 Yn = Xn(e), e ? (Yn(function(e) {
 e.fillStyle = "#FFF", e.fillRect(0, Rn, On, Bn - Rn);
-}, null, 0, 0, 1, 0), 1 == e ? Xr(Yn, kn, Rn, On, Bn) : Sn(Yn, kn, Rn, On, Bn)) : vn(Yn, kn, Rn, On, Bn);
+}, null, 0, 0, 1, 0), 1 == e ? Xr(Yn, Pn, Rn, On, Bn) : Sn(Yn, Pn, Rn, On, Bn)) : vn(Yn, Pn, Rn, On, Bn);
 }
 function Xn(e) {
-return En = e, pe()(Ln, $n, 0, 0, On, Rn);
+return En = e, pe()(Jn, Ln, 0, 0, On, Rn);
 }
 function Hn(e) {
 var a = e.data;
@@ -1260,7 +1254,7 @@ e.fillStyle = "#fff", e.fillRect(0, 0, a, t), e.drawImage(r, a - t, t / 2 - n);
 }
 function Ii(e, a, t, r) {
 var n = Si, i = yi - Fi + n, l = Fi / 2;
-be([ t, r ], [ i, l ]) <= n && (xa(Ci), Pa({}));
+be([ t, r ], [ i, l ]) <= n && (xa(Ci), ka({}));
 }
 function Ai(e, a, t, r) {
 function n(e, t, r) {
@@ -1280,12 +1274,12 @@ e.lineWidth = 4, e.fillStyle = "#fff", e.strokeStyle = "#f2f2f2", e.fillRect(0, 
 e.strokeRect(0, 0, t, r), e.drawImage(n, t - r, r / 2 - Si), e.font = "bold " + l + "px " + yr, 
 e.fillStyle = "#888", e.textAlign = "left", e.baseLine = 0, e.textBaseline = "middle";
 var v = 10;
-e.fillText(kr, v, o), e.fillText(Pr, v, 2 * o), e.fillStyle = "#999", e.font = " " + l + "px " + yr;
+e.fillText(Pr, v, o), e.fillText(kr, v, 2 * o), e.fillStyle = "#999", e.font = " " + l + "px " + yr;
 var f = a.edit || (a.edit = 10 * Math.random() | 0);
-e.fillText("节点：" + f + "个 修改" + ((986.756 * f & 63) + 1) + "次", v, 3 * o), v += e.measureText(kr).width, 
-e.fillText(ki(i.createTime), v, o), e.fillText(ki(i.updateTime), v, 2 * o);
+e.fillText("共有" + f + "个节点 " + ((986.756 * f & 63) + 1) + "次修改", v, 3 * o), v += e.measureText(Pr).width, 
+e.fillText(Pi(i.createTime), v, o), e.fillText(Pi(i.updateTime), v, 2 * o);
 }
-function ki(e) {
+function Pi(e) {
 function a(e, a) {
 return a.length > 1 ? ("000" + e).slice(-a.length) : e;
 }
@@ -1330,18 +1324,18 @@ type: e
 };
 switch (e) {
 case "touchstart":
-return fe(r, a, t);
-case "touchmove":
 return ce(r, a, t);
+case "touchmove":
+return se(r, a, t);
 case "touchend":
 case "touchcancel":
-return se(r, a, t);
+return he(r, a, t);
 }
 };
 if (!window.requestAnimationFrame) {
-for (var D = [ "webkit", "moz", "o", "ms" ], k = D.length; k--; ) if (requestAnimationFrame = window[D[k] + "RequestAnimationFrame"], 
+for (var D = [ "webkit", "moz", "o", "ms" ], P = D.length; P--; ) if (requestAnimationFrame = window[D[P] + "RequestAnimationFrame"], 
 requestAnimationFrame) {
-cancelAnimationFrame = window[D[k] + "CancelAnimationFrame"];
+cancelAnimationFrame = window[D[P] + "CancelAnimationFrame"];
 break;
 }
 requestAnimationFrame || (requestAnimationFrame = function(e) {
@@ -1350,11 +1344,11 @@ return setTimeout(e, 1e3 / 60);
 return clearTimeout(e);
 });
 }
-var $, G, X, H, Q, U, K, Z, V, te, re, ne, ie, le, O = 0, N = +new Date(), Y = [], _ = 0, q = 0, W = 0, J = 0, L = requestAnimationFrame, z = "touchstart,touchmove,touchend,touchcancel,mousedown,mousemove,mouseup,mouseout".split(","), ee = 10, ae = -1, k = z.length;
+var $, G, X, H, Q, U, K, Z, V, te, re, ne, ie, le, O = 0, N = +new Date(), Y = [], _ = 0, q = 0, W = 0, J = 0, L = requestAnimationFrame, z = "touchstart,touchmove,touchend,touchcancel,mousedown,mousemove,mouseup,mouseout".split(","), ee = 10, ae = -1, P = z.length;
 window.matchMedia && window.matchMedia("(pointer:coarse)").matches && z.splice(4);
 var ge = "#eee", me = "#888", ye = "#4cd4bc", we = "#EEE", Ae = function(e) {
 return Xe ? new ze(e) : document.createElement("canvas");
-}, De = 0, ke = 1, Pe = 2, Ee = 3, Oe = 0, Be = 1, Re = 2, je = 3, Ne = 4, Ye = 5, _e = 6, qe = 7, We = 8, Je = 9, Le = 10, $e = 11, Ge = 2 * Math.PI, Xe = window.nativeHost;
+}, De = 0, Pe = 1, ke = 2, Ee = 3, Oe = 0, Be = 1, Re = 2, je = 3, Ne = 4, Ye = 5, _e = 6, qe = 7, We = 8, Je = 9, Le = 10, $e = 11, Ge = 2 * Math.PI, Xe = window.nativeHost;
 ze.prototype.commit = function(e) {
 var a = Xe.commit(this.nativeId, this.cmds.join(""), !!e);
 return this.cmds = [], a;
@@ -1383,7 +1377,7 @@ Xe.setHeight(this.nativeId, e), this._height = e;
 }
 });
 var Ze = "BLACK,#FF000000,DKGRAY,#FF444444,GRAY,#FF888888,LTGRAY,#FFCCCCCC,WHITE,#FFFFFFFF,RED,#FFFF0000,GREEN,#FF00FF00,BLUE,#FF0000FF,YELLOW,#FFFFFF00,CYAN,#FF00FFFF,MAGENTA,#FFFF00FF,TRANSPARENT,#00000000".split(",");
-ze.prototype.fill = function() {
+ze.prototype.addEventListener = function() {}, ze.prototype.fill = function() {
 He(this, Be, Qe(this._path));
 }, ze.prototype.stroke = function() {
 He(this, Oe, Qe(this._path));
@@ -1413,9 +1407,9 @@ this._path = [];
 }, ze.prototype.moveTo = function(e, a) {
 ea(this).push(De, e, a);
 }, ze.prototype.lineTo = function(e, a) {
-ea(this).push(ke, e, a);
+ea(this).push(Pe, e, a);
 }, ze.prototype.closePath = function() {
-ea(this).push(Pe);
+ea(this).push(ke);
 }, ze.prototype.arc = function(e, a, t, r, n, i) {
 var l = aa(r), o = aa(n - r);
 ea(this).push(Ee, e, a, t, l, l + o, i ? 1 : 0);
@@ -1447,13 +1441,13 @@ ze.prototype.createImageData = function() {}, ze.prototype.createPattern = funct
 ze.prototype.drawFocusIfNeeded = function() {}, ze.prototype.ellipse = function() {}, 
 ze.prototype.getLineDash = function() {}, ze.prototype.isPointInPath = function() {}, 
 ze.prototype.isPointInStroke = function() {}, ze.prototype.quadraticCurveTo = function() {};
-var na, ia, la, va, fa, sa, ha, ya, Qa, Ua, Ka, Za, Va, et, lt, ot, vt, Ft, xt, St, Ct, Mt, bt, Tt, It, kt, Pt, Et, Ot, Bt, jt, Yt, Nr, Jr, Lr, $r, Gr, tn, rn, nn, ln, fn, hn, un, dn, pn, gn, yn, wn, Fn, xn, kn, Pn, On, Bn, Rn, jn, Yn, Vn, ei, ra = function(e) {
+var na, ia, la, va, fa, sa, ha, ya, Qa, Ua, Ka, Za, Va, et, lt, ot, vt, Ft, xt, St, Ct, Mt, bt, Tt, It, Pt, kt, Et, Ot, Bt, jt, Yt, Nr, Jr, Lr, $r, Gr, rn, nn, ln, on, fn, hn, un, dn, pn, gn, yn, wn, Fn, xn, Pn, kn, On, Bn, Rn, jn, Yn, Vn, ei, ra = function(e) {
 return lr(sa.children[e]);
-}, oa = 2 * Math.PI, ua = [], da = 0, ga = at, ma = [], it = Me("canvas", 632), pt = [ gt, [] ], At = [], Dt = [], Rt = [], Gt = 0, Xt = 0, Ht = 0, yr = "STHeiti serif", wr = 160, Fr = 128, xr = 128, Sr = 300, Cr = 2, Mr = 2.4, br = .75, Tr = .7, Ir = 1.2, Ar = .8, Dr = 2.2, kr = "创建于：", Pr = "修改于：", Or = 180, Br = 600, Rr = [ "经典", "炫彩" ], jr = [ "#2B8567#1D9C7E#22B59A#4CD4BC#1FE3BF#90D7C5#98C0B4#04576B#227580#4699A3#40BACA#52D6EB#7DCADC#88B8CC#611023#991924#C24924#DE6530#E67B63#CC8F8F#AE7D7D#484570#68638C#8B85A8#B3AFC5#C8C6D4#CDCDD1#A3A1A8".match(/#\w+/g), "#8000FF#FF00FF#FF0080#FF3D3D#FF9900#FFD83D#A0F000#5000F0#3D64FF#7A95FF#00B3FF#85E0D1#00B8B8#666600#333399#FF0033#990066#FFCC33#CCCC00#666666#0066CC#336699#669933#99CC33#00FF80#663366#660000#000000".match(/#\w+/g) ], Yr = 0, _r = -1, qr = 0, Wr = -1, an = function() {
-tn && (tn.style.display = "none", rn.style.display = "none", nn.dirty = !0, ln.title = tn.value, 
-ln.content = rn.value, tn.blur(), rn.blur());
-}, on = function() {
-tn && "block" == tn.style.display && tn.focus();
+}, oa = 2 * Math.PI, ua = [], da = 0, ga = at, ma = [], it = Me("canvas", 632), pt = [ gt, [] ], At = [], Dt = [], Rt = [], Gt = 0, Xt = 0, Ht = 0, yr = "STHeiti serif", wr = 160, Fr = 128, xr = 128, Sr = 300, Cr = 2, Mr = 2.4, br = .75, Tr = .7, Ir = 1.2, Ar = .8, Dr = 2.2, Pr = "创建于：", kr = "修改于：", Or = 240, Br = 600, Rr = [ "经典", "炫彩" ], jr = [ "#2B8567#1D9C7E#22B59A#4CD4BC#1FE3BF#90D7C5#98C0B4#04576B#227580#4699A3#40BACA#52D6EB#7DCADC#88B8CC#611023#991924#C24924#DE6530#E67B63#CC8F8F#AE7D7D#484570#68638C#8B85A8#B3AFC5#C8C6D4#CDCDD1#A3A1A8".match(/#\w+/g), "#8000FF#FF00FF#FF0080#FF3D3D#FF9900#FFD83D#A0F000#5000F0#3D64FF#7A95FF#00B3FF#85E0D1#00B8B8#666600#333399#FF0033#990066#FFCC33#CCCC00#666666#0066CC#336699#669933#99CC33#00FF80#663366#660000#000000".match(/#\w+/g) ], Yr = 0, _r = -1, qr = 0, Wr = -1, an = function() {
+rn && (rn.blur(), nn.blur(), ln.dirty = !0, on.title = rn.value, on.content = nn.value, 
+nn.style.display = rn.style.display = "none");
+}, tn = function() {
+rn && ("block" == rn.style.display, rn.focus());
 }, cn = [ "常用", "更多" ], sn = 0, mn = 0, En = 0, Nn = [ "内容", "颜色", "图标", "√" ], Qn = Me("canvas", 2), Un = [], Kn = [], Zn = [ "⛺,🎃,🎯,🏈,🏀,🎵,🎤,🎹,🎑,🎄,⚽,🎾,🎱,🎶,🎼,🎻,🎈,🎋,🏉,🎳,⛳,🎺,🎷,🎸,🎏,🎉,🚵,🚴,🏁,🎨,🎭,🎬,🗿,🎊,🏇,🏆,🎿,🏂,🏊,🏄,🎆,🎇,🎣,🚶,🏃,💃,⚾,🎐,♨,🎠,🎡,🎢,🗽,🌉,⛲".split(","), "🙇,👽,👍,💖,💟,😁,😂,😍,🎅,👻,👎,💛,💙,😜,😝,😛,👼,💀,👌,💜,💚,😃,😄,😀,👦,😈,👊,❤,💝,😊,😉,😘,👧,👿,✊,💔,💗,😚,😗,😙,👨,👹,👋,💓,💕,😳,😔,😌,👩,👺,✋,💞,💘,😒,😞,😣,👲,👾,👐,💌,💍,😢,😭,😪,👴,😺,👆,💋,💏,😥,😰,😅,👵,😸,👇,💑,👫,😓,😩,😫,👶,😻,👉,👬,👭,😨,😱,😠,👱,😽,👈,👪,🙌,😡,😤,😖,👸,😼,🙏,👏,✌,😆,😋,😷,🙆,🙀,☝,💪,👂,😎,😴,😵,🙅,😿,👀,👃,👅,😲,😟,😦,🙍,😹,👄,😾,🙈,😧,😮,😬,🙎,🙉,🙊,💩,🙋,😐,😕,😯,💁,💆,👰,👯,👳,😶,😇,😏,👮,👷,💂,💇,😑,☺,🙁,🙂".split(","), "#⃣,💹,💰,💴,💵,⌛,⏰,⌚,0⃣,📈,💷,💶,💳,🕐,⏳,📅,1⃣,📉,💸,💲,💱,📆,🕛,🕧,2⃣,📊,〰,〽,3⃣,🕜,🕑,🕝,4⃣,5⃣,6⃣,7⃣,8⃣,🕒,🕞,🕓,9⃣,🔢,🔟,✖,➕,🕟,🕔,🕠,➖,➗,🇦,🇧,🇨,🕕,🕖,🕗,🇩,🇪,🇫,🇬,🇭,🕘,🕙,🕚,🇮,🇯,🇰,🇱,🇲,🕡,🕢,🕣,🇳,🇴,🇵,🇶,🇷,🕤,🕥,🕦,🇸,🇹,🇺,🇻,🇼,🇽,🇾,🇿".split(","), "👓,💄,🎩,🎓,👑,☕,🍵,🍶,👒,👟,👞,👡,👠,🍼,🍺,🍻,👢,👕,👔,👚,👗,🍸,🍹,🍷,🎽,👖,👘,👙,💼,🍴,🍕,🍔,👜,👝,👛,🎀,🌂,🍟,🍗,🍖,📛,💅,🍝,🍛,🍤,🍱,🍣,🍥,🍙,🍘,🍚,🍜,🍲,🍢,🍡,🍳,🍞,🍩,🍮,🍦,🍨,🍧,🎂,🍰,🍪,🍫,🍬,🍭,🍯,🍎,🍏,🍊,🍋,🍒,🍇,🍉,🍓,🍑,🍈,🍌,🍐,🍍,🍠,🍆,🍅,🌽".split(","), "⛽,✂,🔓,🔒,🔐,🔔,🔕,📢,💺,✒,🔏,🔑,🔧,📣,🔊,🔉,💎,✏,🔩,🔨,⚓,🔈,🔇,🎧,🎍,📏,💣,🔪,🔫,🎥,📷,📹,🎒,📐,💡,🔦,🔎,💻,📻,📡,🔮,🔬,🔍,🔭,🛁,📺,📼,📱,🛀,🚿,🚽,🚪,🚬,📲,📟,🎮,💊,💉,🎲,🃏,🎴,🔌,🔋,🀄,🎫,🏮,🎰".split(","), "📞,☎,📌,📍,📎,👤,👥,💬,📠,📦,📝,📑,🔖,💭,💤,👣,🎁,📧,📜,📋,📇,📰,📁,📂,📥,📤,📃,📄,📖,📚,📕,📗,📩,📨,📘,📙,📓,📔,📒,💿,📫,📪,📀,💽,💾,📬,📭,✉,📯,📮".split(","), "☀,☁,🐾,💐,🌸,🐶,🐺,🐱,❄,🔆,🌷,🍀,🌹,🐭,🐹,🐰,🔅,🌞,🌻,🌺,🍁,🐸,🐯,🐨,⛅,⚡,🍃,🍂,🌿,🐻,🐷,🐽,✨,⛄,🌾,🍄,🌵,🐮,🐗,🐵,☔,🌀,🌴,🌲,🌳,🐒,🐴,🐑,🌊,🌁,🌰,🌱,🌼,🐘,🐼,🐧,🌈,🌋,🗻,🌄,🌅,🐦,🐤,🐥,🌌,🌠,⭐,🌐,🌍,🐣,🐔,🐍,🌎,🌏,🌝,🌚,🌑,🐢,🐛,🐝,🌒,🌓,🌔,🌕,🌖,🐜,🐞,🐌,🌗,🌘,🌜,🌛,🌙,🐙,🐚,🐠,🔥,🌟,💫,💥,💢,🐟,🐬,🐳,💦,💨,💧,🐋,🐄,🐏,🐀,🐃,🐅,🐇,🐉,🐎,🐐,🐓,🐕,🐖,🐁,🐂,🐲,🐡,🐊,🐫,🐪,🐆,🐈,🐩".split(","), "🏠,🏡,🏫,🎪,🏢,🚢,⛵,🚤,🏣,🏥,🏦,🏪,🏩,🚣,🚀,✈,🏨,💒,⛪,🏬,🏤,🚁,🚂,🚊,🌃,🌇,🌆,🏯,🏰,🚉,🚞,🚆,🏭,🚄,🚅,🚈,🚇,🚝,🚋,🚃,🚎,🚌,🚍,🚙,🚘,🚗,🚕,🚖,🚛,🚚,🚨,🚓,🚔,🚒,🚑,🚐,🚲,🚡,🚟,🚠,🚜".split(","), "㊙,🔝,🔱,‼,⁉,🚫,⛔,🚦,㊗,🔚,❎,✅,❌,🚥,⚠,🚧,🔺,🔙,❗,❓,❕,🔞,📵,🚯,🔲,🔛,❔,⭕,✔,🚱,🚳,🚷,🔳,🔜,☑,♻,💯,🚸,💈,🚏,⚫,🔃,ℹ,⬆,⬇,🚩,🚻,🚹,⚪,⬅,➡,↗,↖,🚺,🚼,🚾,🔴,↘,↙,↔,↕,🚰,🚮,🅿,🔵,↩,↪,⤵,⤴,♿,🚭,🛂,🔻,📳,📴,🔄,◀,🛄,🛅,🛃,⬜,▶,🔼,🔽,⏪,🏧,🇯🇵,🇰🇷,⬛,⏩,⏫,⏬,🆗,🇩🇪,🇨🇳,🇺🇸,🔶,🔀,🔁,🔂,🆕,🇫🇷,🇪🇸,🇮🇹,🔷,🆙,🆒,🆓,🆖,🇷🇺,🇬🇧,📶,🔸,🎦,🔹,◼,◻,◾,◽,▪,▫,💠,🔯,💮,🔘,🔗,🈲,🈶,🈚,🈳,🈵,🉑,🆘,🆔,🆑,✳,❇,✴,🆚,🅰,🅱,🆎,🅾,♠,♥,♣,♦,©,®,™,Ⓜ,➿,➰,♈,♉,♊,♋,♌,♍,♎,♏,♐,♑,♒,♓,⛎,🔣,🔠,🔡,🔤,🈯,🈴,🉐,🈹,🈺,🈷,🈸,🔰".split(",") ], ai = "iPhone" == navigator.platform && 20;
 ti("🎄,🎠,🏈,🎹", "🎄,🎤,🎶,🎣,🎯,⚽"), ti("😀,👍,💗,🎅", "😀,😭,😥,😡,😴,😷,👽,👻,💘,💔,💓,👌,✌,👍,👎,🙏"), 
 ti("📅,💰,📈,⌛", "⏰,💰,💹"), ti("🍴,🎂,🎀,👒", "🍭,🍲,🍎,🍸"), ti("💣,📏,🔬,🔐", "🔓,🔒,⚓,🔧,🔍,🔔,🔕,💡,💎,💣"), 

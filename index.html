@@ -62,9 +62,9 @@ for (var e = ((new Date() >> 24 | 4095) << 24).toString(16) + (4095 * Math.rando
 return e;
 }
 function P(e, a) {
-ve(a), O(e);
+ve(a), E(e);
 }
-function O(e) {
+function E(e) {
 e != G && (X = !0), G = e, $ || L(B), $ = 1;
 }
 function B() {
@@ -72,14 +72,14 @@ var e = +new Date();
 $ = -1;
 var a = H.getContext("2d");
 if (null != H.nativeId) {
-E && console.error("invalid depth status!!!"), E++;
+O && console.error("invalid depth status!!!"), O++;
 try {
 X && (X = !1, a.clearRect(0, 0, H.width, H.height));
 var t = G(a);
 } finally {
 H.commit(!0);
 }
-E--;
+O--;
 } else t = G(a);
 t || $ > 0 ? ($ = 1, L(B)) : $ = 0, R(e, +new Date());
 }
@@ -102,26 +102,26 @@ H = e, a && ve(a);
 }
 function ve(e) {
 ue(!0);
-var a = U;
-return U = e, a;
+var a = Q;
+return Q = e, a;
 }
 function fe(e, a, t) {
-Q = new Date(), ae = 0, V && clearTimeout(V), V = setTimeout(function() {
-V = 0, U(0, e, ie, le, 0 | re, 0 | ne);
-}, Br), U(-1, e, ie = a, le = t, re = a, ne = t);
+U = new Date(), ae = 0, V && clearTimeout(V), V = setTimeout(function() {
+V = 0, Q(0, e, ie, le, 0 | re, 0 | ne);
+}, Br), Q(-1, e, ie = a, le = t, re = a, ne = t);
 }
 function ce(e, a, t) {
 V && (Math.abs(a - ie) > ee || Math.abs(t - le) > ee) && (V = clearTimeout(V)), 
-ae++, re = .8 * re + .2 * a, ne = .8 * ne + .2 * t, U(-2, e, ie, le, 0 | re, 0 | ne);
+ae++, re = .8 * re + .2 * a, ne = .8 * ne + .2 * t, Q(-2, e, ie, le, 0 | re, 0 | ne);
 }
 function se(e, a, t) {
 function r() {
-V && new Date() - Q < Er ? Z = setTimeout(r, Er) : (0 > ae && U(K, e, ie, le, a, t), 
+V && new Date() - U < Or ? Z = setTimeout(r, Or) : (0 > ae && Q(K, e, ie, le, a, t), 
 3 == K && prompt(Y.join("\n")), K = 0);
 }
 try {
-V && (V = clearTimeout(V), K ? (K++, clearTimeout(Z)) : K = 1, Z = setTimeout(r, Er)), 
-U(-3, e, ie, le, a, t);
+V && (V = clearTimeout(V), K ? (K++, clearTimeout(Z)) : K = 1, Z = setTimeout(r, Or)), 
+Q(-3, e, ie, le, a, t);
 } finally {
 ue();
 }
@@ -190,13 +190,13 @@ if (x && m >= h && h >= w && y >= s && s >= F && (g = x(r, c, ie - F, le - w, u 
 }
 if (!g && -2 == r && o > v) {
 var m = d + i - l;
-i = m > 0 ? 0 : v > m + o ? m : m, O(f);
+i = m > 0 ? 0 : v > m + o ? m : m, E(f);
 }
 if (-1 == r) n = i; else if (-3 == r) var S = setInterval(function() {
 var t = (e.length, v - o);
 if (t > i) {
 var r = t - i;
-i = Math.min(i + 10 + .1 * r, t), O(f);
+i = Math.min(i + 10 + .1 * r, t), E(f);
 } else clearInterval(S);
 }, 20);
 l = d;
@@ -206,7 +206,7 @@ return P(f, c), function(n, i, l, v, c, s) {
 s > o && (o = s);
 var h = e.indexOf(n);
 return h >= 0 ? (i && (a[h] = i, c > l && t.splice(4 * h, 4, l, v, c, s)), r.indexOf(n) < 0 && r.push(n), 
-O(f)) : (e.push(n), a.push(i), t.push(l, v, c, s)), arguments.callee;
+E(f)) : (e.push(n), a.push(i), t.push(l, v, c, s)), arguments.callee;
 };
 }
 function Se(e, a, t, r, n, i, l, o) {
@@ -247,7 +247,7 @@ var r = e.cmds;
 switch (a) {
 case Re:
 case Be:
-case Ee:
+case Oe:
 case je:
 case Ne:
 var n = 255 * e.globalAlpha + .5;
@@ -263,7 +263,7 @@ var n = t.nativeId || 0;
 t = t.cmds.splice(0).join("");
 }
 var l = [ a, t.length ];
-return null != n && (l[1]++, l.push(n)), l = l.map(Qe), l.push(t), r.push(l.join("")), 
+return null != n && (l[1]++, l.push(n)), l = l.map(Ue), l.push(t), r.push(l.join("")), 
 Je == a ? e.commit(!1) : void 0;
 }
 function Ae() {
@@ -283,10 +283,10 @@ textBaseline: "alphabetic"
 }, this._styleJSON, this.nativeId = Xe.createCanvas(e >= 0 ? e : -1), this.canvas = this, 
 this.globalAlpha = 1, this.cmds = [];
 }
-function Ue(e) {
+function Qe(e) {
 return e && String.fromCharCode.apply(String, e);
 }
-function Qe(e) {
+function Ue(e) {
 return String.fromCharCode(e);
 }
 function Ke(e) {
@@ -394,10 +394,10 @@ var r = new Ta(e), n = sa.children;
 t = t || ma || [ sa.x, sa.y ], r.x = t[0], r.y = t[1], r.scale = .3, r.parent = sa, 
 (a >= n.length || null == a) && (a = n.length), e.title ? i(1) : Ca(r, i);
 }
-function Oa(e, a) {
+function Ea(e, a) {
 e >= 0 && (a.node = Ba(e)), ua.unshift(a), a.pack();
 }
-function Ea() {
+function Oa() {
 return ua[1] && ua[1].pack(), ha = ua.shift();
 }
 function Ba(e) {
@@ -528,23 +528,23 @@ return r > 0 && (n = oa - n), n;
 function at(e, a, t, r, n, i) {
 switch (e) {
 case -1:
-Ua = [ n, i ], Va && (Va = Va.cancel()), Za = null, Qa = Ga(t, r), Ka = Qa >= 0 && (1 & Qa) + 1, 
--2 == Qa && (Va = Ea(), Va && (Va.index = -2, Va.move(n, i, Qa)));
+Qa = [ n, i ], Va && (Va = Va.cancel()), Za = null, Ua = Ga(t, r), Ka = Ua >= 0 && (1 & Ua) + 1, 
+-2 == Ua && (Va = Oa(), Va && (Va.index = -2, Va.move(n, i, Ua)));
 var l = new Date();
-Er > l - et ? 2 == Ka && tt(2) : 1 == Ka && tt(1), et = l;
+Or > l - et ? 2 == Ka && tt(2) : 1 == Ka && tt(1), et = l;
 break;
 case -2:
 if (null != Va) {
 var o = Ga(n, i, !0);
 Va.move(n, i, o), Za = o;
-} else (Qa > 0 || null == Qa) && Ya(Ua, Ua = [ n, i ]);
+} else (Ua > 0 || null == Ua) && Ya(Qa, Qa = [ n, i ]);
 break;
 case -3:
 Va && nt(a, n, i);
 break;
 case 0:
-if (Qa > 0 && 1 & Qa) {
-var v = Qa >> 1;
+if (Ua > 0 && 1 & Ua) {
+var v = Ua >> 1;
 Va = ra(v), Va.index = v;
 }
 break;
@@ -559,10 +559,10 @@ tt(e);
 }
 }
 function tt(e) {
-if (Qa > 0) if (1 & Qa) {
-var a = Qa >> 1;
+if (Ua > 0) if (1 & Ua) {
+var a = Ua >> 1;
 1 == e ? Ra(a) : Sa(a);
-} else rt(Qa >> 1); else 0 == Qa ? e > 1 && Sa(-1) : -1 == Qa && ja();
+} else rt(Ua >> 1); else 0 == Ua ? e > 1 && Sa(-1) : -1 == Ua && ja();
 }
 function rt(e) {
 var a = "", t = {
@@ -573,7 +573,7 @@ Pa(t, e);
 }
 function nt() {
 var r = Va.index;
-if (-2 == Za) Oa(r, Va); else if (null == Za) Va = -2 == r ? Oa(r, Va) : Va.cancel(); else if (Va = Va.cancel(), 
+if (-2 == Za) Ea(r, Va); else if (null == Za) Va = -2 == r ? Ea(r, Va) : Va.cancel(); else if (Va = Va.cancel(), 
 0 == Za) ka(r, r + 1); else if (Za > 0) {
 var n = Za >> 1;
 1 & Za ? r != n && Aa(r, n) : Da(r, n);
@@ -723,14 +723,14 @@ xt.width = Ft.width = bt = e, xt.height = Ft.height = Tt = a, Mt = t, It = .8 * 
 kt = Math.min(r >> 2, 126), ft(t, r), Jt();
 }
 function Jt() {
-Yt = null, O($t);
+Yt = null, E($t);
 }
 function Lt() {
-O($t);
+E($t);
 }
 function $t() {
 if (null != Pt) {
-var a = [], t = [], r = [], n = Ut(a, t, r), i = a.length < 2, l = i && Qt();
+var a = [], t = [], r = [], n = Qt(a, t, r), i = a.length < 2, l = i && Ut();
 l ? n = !0 : l = Pt, vr.apply(r, l), a == Yt ? (Ct.clearRect(0, 0, bt, Tt), i && (fr.apply(Ct, l), 
 Kt(Ct, t))) : (St.clearRect(0, 0, bt, Tt), St != Ct && (Ct.clearRect(0, 0, bt, Tt), 
 Yt = a + ""), i ? Kt(Ct, t) : (fr.apply(St, l), Kt(St, t)), xt.commit && xt.commit(), 
@@ -739,7 +739,7 @@ for (var o = Dt.length; o--; ) Dt[o]() && (n = !0);
 return n;
 }
 }
-function Ut(e, a, t) {
+function Qt(e, a, t) {
 var r = Vt(), n = Pt[0], i = n.parent, l = i && i.id;
 Gt += +new Date();
 var o = n.children, v = Bt && Bt.hit || null, f = dt(jt, Bt, v), c = o.length;
@@ -755,16 +755,16 @@ er(s, t) ? r = !0 : 0 == s.alpha && At.splice(c, 1);
 }
 return r;
 }
-function Qt() {
-if (Ot) {
-var e = new Date() - Et;
+function Ut() {
+if (Et) {
+var e = new Date() - Ot;
 if (wr > e) {
 var a = e / wr;
 if (1 > a) {
-for (var t = [ Pt[0] ], r = 1; r < Pt.length; r++) t.push(pr(Pt[r], Ot[r], a));
-return Ot = t;
+for (var t = [ Pt[0] ], r = 1; r < Pt.length; r++) t.push(pr(Pt[r], Et[r], a));
+return Et = t;
 }
-Ot = 0;
+Et = 0;
 }
 }
 }
@@ -846,7 +846,7 @@ Bt = null, ar(e, e.x, e.y, br || .8, 1), mr(Dt, o), Lt();
 };
 }
 function or() {
-Et = new Date(), Ot = Pt, Pt = arguments, Lt();
+Ot = new Date(), Et = Pt, Pt = arguments, Lt();
 }
 function vr(e, a, t, r, n, i, l, o) {
 var v = this, f = mt(null == Bt ? 0 : 1), s = f.width / 2, h = Bt && Bt.hit, u = h && 1 & ~h && Mt;
@@ -903,7 +903,7 @@ t >= 0 && e.splice(t, 1);
 function Xr(e, a, t, r, n) {
 Nr = a;
 var i = n / 2.5, l = .618 * t, o = i + 1.309 * l, v = n - 1.618 * l, f = n - 1.309 * l, c = n - .309 * l;
-Jr = r, Lr = l >> 1, Wr = -1, Gr = e(Hr, null, 0, t, Jr, i)(Ur, Qr, 0, i, Jr, i + l)(Kr, Zr, 0, o, Jr, v)(Vr, en, 0, f, Jr, c), 
+Jr = r, Lr = l >> 1, Wr = -1, Gr = e(Hr, null, 0, t, Jr, i)(Qr, Ur, 0, i, Jr, i + l)(Kr, Zr, 0, o, Jr, v)(Vr, en, 0, f, Jr, c), 
 zr(Nr);
 }
 function Hr(e, a, t) {
@@ -929,12 +929,12 @@ Yr = qr = r;
 break;
 }
 }
-function Ur(e, a, t) {
+function Qr(e, a, t) {
 Se(e, 0, t, Lr, a - Lr, Rr, qr);
 }
-function Qr(e, a, t) {
+function Ur(e, a, t) {
 -1 == e && (qr = Math.min((t - Lr) / (Jr - Lr - Lr) * Rr.length | 0, Rr.length - 1), 
-Gr(Ur), Gr(Kr));
+Gr(Qr), Gr(Kr));
 }
 function Kr(e, a, t) {
 e.fillStyle = "#FFF", e.fillRect(0, 0, a, t), $r = t;
@@ -1076,35 +1076,35 @@ mn -= v, pn(An);
 } else -3 == e && pn(An);
 }
 function qn(e, a, t) {
-e.addEventListener("touchstart", Wn, !1), En = a, Bn = t;
+e.addEventListener("touchstart", Wn, !1), On = a, Bn = t;
 }
 function Wn() {
-0 == On && jn && on();
+0 == En && jn && on();
 }
 function Jn(e, a) {
-kn = e, Pn = Hn(e), Rn = En / 6 | 0, jn = a, Gn(e.data.title ? On : 0);
+kn = e, Pn = Hn(e), Rn = On / 6 | 0, jn = a, Gn(e.data.title ? En : 0);
 }
 function Ln(e, a, t) {
-e.clearRect(e, 0, 0, a, t), Se(e, 0, t, 0, a, Nn, On, zn);
+e.clearRect(e, 0, 0, a, t), Se(e, 0, t, 0, a, Nn, En, zn);
 }
 function $n(e, a, t) {
 if (-1 == e) {
-var n = 0 | 4 * t / En, i = Nn.length - 1;
-if (n && 0 == On && an(), n >= i) {
+var n = 0 | 4 * t / On, i = Nn.length - 1;
+if (n && 0 == En && an(), n >= i) {
 var l = JSON.stringify(Pn), o = JSON.stringify(Hn(kn)), v = kn.childColors;
 if (v) for (var f = kn.children, c = f.length; c--; ) f[c].data.fill = v[(c + 1) % v.length], 
 f[c].dirty = 1;
 jn(l != o || v), jn = null;
-} else n >= 0 && n != On && Gn(n);
+} else n >= 0 && n != En && Gn(n);
 }
 }
 function Gn(e) {
 Yn = Xn(e), e ? (Yn(function(e) {
-e.fillStyle = "#FFF", e.fillRect(0, Rn, En, Bn - Rn);
-}, null, 0, 0, 1, 0), 1 == e ? Xr(Yn, kn, Rn, En, Bn) : Sn(Yn, kn, Rn, En, Bn)) : vn(Yn, kn, Rn, En, Bn);
+e.fillStyle = "#FFF", e.fillRect(0, Rn, On, Bn - Rn);
+}, null, 0, 0, 1, 0), 1 == e ? Xr(Yn, kn, Rn, On, Bn) : Sn(Yn, kn, Rn, On, Bn)) : vn(Yn, kn, Rn, On, Bn);
 }
 function Xn(e) {
-return On = e, pe()(Ln, $n, 0, 0, En, Rn);
+return En = e, pe()(Ln, $n, 0, 0, On, Rn);
 }
 function Hn(e) {
 var a = e.data;
@@ -1116,21 +1116,21 @@ icon: a.icon
 };
 }
 function zn(e, a, t, r, n) {
-if (e.fillRect(r, a, n - r, t - a), n == En) {
+if (e.fillRect(r, a, n - r, t - a), n == On) {
 var i = t - a, l = n - r, o = r + 3.5 * l / 4, v = (a + t) / 2;
 e.beginPath(), e.lineWidth = 5, e.beginPath(), e.arc(o, v, .32 * i, 0, 2 * Math.PI, !1), 
 e.stroke();
 }
 }
 function ti(e, a) {
-Qn.push(e.split(","));
+Un.push(e.split(","));
 for (var t = Kn.length >> 3, r = Kn.push.apply(Kn, a.split(",")) >> 3, n = r - t; n--; ) if (1 & t++) {
 var i = 8 * t, l = i - 8;
 Kn = Kn.slice(0, l).concat(Kn.slice(l, i).reverse()).concat(Kn.slice(i));
 }
 }
 function ri(e, a) {
-var t = Un(ri), r = t[0];
+var t = Qn(ri), r = t[0];
 if (t[1] != e || t[2] != a) {
 t[1] = r.width = e, t[2] = r.height = a;
 var n = r.getContext("2d");
@@ -1146,7 +1146,7 @@ n.scale(c, c), f = ai, o /= c, i /= c;
 n.font = (0 | f) + "px " + yr;
 for (var s = 0; 9 > s; s++) {
 var h = s % 3, u = (s - h) / 3;
-ni(n, h * i, u * o, i, o, f, Qn[s]);
+ni(n, h * i, u * o, i, o, f, Un[s]);
 }
 } finally {
 n.restore();
@@ -1160,7 +1160,7 @@ e.fillText(l[0], o - i, v), e.fillText(l[1], o - i, v + i), e.fillText(l[2], o, 
 e.fillText(l[3], o, v + i);
 }
 function ii(e, a) {
-var t = Un(ii), r = t[0];
+var t = Qn(ii), r = t[0];
 if (t[1] != e || t[2] != a) {
 t[1] = r.width = e, t[2] = r.height = a;
 var n = r.getContext("2d"), i = e / 8, l = a / 8;
@@ -1202,7 +1202,7 @@ e.restore();
 }
 }
 function fi(e, a) {
-var t = Un(fi), r = t[0], n = Zn[e], i = a / 8 * Math.ceil(n.length / 8);
+var t = Qn(fi), r = t[0], n = Zn[e], i = a / 8 * Math.ceil(n.length / 8);
 if (t[1] != e || t[2] != a) {
 t[1] = e, t[2] = r.width = a, r.height = i;
 var l = r.getContext("2d"), o = a / 8, v = o;
@@ -1321,7 +1321,7 @@ return r;
 var y, a = function() {
 localStorage.clear(), S(s(l.join("\n"))), S(s(o.join("\n"))), S(s(v.join("\n"))), 
 S(s(f.join("\n")));
-}, l = [ "创意罗盘{2#FF00FF}", "	分享自由{#7A95FF}", "	创意无限{#7A95FF}" ], o = [ "亲情时刻{1#FF3D3D,updateTime=1,icon=⏰}", "	场景闹钟{#7A95FF,icon=⌚}", "		结合位置优化提醒{#CCCC00,icon=🌍}", "			出差场景{}", "		完整作息优化提醒{,icon=💤}", "	倒计时{#FFCC33,icon=⏳}", "		生日{}", "		纪念日{}", "		传统节日{}", "	生活习惯{#52D6EB,icon=🍵}", "		正点吃饭{}", "		熬夜{}", "		用眼{}", "		注意颈椎{}", "		提醒喝水{}", "	亲情实景{#FF9900,icon=🚞}", "		街景实况{}", "		亲情授权{}", "	亲情协作{#0066CC,icon=👥}", "		孩子接送{#FFCC33,icon=👪}", "		路过买菜{#666600,icon=🍆}" ], v = [ "欢迎使用{0#2B8567,icon=🎷,updateTime=1}", "	基本用法{#1FE3BF,icon=🎨}", "		单击展开{#22B59A,icon=🎯}", "		双击编辑{#4CD4BC,icon=📝}", "		长按移动{#1FE3BF,icon=👣}", "		剪切板{#90D7C5,icon=✂}", "	多端同步{#00B3FF,icon=📲}", "		Android{#99CC33}", "		iPhone{#FFCC33}", "		微信公众号{#00B8B8}", "	团队协作{#666666,icon=👥}", "		任务分发{#40BACA,icon=📌}", "		编辑同步{#1FE3BF,icon=📑}", "	时间管理{#7A95FF,icon=⌛}", "		利用碎片时间{#52D6EB}", "		事件提醒{#FFCC33}", "	创意分享{#8000FF,icon=💭}", "		连接投影 创意无限{#FF9900,icon=🎥}", "		QQ/微信/朋友圈{#00B8B8}", "		手机联系人{#52D6EB,icon=📞}", "		email{#7A95FF,icon=📩}", "	展望无限{#52D6EB}" ], f = [ "商业计划", "	运用场景", "		思维整理", "			#利用碎片时间，随时随地记录和完善自己的创意，计划", "		思考辅助", "			#积累一定用户数据之后， 可以从内容， 和结构两个纬度建模， 更好的给用户计划，创意提供指导和建议", "		创意分享", "			#微信朋友圈，好友，亲人朋友，有话慢慢说", "		讲稿展示", "			#偶尔需要你分享点什么东西的时候，你如果没有时间准备讲稿，可以在你吃饭的时候， 排队的时候， 完成讲稿编写", "	开发计划", "		朋友圈试用(2月15日)", "			流畅编辑/便捷分享", "			微信/iPhone/Android", "		正式发布(3月/1日)", "			Native性能优化", "			云存储正式上线", "		PC+投影支持(4月)", "			PC播放与编辑适配", "			手持设备遥控支持", "		组建产品团队(6月)", "			推广/验证需求", "			产品改良", "			寻找合伙人", "		组建数据和AI团队(待定...)", "			上线思维智能引导功能", "			思考相关商业模式", "		收费版(待定...)", "			群组/团队管理", "			私有云", "			协同编辑", "			...", "	推广计划", "		普通版冲量", "		高级功能体验", "		  #鼓励分享。", "		  #开启协同编辑，本身需要一个朋友圈。", "		营销/借力", "		  #事件营销。知识分享", "		微信应用号", "		  #寻求合作。", "	盈利模式", "		精准广告", "		  #思维整理，相对于资讯浏览有更强的目的性。 可以从这些信息里面提炼主题，做精准广告。", "		高端版收费", "		  #高级功能收费 如团队协作。", "		  #模仿github的模式,针对团队私有的想法云收费。" ], m = "CLUB.QQSK.COMPASS.", w = localStorage.getItem(m);
+}, l = [ "创意罗盘{2#FF00FF}", "	分享自由{#7A95FF}", "	创意无限{#7A95FF}" ], o = [ "Example1{1#FF3D3D,updateTime=1,icon=⏰}", "	场景闹钟{#7A95FF,icon=⌚}", "		结合位置优化提醒{#CCCC00,icon=🌍}", "			出差场景{}", "		完整作息优化提醒{,icon=💤}", "	倒计时{#FFCC33,icon=⏳}", "		生日{}", "		纪念日{}", "		传统节日{}", "	生活习惯{#52D6EB,icon=🍵}", "		正点吃饭{}", "		熬夜{}", "		用眼{}", "		注意颈椎{}", "		提醒喝水{}", "	亲情实景{#FF9900,icon=🚞}", "		街景实况{}", "		亲情授权{}", "	亲情协作{#0066CC,icon=👥}", "		孩子接送{#FFCC33,icon=👪}", "		路过买菜{#666600,icon=🍆}" ], v = [ "欢迎使用{0#2B8567,icon=🎷,updateTime=1}", "	基本用法{#1FE3BF,icon=🎨}", "		单击展开{#22B59A,icon=🎯}", "		双击编辑{#4CD4BC,icon=📝}", "		长按移动{#1FE3BF,icon=👣}", "		剪切板{#90D7C5,icon=✂}", "	多端同步{#00B3FF,icon=📲}", "		Android{#99CC33}", "		iPhone{#FFCC33}", "		微信公众号{#00B8B8}", "	团队协作{#666666,icon=👥}", "		任务分发{#40BACA,icon=📌}", "		编辑同步{#1FE3BF,icon=📑}", "	时间管理{#7A95FF,icon=⌛}", "		利用碎片时间{#52D6EB}", "		事件提醒{#FFCC33}", "	创意分享{#8000FF,icon=💭}", "		连接投影 创意无限{#FF9900,icon=🎥}", "		QQ/微信/朋友圈{#00B8B8}", "		手机联系人{#52D6EB,icon=📞}", "		email{#7A95FF,icon=📩}", "	展望无限{#52D6EB}" ], f = [ "商业计划", "	运用场景", "		思维整理", "			无限时间", "				#连接碎片时间，捕捉稍纵即逝的灵感。", "			无限空间", "				#随时随地记录和完善自己的创意和计划。", "		创意分享", "			#微信朋友圈，亲人/朋友/同事，灵犀数点", "		讲稿展示", "			#讲稿编写太纠结，没关系，你可以在吃饭/排队的时候，圈点几下完成讲稿的准备", "		思考辅助", "			#积累一定用户数据之后， 可以从内容和结构两个纬度建模，在数据和算法的帮助下更好的给用户计划，创意提供指导和建议", "	开发计划", "		朋友圈试用(2月15日)", "			流畅编辑/便捷分享", "			微信/iPhone/Android", "		正式发布(3月/1日)", "			Native性能优化", "			云存储正式上线", "		PC+投影支持(4月)", "			PC播放与编辑适配", "			手持设备遥控支持", "		组建产品团队(6月)", "			推广/完善需求", "			寻找合伙人", "		组建数据和AI团队(待定...)", "			上线思维智能引导功能", "			思考相关商业模式", "		收费版(待定...)", "			群组/团队管理", "			私有云", "			协同编辑", "			...", "	推广计划", "		社交分享", "		  #与目前市面上相似产品很大一点不同是： 我们同事提供h5版本实现，非常方便通过微信/QQ甚至短信的形式分享, 而分享的目标又能方便转化成用户", "		营销/借力", "		  #微信应用号", "		  #事件营销。热点知识分享", "	盈利模式", "		精准广告", "		  #思维整理，相对于资讯浏览有更强的目的性。 可以从这些信息里面提炼主题，做精准广告。", "		思考决策倾向广告", "		  #思维过程中，AI给出的建议，可以通过各个向量的加权来加以微调，可作为一钟新的广告的形式。", "		高端版收费", "		  #高级功能收费 如团队协作。", "		  #模仿github的模式,针对团队私有的想法云收费。" ], m = "CLUB.QQSK.COMPASS.", w = localStorage.getItem(m);
 w && (y = JSON.parse(w)), y instanceof Array || (y = [], console.warn("reset your data!!!"), 
 a(m));
 var A = function(e, a, t) {
@@ -1350,11 +1350,11 @@ return setTimeout(e, 1e3 / 60);
 return clearTimeout(e);
 });
 }
-var $, G, X, H, U, Q, K, Z, V, te, re, ne, ie, le, E = 0, N = +new Date(), Y = [], _ = 0, q = 0, W = 0, J = 0, L = requestAnimationFrame, z = "touchstart,touchmove,touchend,touchcancel,mousedown,mousemove,mouseup,mouseout".split(","), ee = 10, ae = -1, k = z.length;
+var $, G, X, H, Q, U, K, Z, V, te, re, ne, ie, le, O = 0, N = +new Date(), Y = [], _ = 0, q = 0, W = 0, J = 0, L = requestAnimationFrame, z = "touchstart,touchmove,touchend,touchcancel,mousedown,mousemove,mouseup,mouseout".split(","), ee = 10, ae = -1, k = z.length;
 window.matchMedia && window.matchMedia("(pointer:coarse)").matches && z.splice(4);
 var ge = "#eee", me = "#888", ye = "#4cd4bc", we = "#EEE", Ae = function(e) {
 return Xe ? new ze(e) : document.createElement("canvas");
-}, De = 0, ke = 1, Pe = 2, Oe = 3, Ee = 0, Be = 1, Re = 2, je = 3, Ne = 4, Ye = 5, _e = 6, qe = 7, We = 8, Je = 9, Le = 10, $e = 11, Ge = 2 * Math.PI, Xe = window.nativeHost;
+}, De = 0, ke = 1, Pe = 2, Ee = 3, Oe = 0, Be = 1, Re = 2, je = 3, Ne = 4, Ye = 5, _e = 6, qe = 7, We = 8, Je = 9, Le = 10, $e = 11, Ge = 2 * Math.PI, Xe = window.nativeHost;
 ze.prototype.commit = function(e) {
 var a = Xe.commit(this.nativeId, this.cmds.join(""), !!e);
 return this.cmds = [], a;
@@ -1384,16 +1384,16 @@ Xe.setHeight(this.nativeId, e), this._height = e;
 });
 var Ze = "BLACK,#FF000000,DKGRAY,#FF444444,GRAY,#FF888888,LTGRAY,#FFCCCCCC,WHITE,#FFFFFFFF,RED,#FFFF0000,GREEN,#FF00FF00,BLUE,#FF0000FF,YELLOW,#FFFFFF00,CYAN,#FF00FFFF,MAGENTA,#FFFF00FF,TRANSPARENT,#00000000".split(",");
 ze.prototype.fill = function() {
-He(this, Be, Ue(this._path));
+He(this, Be, Qe(this._path));
 }, ze.prototype.stroke = function() {
-He(this, Ee, Ue(this._path));
+He(this, Oe, Qe(this._path));
 }, ze.prototype.drawImage = function(e) {
 var f = [];
 switch (f.push.apply(f, arguments), f.length) {
 case 3:
 case 5:
 case 9:
-e.cmds.length && He(this, $e, e), f[0] = e.nativeId, He(this, Re, Ue(f));
+e.cmds.length && He(this, $e, e), f[0] = e.nativeId, He(this, Re, Qe(f));
 break;
 default:
 console.error("error arguments" + f);
@@ -1403,11 +1403,11 @@ return {
 width: He(this, Je, e)
 };
 }, ze.prototype.fillText = function(e, a, t, r) {
-He(this, je, Ue([ a, t, 0 | r ]) + e);
+He(this, je, Qe([ a, t, 0 | r ]) + e);
 }, ze.prototype.strokeText = function(e, a, t, r) {
-He(this, Ne, Ue([ a, t, 0 | r ]) + e);
+He(this, Ne, Qe([ a, t, 0 | r ]) + e);
 }, ze.prototype.clearRect = function(e, a, t, r) {
-He(this, Ye, Ue([ e, a, t, r ]));
+He(this, Ye, Qe([ e, a, t, r ]));
 }, ze.prototype.beginPath = function() {
 this._path = [];
 }, ze.prototype.moveTo = function(e, a) {
@@ -1418,13 +1418,13 @@ ea(this).push(ke, e, a);
 ea(this).push(Pe);
 }, ze.prototype.arc = function(e, a, t, r, n, i) {
 var l = aa(r), o = aa(n - r);
-ea(this).push(Oe, e, a, t, l, l + o, i ? 1 : 0);
+ea(this).push(Ee, e, a, t, l, l + o, i ? 1 : 0);
 }, ze.prototype.save = function() {
 He(this, _e, "");
 }, ze.prototype.restore = function() {
 He(this, qe, "");
 }, ze.prototype.translate = function(e, a) {
-He(this, We, Ue([ e, a ]));
+He(this, We, Qe([ e, a ]));
 }, ze.prototype.rotate = function() {}, ze.prototype.setTransform = function() {}, 
 ze.prototype.scale = function() {}, ze.prototype.transform = function() {}, ze.prototype.resetTransform = function() {}, 
 ta.prototype = new String(), ze.prototype.createLinearGradient = function(e, a, t, r) {
@@ -1447,14 +1447,14 @@ ze.prototype.createImageData = function() {}, ze.prototype.createPattern = funct
 ze.prototype.drawFocusIfNeeded = function() {}, ze.prototype.ellipse = function() {}, 
 ze.prototype.getLineDash = function() {}, ze.prototype.isPointInPath = function() {}, 
 ze.prototype.isPointInStroke = function() {}, ze.prototype.quadraticCurveTo = function() {};
-var na, ia, la, va, fa, sa, ha, ya, Ua, Qa, Ka, Za, Va, et, lt, ot, vt, Ft, xt, St, Ct, Mt, bt, Tt, It, kt, Pt, Ot, Et, Bt, jt, Yt, Nr, Jr, Lr, $r, Gr, tn, rn, nn, ln, fn, hn, un, dn, pn, gn, yn, wn, Fn, xn, kn, Pn, En, Bn, Rn, jn, Yn, Vn, ei, ra = function(e) {
+var na, ia, la, va, fa, sa, ha, ya, Qa, Ua, Ka, Za, Va, et, lt, ot, vt, Ft, xt, St, Ct, Mt, bt, Tt, It, kt, Pt, Et, Ot, Bt, jt, Yt, Nr, Jr, Lr, $r, Gr, tn, rn, nn, ln, fn, hn, un, dn, pn, gn, yn, wn, Fn, xn, kn, Pn, On, Bn, Rn, jn, Yn, Vn, ei, ra = function(e) {
 return lr(sa.children[e]);
-}, oa = 2 * Math.PI, ua = [], da = 0, ga = at, ma = [], it = Me("canvas", 632), pt = [ gt, [] ], At = [], Dt = [], Rt = [], Gt = 0, Xt = 0, Ht = 0, yr = "STHeiti serif", wr = 160, Fr = 128, xr = 128, Sr = 300, Cr = 2, Mr = 2.4, br = .75, Tr = .7, Ir = 1.2, Ar = .8, Dr = 2.2, kr = "创建于：", Pr = "修改于：", Er = 180, Br = 600, Rr = [ "经典", "炫彩" ], jr = [ "#2B8567#1D9C7E#22B59A#4CD4BC#1FE3BF#90D7C5#98C0B4#04576B#227580#4699A3#40BACA#52D6EB#7DCADC#88B8CC#611023#991924#C24924#DE6530#E67B63#CC8F8F#AE7D7D#484570#68638C#8B85A8#B3AFC5#C8C6D4#CDCDD1#A3A1A8".match(/#\w+/g), "#8000FF#FF00FF#FF0080#FF3D3D#FF9900#FFD83D#A0F000#5000F0#3D64FF#7A95FF#00B3FF#85E0D1#00B8B8#666600#333399#FF0033#990066#FFCC33#CCCC00#666666#0066CC#336699#669933#99CC33#00FF80#663366#660000#000000".match(/#\w+/g) ], Yr = 0, _r = -1, qr = 0, Wr = -1, an = function() {
+}, oa = 2 * Math.PI, ua = [], da = 0, ga = at, ma = [], it = Me("canvas", 632), pt = [ gt, [] ], At = [], Dt = [], Rt = [], Gt = 0, Xt = 0, Ht = 0, yr = "STHeiti serif", wr = 160, Fr = 128, xr = 128, Sr = 300, Cr = 2, Mr = 2.4, br = .75, Tr = .7, Ir = 1.2, Ar = .8, Dr = 2.2, kr = "创建于：", Pr = "修改于：", Or = 180, Br = 600, Rr = [ "经典", "炫彩" ], jr = [ "#2B8567#1D9C7E#22B59A#4CD4BC#1FE3BF#90D7C5#98C0B4#04576B#227580#4699A3#40BACA#52D6EB#7DCADC#88B8CC#611023#991924#C24924#DE6530#E67B63#CC8F8F#AE7D7D#484570#68638C#8B85A8#B3AFC5#C8C6D4#CDCDD1#A3A1A8".match(/#\w+/g), "#8000FF#FF00FF#FF0080#FF3D3D#FF9900#FFD83D#A0F000#5000F0#3D64FF#7A95FF#00B3FF#85E0D1#00B8B8#666600#333399#FF0033#990066#FFCC33#CCCC00#666666#0066CC#336699#669933#99CC33#00FF80#663366#660000#000000".match(/#\w+/g) ], Yr = 0, _r = -1, qr = 0, Wr = -1, an = function() {
 tn && (tn.style.display = "none", rn.style.display = "none", nn.dirty = !0, ln.title = tn.value, 
 ln.content = rn.value, tn.blur(), rn.blur());
 }, on = function() {
 tn && "block" == tn.style.display && tn.focus();
-}, cn = [ "常用", "更多" ], sn = 0, mn = 0, On = 0, Nn = [ "内容", "颜色", "图标", "√" ], Un = Me("canvas", 2), Qn = [], Kn = [], Zn = [ "⛺,🎃,🎯,🏈,🏀,🎵,🎤,🎹,🎑,🎄,⚽,🎾,🎱,🎶,🎼,🎻,🎈,🎋,🏉,🎳,⛳,🎺,🎷,🎸,🎏,🎉,🚵,🚴,🏁,🎨,🎭,🎬,🗿,🎊,🏇,🏆,🎿,🏂,🏊,🏄,🎆,🎇,🎣,🚶,🏃,💃,⚾,🎐,♨,🎠,🎡,🎢,🗽,🌉,⛲".split(","), "🙇,👽,👍,💖,💟,😁,😂,😍,🎅,👻,👎,💛,💙,😜,😝,😛,👼,💀,👌,💜,💚,😃,😄,😀,👦,😈,👊,❤,💝,😊,😉,😘,👧,👿,✊,💔,💗,😚,😗,😙,👨,👹,👋,💓,💕,😳,😔,😌,👩,👺,✋,💞,💘,😒,😞,😣,👲,👾,👐,💌,💍,😢,😭,😪,👴,😺,👆,💋,💏,😥,😰,😅,👵,😸,👇,💑,👫,😓,😩,😫,👶,😻,👉,👬,👭,😨,😱,😠,👱,😽,👈,👪,🙌,😡,😤,😖,👸,😼,🙏,👏,✌,😆,😋,😷,🙆,🙀,☝,💪,👂,😎,😴,😵,🙅,😿,👀,👃,👅,😲,😟,😦,🙍,😹,👄,😾,🙈,😧,😮,😬,🙎,🙉,🙊,💩,🙋,😐,😕,😯,💁,💆,👰,👯,👳,😶,😇,😏,👮,👷,💂,💇,😑,☺,🙁,🙂".split(","), "#⃣,💹,💰,💴,💵,⌛,⏰,⌚,0⃣,📈,💷,💶,💳,🕐,⏳,📅,1⃣,📉,💸,💲,💱,📆,🕛,🕧,2⃣,📊,〰,〽,3⃣,🕜,🕑,🕝,4⃣,5⃣,6⃣,7⃣,8⃣,🕒,🕞,🕓,9⃣,🔢,🔟,✖,➕,🕟,🕔,🕠,➖,➗,🇦,🇧,🇨,🕕,🕖,🕗,🇩,🇪,🇫,🇬,🇭,🕘,🕙,🕚,🇮,🇯,🇰,🇱,🇲,🕡,🕢,🕣,🇳,🇴,🇵,🇶,🇷,🕤,🕥,🕦,🇸,🇹,🇺,🇻,🇼,🇽,🇾,🇿".split(","), "👓,💄,🎩,🎓,👑,☕,🍵,🍶,👒,👟,👞,👡,👠,🍼,🍺,🍻,👢,👕,👔,👚,👗,🍸,🍹,🍷,🎽,👖,👘,👙,💼,🍴,🍕,🍔,👜,👝,👛,🎀,🌂,🍟,🍗,🍖,📛,💅,🍝,🍛,🍤,🍱,🍣,🍥,🍙,🍘,🍚,🍜,🍲,🍢,🍡,🍳,🍞,🍩,🍮,🍦,🍨,🍧,🎂,🍰,🍪,🍫,🍬,🍭,🍯,🍎,🍏,🍊,🍋,🍒,🍇,🍉,🍓,🍑,🍈,🍌,🍐,🍍,🍠,🍆,🍅,🌽".split(","), "⛽,✂,🔓,🔒,🔐,🔔,🔕,📢,💺,✒,🔏,🔑,🔧,📣,🔊,🔉,💎,✏,🔩,🔨,⚓,🔈,🔇,🎧,🎍,📏,💣,🔪,🔫,🎥,📷,📹,🎒,📐,💡,🔦,🔎,💻,📻,📡,🔮,🔬,🔍,🔭,🛁,📺,📼,📱,🛀,🚿,🚽,🚪,🚬,📲,📟,🎮,💊,💉,🎲,🃏,🎴,🔌,🔋,🀄,🎫,🏮,🎰".split(","), "📞,☎,📌,📍,📎,👤,👥,💬,📠,📦,📝,📑,🔖,💭,💤,👣,🎁,📧,📜,📋,📇,📰,📁,📂,📥,📤,📃,📄,📖,📚,📕,📗,📩,📨,📘,📙,📓,📔,📒,💿,📫,📪,📀,💽,💾,📬,📭,✉,📯,📮".split(","), "☀,☁,🐾,💐,🌸,🐶,🐺,🐱,❄,🔆,🌷,🍀,🌹,🐭,🐹,🐰,🔅,🌞,🌻,🌺,🍁,🐸,🐯,🐨,⛅,⚡,🍃,🍂,🌿,🐻,🐷,🐽,✨,⛄,🌾,🍄,🌵,🐮,🐗,🐵,☔,🌀,🌴,🌲,🌳,🐒,🐴,🐑,🌊,🌁,🌰,🌱,🌼,🐘,🐼,🐧,🌈,🌋,🗻,🌄,🌅,🐦,🐤,🐥,🌌,🌠,⭐,🌐,🌍,🐣,🐔,🐍,🌎,🌏,🌝,🌚,🌑,🐢,🐛,🐝,🌒,🌓,🌔,🌕,🌖,🐜,🐞,🐌,🌗,🌘,🌜,🌛,🌙,🐙,🐚,🐠,🔥,🌟,💫,💥,💢,🐟,🐬,🐳,💦,💨,💧,🐋,🐄,🐏,🐀,🐃,🐅,🐇,🐉,🐎,🐐,🐓,🐕,🐖,🐁,🐂,🐲,🐡,🐊,🐫,🐪,🐆,🐈,🐩".split(","), "🏠,🏡,🏫,🎪,🏢,🚢,⛵,🚤,🏣,🏥,🏦,🏪,🏩,🚣,🚀,✈,🏨,💒,⛪,🏬,🏤,🚁,🚂,🚊,🌃,🌇,🌆,🏯,🏰,🚉,🚞,🚆,🏭,🚄,🚅,🚈,🚇,🚝,🚋,🚃,🚎,🚌,🚍,🚙,🚘,🚗,🚕,🚖,🚛,🚚,🚨,🚓,🚔,🚒,🚑,🚐,🚲,🚡,🚟,🚠,🚜".split(","), "㊙,🔝,🔱,‼,⁉,🚫,⛔,🚦,㊗,🔚,❎,✅,❌,🚥,⚠,🚧,🔺,🔙,❗,❓,❕,🔞,📵,🚯,🔲,🔛,❔,⭕,✔,🚱,🚳,🚷,🔳,🔜,☑,♻,💯,🚸,💈,🚏,⚫,🔃,ℹ,⬆,⬇,🚩,🚻,🚹,⚪,⬅,➡,↗,↖,🚺,🚼,🚾,🔴,↘,↙,↔,↕,🚰,🚮,🅿,🔵,↩,↪,⤵,⤴,♿,🚭,🛂,🔻,📳,📴,🔄,◀,🛄,🛅,🛃,⬜,▶,🔼,🔽,⏪,🏧,🇯🇵,🇰🇷,⬛,⏩,⏫,⏬,🆗,🇩🇪,🇨🇳,🇺🇸,🔶,🔀,🔁,🔂,🆕,🇫🇷,🇪🇸,🇮🇹,🔷,🆙,🆒,🆓,🆖,🇷🇺,🇬🇧,📶,🔸,🎦,🔹,◼,◻,◾,◽,▪,▫,💠,🔯,💮,🔘,🔗,🈲,🈶,🈚,🈳,🈵,🉑,🆘,🆔,🆑,✳,❇,✴,🆚,🅰,🅱,🆎,🅾,♠,♥,♣,♦,©,®,™,Ⓜ,➿,➰,♈,♉,♊,♋,♌,♍,♎,♏,♐,♑,♒,♓,⛎,🔣,🔠,🔡,🔤,🈯,🈴,🉐,🈹,🈺,🈷,🈸,🔰".split(",") ], ai = "iPhone" == navigator.platform && 20;
+}, cn = [ "常用", "更多" ], sn = 0, mn = 0, En = 0, Nn = [ "内容", "颜色", "图标", "√" ], Qn = Me("canvas", 2), Un = [], Kn = [], Zn = [ "⛺,🎃,🎯,🏈,🏀,🎵,🎤,🎹,🎑,🎄,⚽,🎾,🎱,🎶,🎼,🎻,🎈,🎋,🏉,🎳,⛳,🎺,🎷,🎸,🎏,🎉,🚵,🚴,🏁,🎨,🎭,🎬,🗿,🎊,🏇,🏆,🎿,🏂,🏊,🏄,🎆,🎇,🎣,🚶,🏃,💃,⚾,🎐,♨,🎠,🎡,🎢,🗽,🌉,⛲".split(","), "🙇,👽,👍,💖,💟,😁,😂,😍,🎅,👻,👎,💛,💙,😜,😝,😛,👼,💀,👌,💜,💚,😃,😄,😀,👦,😈,👊,❤,💝,😊,😉,😘,👧,👿,✊,💔,💗,😚,😗,😙,👨,👹,👋,💓,💕,😳,😔,😌,👩,👺,✋,💞,💘,😒,😞,😣,👲,👾,👐,💌,💍,😢,😭,😪,👴,😺,👆,💋,💏,😥,😰,😅,👵,😸,👇,💑,👫,😓,😩,😫,👶,😻,👉,👬,👭,😨,😱,😠,👱,😽,👈,👪,🙌,😡,😤,😖,👸,😼,🙏,👏,✌,😆,😋,😷,🙆,🙀,☝,💪,👂,😎,😴,😵,🙅,😿,👀,👃,👅,😲,😟,😦,🙍,😹,👄,😾,🙈,😧,😮,😬,🙎,🙉,🙊,💩,🙋,😐,😕,😯,💁,💆,👰,👯,👳,😶,😇,😏,👮,👷,💂,💇,😑,☺,🙁,🙂".split(","), "#⃣,💹,💰,💴,💵,⌛,⏰,⌚,0⃣,📈,💷,💶,💳,🕐,⏳,📅,1⃣,📉,💸,💲,💱,📆,🕛,🕧,2⃣,📊,〰,〽,3⃣,🕜,🕑,🕝,4⃣,5⃣,6⃣,7⃣,8⃣,🕒,🕞,🕓,9⃣,🔢,🔟,✖,➕,🕟,🕔,🕠,➖,➗,🇦,🇧,🇨,🕕,🕖,🕗,🇩,🇪,🇫,🇬,🇭,🕘,🕙,🕚,🇮,🇯,🇰,🇱,🇲,🕡,🕢,🕣,🇳,🇴,🇵,🇶,🇷,🕤,🕥,🕦,🇸,🇹,🇺,🇻,🇼,🇽,🇾,🇿".split(","), "👓,💄,🎩,🎓,👑,☕,🍵,🍶,👒,👟,👞,👡,👠,🍼,🍺,🍻,👢,👕,👔,👚,👗,🍸,🍹,🍷,🎽,👖,👘,👙,💼,🍴,🍕,🍔,👜,👝,👛,🎀,🌂,🍟,🍗,🍖,📛,💅,🍝,🍛,🍤,🍱,🍣,🍥,🍙,🍘,🍚,🍜,🍲,🍢,🍡,🍳,🍞,🍩,🍮,🍦,🍨,🍧,🎂,🍰,🍪,🍫,🍬,🍭,🍯,🍎,🍏,🍊,🍋,🍒,🍇,🍉,🍓,🍑,🍈,🍌,🍐,🍍,🍠,🍆,🍅,🌽".split(","), "⛽,✂,🔓,🔒,🔐,🔔,🔕,📢,💺,✒,🔏,🔑,🔧,📣,🔊,🔉,💎,✏,🔩,🔨,⚓,🔈,🔇,🎧,🎍,📏,💣,🔪,🔫,🎥,📷,📹,🎒,📐,💡,🔦,🔎,💻,📻,📡,🔮,🔬,🔍,🔭,🛁,📺,📼,📱,🛀,🚿,🚽,🚪,🚬,📲,📟,🎮,💊,💉,🎲,🃏,🎴,🔌,🔋,🀄,🎫,🏮,🎰".split(","), "📞,☎,📌,📍,📎,👤,👥,💬,📠,📦,📝,📑,🔖,💭,💤,👣,🎁,📧,📜,📋,📇,📰,📁,📂,📥,📤,📃,📄,📖,📚,📕,📗,📩,📨,📘,📙,📓,📔,📒,💿,📫,📪,📀,💽,💾,📬,📭,✉,📯,📮".split(","), "☀,☁,🐾,💐,🌸,🐶,🐺,🐱,❄,🔆,🌷,🍀,🌹,🐭,🐹,🐰,🔅,🌞,🌻,🌺,🍁,🐸,🐯,🐨,⛅,⚡,🍃,🍂,🌿,🐻,🐷,🐽,✨,⛄,🌾,🍄,🌵,🐮,🐗,🐵,☔,🌀,🌴,🌲,🌳,🐒,🐴,🐑,🌊,🌁,🌰,🌱,🌼,🐘,🐼,🐧,🌈,🌋,🗻,🌄,🌅,🐦,🐤,🐥,🌌,🌠,⭐,🌐,🌍,🐣,🐔,🐍,🌎,🌏,🌝,🌚,🌑,🐢,🐛,🐝,🌒,🌓,🌔,🌕,🌖,🐜,🐞,🐌,🌗,🌘,🌜,🌛,🌙,🐙,🐚,🐠,🔥,🌟,💫,💥,💢,🐟,🐬,🐳,💦,💨,💧,🐋,🐄,🐏,🐀,🐃,🐅,🐇,🐉,🐎,🐐,🐓,🐕,🐖,🐁,🐂,🐲,🐡,🐊,🐫,🐪,🐆,🐈,🐩".split(","), "🏠,🏡,🏫,🎪,🏢,🚢,⛵,🚤,🏣,🏥,🏦,🏪,🏩,🚣,🚀,✈,🏨,💒,⛪,🏬,🏤,🚁,🚂,🚊,🌃,🌇,🌆,🏯,🏰,🚉,🚞,🚆,🏭,🚄,🚅,🚈,🚇,🚝,🚋,🚃,🚎,🚌,🚍,🚙,🚘,🚗,🚕,🚖,🚛,🚚,🚨,🚓,🚔,🚒,🚑,🚐,🚲,🚡,🚟,🚠,🚜".split(","), "㊙,🔝,🔱,‼,⁉,🚫,⛔,🚦,㊗,🔚,❎,✅,❌,🚥,⚠,🚧,🔺,🔙,❗,❓,❕,🔞,📵,🚯,🔲,🔛,❔,⭕,✔,🚱,🚳,🚷,🔳,🔜,☑,♻,💯,🚸,💈,🚏,⚫,🔃,ℹ,⬆,⬇,🚩,🚻,🚹,⚪,⬅,➡,↗,↖,🚺,🚼,🚾,🔴,↘,↙,↔,↕,🚰,🚮,🅿,🔵,↩,↪,⤵,⤴,♿,🚭,🛂,🔻,📳,📴,🔄,◀,🛄,🛅,🛃,⬜,▶,🔼,🔽,⏪,🏧,🇯🇵,🇰🇷,⬛,⏩,⏫,⏬,🆗,🇩🇪,🇨🇳,🇺🇸,🔶,🔀,🔁,🔂,🆕,🇫🇷,🇪🇸,🇮🇹,🔷,🆙,🆒,🆓,🆖,🇷🇺,🇬🇧,📶,🔸,🎦,🔹,◼,◻,◾,◽,▪,▫,💠,🔯,💮,🔘,🔗,🈲,🈶,🈚,🈳,🈵,🉑,🆘,🆔,🆑,✳,❇,✴,🆚,🅰,🅱,🆎,🅾,♠,♥,♣,♦,©,®,™,Ⓜ,➿,➰,♈,♉,♊,♋,♌,♍,♎,♏,♐,♑,♒,♓,⛎,🔣,🔠,🔡,🔤,🈯,🈴,🉐,🈹,🈺,🈷,🈸,🔰".split(",") ], ai = "iPhone" == navigator.platform && 20;
 ti("🎄,🎠,🏈,🎹", "🎄,🎤,🎶,🎣,🎯,⚽"), ti("😀,👍,💗,🎅", "😀,😭,😥,😡,😴,😷,👽,👻,💘,💔,💓,👌,✌,👍,👎,🙏"), 
 ti("📅,💰,📈,⌛", "⏰,💰,💹"), ti("🍴,🎂,🎀,👒", "🍭,🍲,🍎,🍸"), ti("💣,📏,🔬,🔐", "🔓,🔒,⚓,🔧,🔍,🔔,🔕,💡,💎,💣"), 
 ti("📞,📌,👥,💬", "👤,👥,💬,💭,📞,📩"), ti("🐧,🐣,🍄,🔆", "🐌,🌹,🔆,⛅,❄,☁,💧"), 

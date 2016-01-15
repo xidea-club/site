@@ -37,12 +37,12 @@ for (var n = r.length; n--; ) e = r[n].split("="), a[e[0]] = e[1];
 function F() {
 return y.concat();
 }
-function x(e) {
+function S(e) {
 var a = e.id || e;
 return e = localStorage.getItem(m + a), e ? JSON.parse(e) : (console.error("data not found:", a), 
 {});
 }
-function S(e) {
+function x(e) {
 var a = y, t = e.id || (e.id = T()), r = M(t), n = a[r];
 n ? a.splice(r, 1) : n = {
 createTime: +new Date(),
@@ -185,19 +185,19 @@ return r.length;
 function c(r, c, s, h, u, d) {
 var g, p = t.length;
 for (h -= n, d -= i; p > 0; ) {
-var m = t[--p], y = t[--p], w = t[--p], F = t[--p], x = a[p >> 2];
-if (x && m >= h && h >= w && y >= s && s >= F && (g = x(r, c, ie - F, le - w, u - F, d - w))) break;
+var m = t[--p], y = t[--p], w = t[--p], F = t[--p], S = a[p >> 2];
+if (S && m >= h && h >= w && y >= s && s >= F && (g = S(r, c, ie - F, le - w, u - F, d - w))) break;
 }
 if (!g && -2 == r && o > v) {
 var m = d + i - l;
 i = m > 0 ? 0 : v > m + o ? m : m, E(f);
 }
-if (-1 == r) n = i; else if (-3 == r) var S = setInterval(function() {
+if (-1 == r) n = i; else if (-3 == r) var x = setInterval(function() {
 var t = (e.length, v - o);
 if (t > i) {
 var r = t - i;
 i = Math.min(i + 10 + .1 * r, t), E(f);
-} else clearInterval(S);
+} else clearInterval(x);
 }, 20);
 l = d;
 }
@@ -209,7 +209,7 @@ return h >= 0 ? (i && (a[h] = i, c > l && t.splice(4 * h, 4, l, v, c, s)), r.ind
 E(f)) : (e.push(n), a.push(i), t.push(l, v, c, s)), arguments.callee;
 };
 }
-function Se(e, a, t, r, n, i, l, o) {
+function xe(e, a, t, r, n, i, l, o) {
 var v = t - a >> 1, f = n - r, c = i.length, s = f / c | 0, h = .8 * v | 0, u = t - v / 1.5 | 0, d = [], p = o || Ce;
 for (e.fillStyle = ge, e.strokeStyle = me, p(e, a, t, r, n), e.fillStyle = me, e.font = (0 | h) + "px STHeiti serif", 
 e.textAlign = "center"; c--; ) if (c != l) {
@@ -331,12 +331,12 @@ function Fa(e, a) {
 va = e, fa = a, na = Math.min(va, fa) / 6 | 0, ia = 0 | Math.min(na / 4, 20), la = 2.18 * na | 0, 
 Wt(va, fa, na, ia), sa && Ja(sa);
 }
-function xa(e) {
+function Sa(e) {
 fe(ga), ba(e);
 for (var a = e.children, t = a.length; t--; ) a[t].scale = br;
 Ja(sa = e);
 }
-function Sa(e, a) {
+function xa(e, a) {
 var t = -1 == e ? sa : sa.children[e];
 Ca(t, a);
 }
@@ -349,14 +349,14 @@ Wn(e, t);
 function Ma(e) {
 for (e = e || sa; e; ) {
 if (e.parent && !e.parent.id) {
-S(e.data);
+x(e.data);
 break;
 }
 e = e.parent;
 }
 }
 function ba(e) {
-return e.loaded === !1 && (e.loaded = !0, Ia(e, x(e.data))), e;
+return e.loaded === !1 && (e.loaded = !0, Ia(e, S(e.data))), e;
 }
 function Ta(e) {
 this.id = da++, Ia(this, e);
@@ -419,13 +419,13 @@ return a.id ? (ar(a.parent, 0, -na, Mr), ur(e.children, ma), void Na(sa = a, e))
 }
 function Na(e, a) {
 function T() {
-var t = new Date(), r = Math.min(new Date() - S, F) / F;
+var t = new Date(), r = Math.min(new Date() - x, F) / F;
 w == r && (console.log("no rate changed!!!"), r = 1), w = r;
 var i = u + p * w, l = d + g * w, o = s + m * w, v = (f + y * w) / 2, c = v * Math.cos(o), h = -v * Math.sin(o);
 if (ar(e, i - c, l - h, M), ar(a, i + c, l + h, b), j(new Date() - t), 1 == w) {
 clearInterval(C);
-var x = n.indexOf(a);
-x >= 0 && n.splice(x, 1), dr(n, ma, a == e.parent);
+var S = n.indexOf(a);
+S >= 0 && n.splice(S, 1), dr(n, ma, a == e.parent);
 }
 }
 var t = [ e.x, e.y ], r = [ a.x || 0, a.y || 0 ], n = e.children.concat(), i = n.length;
@@ -436,22 +436,22 @@ l != a && (l.animStart = 0, l.alpha = 0);
 a == e.parent && (ar(a, 0, -na, Mr), a.hit = -1);
 var o = [ e.animX[1], e.animY[1] ], v = [ a.animX[1], a.animY[1] ], f = be(t, r), c = be(o, v), s = Ha(t, r), h = Ha(o, v);
 Math.abs(s - h) > Math.PI && (s += s > h ? -oa : oa);
-var u = (t[0] + r[0]) / 2, d = (t[1] + r[1]) / 2, p = (o[0] + v[0]) / 2 - u, g = (o[1] + v[1]) / 2 - d, m = h - s, y = c - f, w = 0, F = (Math.abs(m / oa) + .5) * Sr, x = Math.min(F / 8, Fr), S = new Date() - x, C = setInterval(T, x), M = e.root ? Cr : 1, b = a == e.parent ? Mr : br;
+var u = (t[0] + r[0]) / 2, d = (t[1] + r[1]) / 2, p = (o[0] + v[0]) / 2 - u, g = (o[1] + v[1]) / 2 - d, m = h - s, y = c - f, w = 0, F = (Math.abs(m / oa) + .5) * xr, S = Math.min(F / 8, Fr), x = new Date() - S, C = setInterval(T, S), M = e.root ? Cr : 1, b = a == e.parent ? Mr : br;
 T();
 }
 function Ya(e, a) {
 var t = new Date();
 if (ya) {
-var r = +new Date(), n = Math.min(r - ya[0], xr) / xr, i = ya[3] + n * (ya[2] - ya[1]), l = i - ya[3] + ya[1];
+var r = +new Date(), n = Math.min(r - ya[0], Sr) / Sr, i = ya[3] + n * (ya[2] - ya[1]), l = i - ya[3] + ya[1];
 sa.angle = i, ya[0] = r, clearInterval(ya[4]);
 } else i = sa.angle || 0, ya = [ new Date() ], l = Ha(ma, e);
 var o = ya[2] = Ha(ma, a), v = Fr;
-Math.abs(l - o) > Math.PI && (l += l > o ? -oa : oa), v = Math.min(v, xr / (Math.abs(l - o) / .01)), 
+Math.abs(l - o) > Math.PI && (l += l > o ? -oa : oa), v = Math.min(v, Sr / (Math.abs(l - o) / .01)), 
 ya[0] -= v, ya[1] = l, ya[3] = i, ya[4] = setInterval(_a, v), j(new Date() - t, "routeChild"), 
 _a();
 }
 function _a() {
-var e = new Date(), a = Math.min(+new Date() - ya[0], xr) / xr, t = ya[3] + a * (ya[2] - ya[1]);
+var e = new Date(), a = Math.min(+new Date() - ya[0], Sr) / Sr, t = ya[3] + a * (ya[2] - ya[1]);
 return t == sa.angle && (a = 1, console.log("no angle changed!!!")), sa.angle = t, 
 Ja(sa, ma), j(new Date() - e, "routeAnimator"), 1 == a ? (ya = clearInterval(ya[4]), 
 !0) : void 0;
@@ -557,8 +557,8 @@ case 3:        }
 function tt(e) {
 if (Ua > 0) if (1 & Ua) {
 var a = Ua >> 1;
-1 == e ? Ra(a) : Sa(a);
-} else rt(Ua >> 1); else 0 == Ua ? e > 1 && Sa(-1) : -1 == Ua && ja();
+1 == e ? Ra(a) : xa(a);
+} else rt(Ua >> 1); else 0 == Ua ? e > 1 && xa(-1) : -1 == Ua && ja();
 }
 function rt(e) {
 var a = "", t = {
@@ -704,8 +704,8 @@ e *= 1.03;
 return t;
 }
 function _t() {
-return Ft = Ae(0), Ft.mozOpaque = !0, xt = Ae(1), xt.mozOpaque = !0, St = qt(xt, !0), 
-Ct = qt(Ft, !0), null == Ct.nativeId && (document.body.appendChild(xt), document.body.appendChild(Ft)), 
+return Ft = Ae(0), Ft.mozOpaque = !0, St = Ae(1), St.mozOpaque = !0, xt = qt(St, !0), 
+Ct = qt(Ft, !0), null == Ct.nativeId && (document.body.appendChild(St), document.body.appendChild(Ft)), 
 Ft;
 }
 function qt(e) {
@@ -715,7 +715,7 @@ return a.imageSmoothingEnabled ? a.imageSmoothingEnabled = !1 : a.webkitImageSmo
 a;
 }
 function Wt(e, a, t, r) {
-xt.width = Ft.width = bt = e, xt.height = Ft.height = Tt = a, Mt = t, It = .8 * Mt, 
+St.width = Ft.width = bt = e, St.height = Ft.height = Tt = a, Mt = t, It = .8 * Mt, 
 Pt = Math.min(r >> 2, 126), ft(t, r), Jt();
 }
 function Jt() {
@@ -728,8 +728,8 @@ function $t() {
 if (null != kt) {
 var a = [], t = [], r = [], n = Qt(a, t, r), i = a.length < 2, l = i && Ut();
 l ? n = !0 : l = kt, vr.apply(r, l), a == Yt ? (Ct.clearRect(0, 0, bt, Tt), i && (fr.apply(Ct, l), 
-Kt(Ct, t))) : (St.clearRect(0, 0, bt, Tt), St != Ct && (Ct.clearRect(0, 0, bt, Tt), 
-Yt = a + ""), i ? Kt(Ct, t) : (fr.apply(St, l), Kt(St, t)), xt.commit && xt.commit()), 
+Kt(Ct, t))) : (xt.clearRect(0, 0, bt, Tt), xt != Ct && (Ct.clearRect(0, 0, bt, Tt), 
+Yt = a + ""), i ? Kt(Ct, t) : (fr.apply(xt, l), Kt(xt, t)), St.commit && St.commit()), 
 cr(kt[0]), Kt(Ct, r), Ct.globalAlpha = 1;
 for (var o = Dt.length; o--; ) Dt[o]() && (n = !0);
 return n;
@@ -813,8 +813,8 @@ e.animX = null, e.animY = null, e.animAlpha = null, e.scale = Math.max(t, br), t
 if (Bt && e.scale < 1 && Bt.id != e.id) {
 var i = kt[3], l = kt[1], o = kt[2], v = Bt.x - r, f = Bt.y - n, c = Math.min(i - Mt, 2 * Mt), s = Math.sqrt(v * v + f * f), h = Bt.x - l, u = Bt.y - o, d = Math.sqrt(h * h + u * u);
 if (d > Mt && c > s && Math.abs(d - i) < c) {
-var p = l - r, g = o - n, m = g / i, y = p / i, w = v * g - f * p > 0 ? 1 : -1, F = l + h / d * i - r, x = o + u / d * i - n;
-s = (1 - s / c) * Math.sqrt(F * F + x * x), r -= m * s * w, n += y * s * w;
+var p = l - r, g = o - n, m = g / i, y = p / i, w = v * g - f * p > 0 ? 1 : -1, F = l + h / d * i - r, S = o + u / d * i - n;
+s = (1 - s / c) * Math.sqrt(F * F + S * S), r -= m * s * w, n += y * s * w;
 }
 }
 return [ r, n, t || 1 ];
@@ -867,17 +867,15 @@ i = pr(i, o, r)), e.beginPath(), e.moveTo(n, i), e.lineTo(l, o), e.stroke();
 }
 }
 function hr(e) {
-var a = At.indexOf(e);
-0 > a && At.push(e), ar(e, e.x, e.y, .1, 0);
+At = [ e ], ar(e, e.x, e.y, .1, 0);
 }
 function ur(e, a, t) {
+e = e.concat();
 for (var r = a[0], n = a[1], i = e.length, l = t && t.parent.id ? 2 : .75; i--; ) {
 var o = e[i];
-t != o && ar(o, pr(o.x, r, l), pr(o.y, n, l), l, 0);
+t != o ? ar(o, pr(o.x, r, l), pr(o.y, n, l), l, 0) : e.splice(i);
 }
-for (i = At.length; i--; ) e.indexOf(At[i]) >= 0 && (console.warn("re hide node"), 
-At.splice(i, 1));
-At = At.concat(e);
+At = e;
 }
 function dr(e, a) {
 for (var r = a[0], n = a[1], i = .6, l = e.length; l--; ) {
@@ -926,7 +924,7 @@ break;
 }
 }
 function Qr(e, a, t) {
-Se(e, 0, t, Lr, a - Lr, Rr, qr);
+xe(e, 0, t, Lr, a - Lr, Rr, qr);
 }
 function Ur(e, a, t) {
 -1 == e && (qr = Math.min((t - Lr) / (Jr - Lr - Lr) * Rr.length | 0, Rr.length - 1), 
@@ -952,9 +950,9 @@ Gr(Kr), Gr(Hr));
 }
 }
 function Vr(e, a, t) {
-if (0 > Wr) Se(e, 0, t, Lr, a - Lr, [ "批量修改子节点颜色" ], -1); else {
+if (0 > Wr) xe(e, 0, t, Lr, a - Lr, [ "批量修改子节点颜色" ], -1); else {
 var r = [ "重置", "设置同色", "自动变色" ];
-Se(e, 0, t, Lr, a - Lr, r, Wr);
+xe(e, 0, t, Lr, a - Lr, r, Wr);
 }
 }
 function en(e, a, t) {
@@ -979,19 +977,19 @@ rn.style.display = "block", nn.style.display = "block";
 }
 rn.value = on.title || "", nn.value = on.content || "";
 }
-function Sn(e, a, t, r, n) {
+function xn(e, a, t, r, n) {
 var i = n / 3.2, l = .618 * t, o = i + l, v = i + 1.2 * l, f = n;
 gn = f - v, dn = l >> 1, un = r, mn = 0, fn = a, pn = e(Cn, bn, 0, t, un, i)(Tn, In, 0, i, un, o)(An, Dn, 0, v, un, f);
 }
 function Cn(e, a, t) {
-xn = t, e.fillStyle = "#FFF", e.fillRect(0, 0, a, t);
+Sn = t, e.fillStyle = "#FFF", e.fillRect(0, 0, a, t);
 var r = t / 3, a = 2 * r, n = ct(fn), i = un / 2, l = t / 2;
 e.drawImage(n, i - r, l - r, a, a), Mn(e, r);
 }
 function Mn(e, a) {
 var t = fn.data.icon;
 if (t) {
-var a = xn / 7, r = xn / 3, n = 2 * a, i = r - n, l = .2 * a;
+var a = Sn / 7, r = Sn / 3, n = 2 * a, i = r - n, l = .2 * a;
 e.lineWidth = "2", e.strokeStyle = "#ddd", e.beginPath(), e.moveTo(0, i), e.arc(2 * n - a, i + a, a, -Math.PI / 2, Math.PI / 2, !1), 
 e.lineTo(0, r), e.stroke(), li(e, t, l, i + l, n - l - l), e.strokeStyle = "#E66", 
 e.lineWidth = "4", e.beginPath(), l *= 3, i += l, r -= l, a = n + n - l, e.moveTo(n + l, i), 
@@ -999,7 +997,7 @@ e.lineTo(a, r), e.moveTo(n + l, r), e.lineTo(a, i), e.stroke();
 }
 }
 function bn(e, a, t, r) {
-var n = xn / 3, i = xn / 7, l = 2 * i, o = n - l;
+var n = Sn / 3, i = Sn / 7, l = 2 * i, o = n - l;
 fn.data.icon && 2 * l >= t && r >= o && n >= r && (fn.data.icon = "", fn.dirty = !0, 
 pn(Cn));
 }
@@ -1011,7 +1009,7 @@ var n = !0, i = function(e, a, t, r, i) {
 Ce(e, a, t, r, i), n && sn && (n = !1, e.fillStyle = "#ccc", Ce(e, a, t, r + (i - r) / 3, i));
 };
 }
-Se(e, 0, t, dn, a - dn, r, sn, i);
+xe(e, 0, t, dn, a - dn, r, sn, i);
 }
 function In(e, a, t) {
 if (1 == e) {
@@ -1078,7 +1076,7 @@ function Wn(e, a) {
 Pn = e, kn = Hn(e), Rn = On / 6 | 0, jn = a, Gn(e.data.title ? En : 0), tn();
 }
 function Jn(e, a, t) {
-e.clearRect(e, 0, 0, a, t), Se(e, 0, t, 0, a, Nn, En, zn), En || window.scrollTo(0, 0);
+e.clearRect(e, 0, 0, a, t), xe(e, 0, t, 0, a, Nn, En, zn), En || window.scrollTo(0, 0);
 }
 function Ln(e, a, t) {
 if (-1 == e) {
@@ -1095,7 +1093,7 @@ jn(e != a || t), jn = null;
 function Gn(e) {
 Yn = Xn(e), e ? (Yn(function(e) {
 e.fillStyle = "#FFF", e.fillRect(0, Rn, On, Bn - Rn);
-}, null, 0, 0, 1, 0), 1 == e ? Xr(Yn, Pn, Rn, On, Bn) : Sn(Yn, Pn, Rn, On, Bn)) : vn(Yn, Pn, Rn, On, Bn);
+}, null, 0, 0, 1, 0), 1 == e ? Xr(Yn, Pn, Rn, On, Bn) : xn(Yn, Pn, Rn, On, Bn)) : vn(Yn, Pn, Rn, On, Bn);
 }
 function Xn(e) {
 return En = e, pe()(Jn, Ln, 0, 0, On, Rn);
@@ -1237,11 +1235,11 @@ var t = Math.min(e / Vn | 0, 7), r = a / ei | 0;
 return Kn[8 * r + t];
 }
 function Mi() {
-Fi = xi * Dr;
+Fi = Si * Dr;
 for (var e = pe()(Ti, Ii, 0, 0, yi, Fi), a = Fi, t = Ci.children, r = 0; r < t.length; r++) Ai(e, t[r], a, a += Fi);
 }
 function bi(e, a, t) {
-xi = t, Si = xi * Ar, yi = e, wi = a, Ci = new gi({
+Si = t, xi = Si * Ar, yi = e, wi = a, Ci = new gi({
 title: "Home",
 children: F()
 });
@@ -1253,8 +1251,8 @@ var r = gt(), n = r.width / 2;
 e.fillStyle = "#fff", e.fillRect(0, 0, a, t), e.drawImage(r, a - t, t / 2 - n);
 }
 function Ii(e, a, t, r) {
-var n = Si, i = yi - Fi + n, l = Fi / 2;
-be([ t, r ], [ i, l ]) <= n && (xa(Ci), ka({}));
+var n = xi, i = yi - Fi + n, l = Fi / 2;
+be([ t, r ], [ i, l ]) <= n && (Sa(Ci), ka({}));
 }
 function Ai(e, a, t, r) {
 function n(e, t, r) {
@@ -1263,15 +1261,15 @@ var i = mi(n), l = i[0];
 l.width = t, l.height = r, Di(l.getContext("2d"), a, t, r)), e.drawImage(l, 0, 0);
 }
 function i(e) {
-1 == e && xa(a);
+1 == e && Sa(a);
 }
 e(n, i, 0, t, yi, r);
 }
 function Di(e, a, t, r) {
-a.scale = Si / xi;
+a.scale = xi / Si;
 var n = ct(a), i = a.data, l = r / 8 | 0, o = r / 4;
 e.lineWidth = 4, e.fillStyle = "#fff", e.strokeStyle = "#f2f2f2", e.fillRect(0, 0, t, r), 
-e.strokeRect(0, 0, t, r), e.drawImage(n, t - r, r / 2 - Si), e.font = "bold " + l + "px " + yr, 
+e.strokeRect(0, 0, t, r), e.drawImage(n, t - r, r / 2 - xi), e.font = "bold " + l + "px " + yr, 
 e.fillStyle = "#888", e.textAlign = "left", e.baseLine = 0, e.textBaseline = "middle";
 var v = 10;
 e.fillText(Pr, v, o), e.fillText(kr, v, 2 * o), e.fillStyle = "#999", e.font = " " + l + "px " + yr;
@@ -1313,8 +1311,8 @@ return r;
 });
 }
 var y, a = function() {
-localStorage.clear(), S(s(l.join("\n"))), S(s(o.join("\n"))), S(s(v.join("\n"))), 
-S(s(f.join("\n")));
+localStorage.clear(), x(s(l.join("\n"))), x(s(o.join("\n"))), x(s(v.join("\n"))), 
+x(s(f.join("\n")));
 }, l = [ "创意罗盘{2#FF00FF}", "	分享自由{#7A95FF}", "	创意无限{#7A95FF}" ], o = [ "Example1{1#FF3D3D,updateTime=1,icon=⏰}", "	场景闹钟{#7A95FF,icon=⌚}", "		结合位置优化提醒{#CCCC00,icon=🌍}", "			出差场景{}", "		完整作息优化提醒{,icon=💤}", "	倒计时{#FFCC33,icon=⏳}", "		生日{}", "		纪念日{}", "		传统节日{}", "	生活习惯{#52D6EB,icon=🍵}", "		正点吃饭{}", "		熬夜{}", "		用眼{}", "		注意颈椎{}", "		提醒喝水{}", "	亲情实景{#FF9900,icon=🚞}", "		街景实况{}", "		亲情授权{}", "	亲情协作{#0066CC,icon=👥}", "		孩子接送{#FFCC33,icon=👪}", "		路过买菜{#666600,icon=🍆}" ], v = [ "欢迎使用{0#2B8567,icon=🎷,updateTime=1}", "	基本用法{#1FE3BF,icon=🎨}", "		单击展开{#22B59A,icon=🎯}", "		双击编辑{#4CD4BC,icon=📝}", "		长按移动{#1FE3BF,icon=👣}", "		剪切板{#90D7C5,icon=✂}", "	多端同步{#00B3FF,icon=📲}", "		Android{#99CC33}", "		iPhone{#FFCC33}", "		微信公众号{#00B8B8}", "	团队协作{#666666,icon=👥}", "		任务分发{#40BACA,icon=📌}", "		编辑同步{#1FE3BF,icon=📑}", "	时间管理{#7A95FF,icon=⌛}", "		利用碎片时间{#52D6EB}", "		事件提醒{#FFCC33}", "	创意分享{#8000FF,icon=💭}", "		连接投影 创意无限{#FF9900,icon=🎥}", "		QQ/微信/朋友圈{#00B8B8}", "		手机联系人{#52D6EB,icon=📞}", "		email{#7A95FF,icon=📩}", "	展望无限{#52D6EB}" ], f = [ "商业计划", "	运用场景", "		思维整理", "			无限时间", "				#连接碎片时间，捕捉稍纵即逝的灵感。", "			无限空间", "				#随时随地记录和完善自己的创意和计划。", "		创意分享", "			#微信朋友圈，亲人/朋友/同事，灵犀数点", "		讲稿展示", "			#讲稿编写太纠结，没关系，你可以在吃饭/排队的时候，圈点几下完成讲稿的准备", "		思考辅助", "			#积累一定用户数据之后， 可以从内容和结构两个纬度建模，在数据和算法的帮助下更好的给用户计划，创意提供指导和建议", "	开发计划", "		朋友圈试用(2月15日)", "			流畅编辑/便捷分享", "			微信/iPhone/Android", "		正式发布(3月/1日)", "			Native性能优化", "			云存储正式上线", "		PC+投影支持(4月)", "			PC播放与编辑适配", "			手持设备遥控支持", "		组建产品团队(6月)", "			推广/完善需求", "			寻找合伙人", "		组建数据和AI团队(待定...)", "			上线思维智能引导功能", "			思考相关商业模式", "		收费版(待定...)", "			群组/团队管理", "			私有云", "			协同编辑", "			...", "	推广计划", "		社交分享", "		  #与目前市面上相似产品很大一点不同是： 我们同事提供h5版本实现，非常方便通过微信/QQ甚至短信的形式分享, 而分享的目标又能方便转化成用户", "		营销/借力", "		  #微信应用号", "		  #事件营销。热点知识分享", "	盈利模式", "		精准广告", "		  #思维整理，相对于资讯浏览有更强的目的性。 可以从这些信息里面提炼主题，做精准广告。", "		思考决策倾向广告", "		  #思维过程中，AI给出的建议，可以通过各个向量的加权来加以微调，可作为一钟新的广告的形式。", "		高端版收费", "		  #高级功能收费 如团队协作。", "		  #模仿github的模式,针对团队私有的想法云收费。" ], m = "CLUB.QQSK.COMPASS.", w = localStorage.getItem(m);
 w && (y = JSON.parse(w)), y instanceof Array || (y = [], console.warn("reset your data!!!"), 
 a(m));
@@ -1441,9 +1439,9 @@ ze.prototype.createImageData = function() {}, ze.prototype.createPattern = funct
 ze.prototype.drawFocusIfNeeded = function() {}, ze.prototype.ellipse = function() {}, 
 ze.prototype.getLineDash = function() {}, ze.prototype.isPointInPath = function() {}, 
 ze.prototype.isPointInStroke = function() {}, ze.prototype.quadraticCurveTo = function() {};
-var na, ia, la, va, fa, sa, ha, ya, Qa, Ua, Ka, Za, Va, et, lt, ot, vt, Ft, xt, St, Ct, Mt, bt, Tt, It, Pt, kt, Et, Ot, Bt, jt, Yt, Nr, Jr, Lr, $r, Gr, rn, nn, ln, on, fn, hn, un, dn, pn, gn, yn, wn, Fn, xn, Pn, kn, On, Bn, Rn, jn, Yn, Vn, ei, ra = function(e) {
+var na, ia, la, va, fa, sa, ha, ya, Qa, Ua, Ka, Za, Va, et, lt, ot, vt, Ft, St, xt, Ct, Mt, bt, Tt, It, Pt, kt, Et, Ot, Bt, jt, Yt, Nr, Jr, Lr, $r, Gr, rn, nn, ln, on, fn, hn, un, dn, pn, gn, yn, wn, Fn, Sn, Pn, kn, On, Bn, Rn, jn, Yn, Vn, ei, ra = function(e) {
 return lr(sa.children[e]);
-}, oa = 2 * Math.PI, ua = [], da = 0, ga = at, ma = [], it = Me("canvas", 632), pt = [ gt, [] ], At = [], Dt = [], Rt = [], Gt = 0, Xt = 0, Ht = 0, yr = "STHeiti serif", wr = 160, Fr = 128, xr = 128, Sr = 300, Cr = 2, Mr = 2.4, br = .75, Tr = .7, Ir = 1.2, Ar = .8, Dr = 2.2, Pr = "创建于：", kr = "修改于：", Or = 240, Br = 600, Rr = [ "经典", "炫彩" ], jr = [ "#2B8567#1D9C7E#22B59A#4CD4BC#1FE3BF#90D7C5#98C0B4#04576B#227580#4699A3#40BACA#52D6EB#7DCADC#88B8CC#611023#991924#C24924#DE6530#E67B63#CC8F8F#AE7D7D#484570#68638C#8B85A8#B3AFC5#C8C6D4#CDCDD1#A3A1A8".match(/#\w+/g), "#8000FF#FF00FF#FF0080#FF3D3D#FF9900#FFD83D#A0F000#5000F0#3D64FF#7A95FF#00B3FF#85E0D1#00B8B8#666600#333399#FF0033#990066#FFCC33#CCCC00#666666#0066CC#336699#669933#99CC33#00FF80#663366#660000#000000".match(/#\w+/g) ], Yr = 0, _r = -1, qr = 0, Wr = -1, an = function() {
+}, oa = 2 * Math.PI, ua = [], da = 0, ga = at, ma = [], it = Me("canvas", 632), pt = [ gt, [] ], At = [], Dt = [], Rt = [], Gt = 0, Xt = 0, Ht = 0, yr = "STHeiti serif", wr = 160, Fr = 128, Sr = 128, xr = 300, Cr = 2, Mr = 2.4, br = .75, Tr = .7, Ir = 1.2, Ar = .8, Dr = 2.2, Pr = "创建于：", kr = "修改于：", Or = 240, Br = 600, Rr = [ "经典", "炫彩" ], jr = [ "#2B8567#1D9C7E#22B59A#4CD4BC#1FE3BF#90D7C5#98C0B4#04576B#227580#4699A3#40BACA#52D6EB#7DCADC#88B8CC#611023#991924#C24924#DE6530#E67B63#CC8F8F#AE7D7D#484570#68638C#8B85A8#B3AFC5#C8C6D4#CDCDD1#A3A1A8".match(/#\w+/g), "#8000FF#FF00FF#FF0080#FF3D3D#FF9900#FFD83D#A0F000#5000F0#3D64FF#7A95FF#00B3FF#85E0D1#00B8B8#666600#333399#FF0033#990066#FFCC33#CCCC00#666666#0066CC#336699#669933#99CC33#00FF80#663366#660000#000000".match(/#\w+/g) ], Yr = 0, _r = -1, qr = 0, Wr = -1, an = function() {
 rn && (rn.blur(), nn.blur(), ln.dirty = !0, on.title = rn.value, on.content = nn.value, 
 nn.style.display = rn.style.display = "none");
 }, tn = function() {
@@ -1453,7 +1451,7 @@ ti("🎄,🎠,🏈,🎹", "🎄,🎤,🎶,🎣,🎯,⚽"), ti("😀,👍,💗,�
 ti("📅,💰,📈,⌛", "⏰,💰,💹"), ti("🍴,🎂,🎀,👒", "🍭,🍲,🍎,🍸"), ti("💣,📏,🔬,🔐", "🔓,🔒,⚓,🔧,🔍,🔔,🔕,💡,💎,💣"), 
 ti("📞,📌,👥,💬", "👤,👥,💬,💭,📞,📩"), ti("🐧,🐣,🍄,🔆", "🐌,🌹,🔆,⛅,❄,☁,💧"), 
 ti("🚊,🚔,🏠,💒", "🏡,🚀,🚄,⛵,🚲"), ti("⛔,🚭,🚦,✅", "✅,❎,❓,❗,⁉,㊙,🚩");
-var yi, wi, Fi, xi, Si, Ci, pi = "娱乐,表情,数字,居家,杂物,沟通,自然,城市,抽象".split(","), gi = Ta, mi = Me("canvas", 12);
+var yi, wi, Fi, Si, xi, Ci, pi = "娱乐,表情,数字,居家,杂物,沟通,自然,城市,抽象".split(","), gi = Ta, mi = Me("canvas", 12);
 return {
 dispatchEvent: A,
 init: wa

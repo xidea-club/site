@@ -3,58 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content='width=720'/>
-<title>创意罗盘</title>
+<title>希腊字母表</title>
 <style>
 body,html,canvas{margin:0;padding:0;}
 body,html{width: 100%;height:100%;}
 canvas{/*transform-origin:0 0;transform:scale(0.5,0.5);/* */}
 </style><script>var greek = function() {
-function example_greek_alphabet$play(n) {
-var audio = document.createElement("audio");
-audio.src = "http://www.xidea.club/greek/sound/" + n + ".wav", audio.loop = !1, 
-audio.play();
+function i(t) {
+var e = document.createElement("audio");
+e.src = "http://www.xidea.club/greek/sound/" + t + ".wav", e.loop = !1, e.play();
 }
-function example_greek_alphabet$findContent(k) {
-for (var i = example_greek_alphabet$content.indexOf(k + ":"), j = i + 1; j < example_greek_alphabet$content.length; j++) {
-var item = example_greek_alphabet$content[j];
-if (3 == item.length && "	" != item.charAt(j)) break;
+function a(t) {
+for (var r = e.indexOf(t + ":"), n = r + 1; n < e.length; n++) {
+var i = e[n];
+if (3 == i.length && "	" != i.charAt(n)) break;
 }
-var rtv = example_greek_alphabet$content.slice(i + 1, j).join("\n");
-return rtv.replace(/(^\t+)/gm, "$1$1$1$1$1$1$1$1");
+var a = e.slice(r + 1, n).join("\n");
+return a.replace(/(^\t+)/gm, "$1$1$1$1$1$1$1$1");
 }
-function liteui_liteui$init() {
-liteui_liteui$width = document.body.clientWidth, liteui_liteui$height = document.body.clientHeight, 
-!liteui_liteui$width && window.nativeHost && (liteui_liteui$width = nativeHost.getWidth(0), 
-liteui_liteui$height = nativeHost.getHeight(0));
-var canvas = document.createElement("canvas");
-canvas.width = liteui_liteui$width, canvas.height = liteui_liteui$height, document.body.appendChild(canvas), 
-liteui_uibase$initCanvas(canvas);
+function h() {
+l = document.body.clientWidth, c = document.body.clientHeight, !l && window.nativeHost && (l = nativeHost.getWidth(0), 
+c = nativeHost.getHeight(0));
+var t = document.createElement("canvas");
+t.width = l, t.height = c, document.body.appendChild(t), zt(t);
 }
-function liteui_native_canvas$executeCommand(ctx, cmd, args) {
-var cmds = ctx.cmds;
-switch (cmd) {
-case liteui_native_canvas$CMD_IMG:
-case liteui_native_canvas$CMD_FILL:
-case liteui_native_canvas$CMD_STROKE:
-case liteui_native_canvas$CMD_FILL_TEXT:
-case liteui_native_canvas$CMD_STROKE_TEXT:
-var prefixArg = 255 * ctx.globalAlpha + .5;
-case liteui_native_canvas$CMD_MEASURE:
-if (!ctx._configJSON) {
-var s = liteui_native_canvas$config(ctx);
-liteui_native_canvas$executeCommand(ctx, liteui_native_canvas$CMD_STATUS, s);
+function R(t, e, r) {
+var n = t.cmds;
+switch (e) {
+case b:
+case N:
+case x:
+case E:
+case T:
+var i = 255 * t.globalAlpha + .5;
+case _:
+if (!t._configJSON) {
+var a = L(t);
+R(t, I, a);
 }
 break;
-case liteui_native_canvas$CMD_PROXY:
-if (!args.cmds.length) return;
-var prefixArg = args.nativeId || 0;
-args = args.cmds.splice(0).join("");
+case w:
+if (!r.cmds.length) return;
+var i = r.nativeId || 0;
+r = r.cmds.splice(0).join("");
 }
-var cmdLine = [ cmd, args.length ];
-return null != prefixArg && (cmdLine[1]++, cmdLine.push(prefixArg)), cmdLine = cmdLine.map(liteui_native_canvas$encoderValue), 
-cmdLine.push(args), cmds.push(cmdLine.join("")), liteui_native_canvas$CMD_MEASURE == cmd ? ctx.commit(!1) : void 0;
+var o = [ e, r.length ];
+return null != i && (o[1]++, o.push(i)), o = o.map(P), o.push(r), n.push(o.join("")), 
+_ == e ? t.commit(!1) : void 0;
 }
-function liteui_native_canvas$Canvas(id) {
+function M(t) {
 this.style = {}, this.stack = [], this.saveCount = 0, this._style = {
 font: "10px sans-serif",
 fillStyle: "#000",
@@ -65,1334 +62,1276 @@ lineWidth: 1,
 miterLimit: 10,
 textAlign: "left",
 textBaseline: "alphabetic"
-}, this._styleJSON, this.nativeId = liteui_native_canvas$nativeHost.createCanvas(id >= 0 ? id : -1), 
-this.canvas = this, this.globalAlpha = 1, this.cmds = [];
+}, this._styleJSON, this.nativeId = O.createCanvas(t >= 0 ? t : -1), this.canvas = this, 
+this.globalAlpha = 1, this.cmds = [];
 }
-function liteui_native_canvas$encodePath(path) {
-return path && String.fromCharCode.apply(String, path);
+function $(t) {
+return t && String.fromCharCode.apply(String, t);
 }
-function liteui_native_canvas$encoderValue(a) {
-return String.fromCharCode(a);
+function P(t) {
+return String.fromCharCode(t);
 }
-function liteui_native_canvas$config(c) {
-if (c._styleJSON) return c._styleJSON;
-var style = c._style, buf = [ '{"' ];
-for (var v in style) buf.push(v, '":'), (v = style[v]) instanceof Object ? buf.push('"', String(v), '","') : "string" == typeof v ? buf.push('"', liteui_native_canvas$formatColor(v).replace(/["\\]/g, "\\$&"), '","') : buf.push(v, ',"');
-return buf.push(buf.pop().replace(',"', "}")), c._styleJSON = buf.join("");
+function L(t) {
+if (t._styleJSON) return t._styleJSON;
+var e = t._style, r = [ '{"' ];
+for (var n in e) r.push(n, '":'), (n = e[n]) instanceof Object ? r.push('"', String(n), '","') : "string" == typeof n ? r.push('"', j(n).replace(/["\\]/g, "\\$&"), '","') : r.push(n, ',"');
+return r.push(r.pop().replace(',"', "}")), t._styleJSON = r.join("");
 }
-function liteui_native_canvas$formatColor(v) {
-var color = v.match(/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\.\d]+))?|^#[0-9a-f]+/i);
-if (color) {
-var r = color[1];
+function j(t) {
+var e = t.match(/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\.\d]+))?|^#[0-9a-f]+/i);
+if (e) {
+var r = e[1];
 if (r) {
-for (v = (255 * (color[4] || 1) << 24 | r << 16 | color[2] << 8 | color[3]).toString(16); v.length < 8; ) v = "0" + v;
-v = "#" + v;
-} else v = v.replace(/#(?:(.)(.)(.)$)?/, "#FF$1$1$2$2$3$3").toUpperCase();
+for (t = (255 * (e[4] || 1) << 24 | r << 16 | e[2] << 8 | e[3]).toString(16); t.length < 8; ) t = "0" + t;
+t = "#" + t;
+} else t = t.replace(/#(?:(.)(.)(.)$)?/, "#FF$1$1$2$2$3$3").toUpperCase();
 } else {
-var i = liteui_native_canvas$namedColor.indexOf(v.toUpperCase());
-i >= 0 && (v = liteui_native_canvas$namedColor[i + 1]);
+var n = Y.indexOf(t.toUpperCase());
+n >= 0 && (t = Y[n + 1]);
 }
-return v;
+return t;
 }
-function liteui_native_canvas$p(c) {
-return c._path || (c._path = []);
+function B(t) {
+return t._path || (t._path = []);
 }
-function liteui_native_canvas$pi2char(a) {
-return a && (a = a % liteui_native_canvas$PIx2 || liteui_native_canvas$PIx2, 0 > a && (a += liteui_native_canvas$PIx2)), 
-a / liteui_native_canvas$PIx2 * 4095;
+function U(t) {
+return t && (t = t % F || F, 0 > t && (t += F)), t / F * 4095;
 }
-function liteui_native_canvas$CanvasGradient(type) {
-var values = [];
-this.addColorStop = function(r, color) {
-values.push(r + liteui_native_canvas$formatColor(color));
+function W(t) {
+var e = [];
+this.addColorStop = function(t, r) {
+e.push(t + j(r));
 }, this.toString = function() {
-return type + values.sort().join(",");
+return t + e.sort().join(",");
 };
 }
-function liteui_ui_list$UICard(width, height, getValues, getIndex, setStatus) {
-liteui_uibase$Widget.apply(this, [ width, height, this.prepare ]), this.getValues = getValues, 
-this.getIndex = getIndex, this.setStatus = setStatus;
+function H(t, e, r, n, i) {
+re.apply(this, [ t, e, this.prepare ]), this.getValues = r, this.getIndex = n, this.setStatus = i;
 }
-function liteui_ui_list$UIList(width, height, getValues, setStatus) {
-liteui_uibase$Widget.apply(this, [ width, height, liteui_ui_list$uiPainter ]), this.getValues = getValues, 
-this.setStatus = setStatus, this.supportScroll = !0;
+function q(t, e, r, n) {
+re.apply(this, [ t, e, V ]), this.getValues = r, this.setStatus = n, this.supportScroll = !0;
 }
-function liteui_ui_list$uiPainter() {
+function V() {
 this.prepare();
 }
-function liteui_ui_list$ListItem(list, i, width, height) {
-liteui_uibase$Widget.apply(this, [ width, height, liteui_ui_list$itemPainter, liteui_ui_list$itemEvent ]), 
-this.list = list, this.index = i;
-var tmps = list.template;
-this.rangeX = tmps[1], this.rangeY = tmps[2], tmps = tmps[0].concat();
-for (var i = tmps.length; i--; ) (tmps[i] = tmps[i].clone()).parentWidget = this;
-this.children = tmps;
+function X(t, e, r, n) {
+re.apply(this, [ r, n, z, G ]), this.list = t, this.index = e;
+var i = t.template;
+this.rangeX = i[1], this.rangeY = i[2], i = i[0].concat();
+for (var e = i.length; e--; ) (i[e] = i[e].clone()).parentWidget = this;
+this.children = i;
 }
-function liteui_ui_list$itemPainter() {
+function z() {
 this.prepare();
 }
-function liteui_ui_list$itemEvent() {
+function G() {
 this.prepare();
 }
-function liteui_ui_picker$UIPicker(width, height, options, index, callback) {
-liteui_uibase$Widget.apply(this, [ width, height, liteui_ui_picker$pickerPainter, liteui_ui_picker$pickerEvent ]), 
-this.options = options, this.offset = index, callback && (this.onchange = callback);
+function J(t, e, r, n, i) {
+re.apply(this, [ t, e, K, Z ]), this.options = r, this.offset = n, i && (this.onchange = i);
 }
-function liteui_ui_picker$pickerPainter(ctx, w, h) {
-var cellHeight = h / 3, lw = liteui_uiconfig$lineWidth;
-ctx.lineWidth = lw, ctx.fillStyle = "#000", ctx.strokeStyle = "#4cd4bc", ctx.beginPath(), 
-ctx.lineCap = "round", ctx.moveTo(lw, cellHeight), ctx.lineTo(w - lw, cellHeight), 
-ctx.moveTo(lw, 2 * cellHeight), ctx.lineTo(w - lw, 2 * cellHeight), ctx.stroke();
-var len = this.options.length, i = -2, y0 = -cellHeight - this.offset * cellHeight;
-ctx.textBaseline = "middle", ctx.textAlign = "center";
+function K(t, e, r) {
+var n = r / 3, i = le;
+t.lineWidth = i, t.fillStyle = "#000", t.strokeStyle = "#4cd4bc", t.beginPath(), 
+t.lineCap = "round", t.moveTo(i, n), t.lineTo(e - i, n), t.moveTo(i, 2 * n), t.lineTo(e - i, 2 * n), 
+t.stroke();
+var a = this.options.length, o = -2, s = -n - this.offset * n;
+t.textBaseline = "middle", t.textAlign = "center";
 do {
-if (y0 > -cellHeight) {
-if (y0 > h) break;
-var offsetRate = Math.abs(y0 - cellHeight) / h, idx = (i + len) % len;
-this.drawOption(ctx, idx, w / 2, y0 + cellHeight / 2, offsetRate);
+if (s > -n) {
+if (s > r) break;
+var u = Math.abs(s - n) / r, c = (o + a) % a;
+this.drawOption(t, c, e / 2, s + n / 2, u);
 }
-y0 += cellHeight;
-} while (i++ <= len);
+s += n;
+} while (o++ <= a);
 }
-function liteui_ui_picker$pickerEvent(type, e, sx, sy, x, y) {
-if (-2 == type) {
-var idx = this.getIndex(), ch = this.height / 3, dy = (y - this.previousY) / ch, offset = this.offset, len = this.options.length;
-offset > len - 1 || 0 > offset ? ((offset > len || -1 > offset) && (offset = (offset + len) % len), 
-dy /= 2) : dy *= 10 * Math.log(Math.abs(y - this.height / 2) / ch / 10 + 1), this.offset = offset - dy;
-var idx2 = this.getIndex();
-idx2 != idx && this.onchange(idx2, idx), this.repaint();
-} else -3 == type && (this.offset = this.getIndex(), this.repaint());
+function Z(t, e, r, n, i, a) {
+if (-2 == t) {
+var o = this.getIndex(), s = this.height / 3, u = (a - this.previousY) / s, c = this.offset, l = this.options.length;
+c > l - 1 || 0 > c ? ((c > l || -1 > c) && (c = (c + l) % l), u /= 2) : u *= 10 * Math.log(Math.abs(a - this.height / 2) / s / 10 + 1), 
+this.offset = c - u;
+var h = this.getIndex();
+h != o && this.onchange(h, o), this.repaint();
+} else -3 == t && (this.offset = this.getIndex(), this.repaint());
 }
-function liteui_ui_text$TextView(maxWidth, maxHeight, text, color, font) {
-liteui_uibase$Widget.apply(this, [ maxWidth, maxHeight, liteui_ui_text$textPainter, liteui_ui_text$textEvent ]), 
-this.text = text, this.color = color, this.font = font || "26px " + liteui_uiconfig$fontFamily, 
+function Q(t, e, r, n, i) {
+re.apply(this, [ t, e, et, tt ]), this.text = r, this.color = n, this.font = i || "26px " + ce, 
 this.patterns = [], this.colors = [], this.fonts = [];
 }
-function liteui_ui_text$textEvent() {}
-function liteui_ui_text$textPainter(ctx, width, height) {
-this.background && (ctx.fillStyle = this.background, ctx.fillRect(0, 0, width, height));
-var padding = this.padding || 0, rows = liteui_ui_text$buildTextLines(this.text, this.width - 2 * padding, this.font, this.patterns, this.fonts), textAlign = this.textAlign, lineHeight = this.lineHeight || 1.5 * this.font.replace(/.*?([\d\.]+)px.*/, "$1") | 0, len = rows.length, y = lineHeight + padding, contentHeight = rows.length * lineHeight + 2 * padding;
-if (contentHeight != height && (contentHeight > height && (this.parentWidget.supportScroll = !0), 
-this.parentWidget.supportScroll)) return void this.resize(width, contentHeight);
-for (var i = 0; len > i; i++) {
-var line = rows[i], x = padding;
-if ("center" == textAlign) {
-for (var w = 0, j = 0; j < line.length; j += 3) w += line[j + 1];
-x += (width - w) / 2;
+function tt() {}
+function et(t, e, r) {
+this.background && (t.fillStyle = this.background, t.fillRect(0, 0, e, r));
+var n = this.padding || 0, i = rt(this.text, this.width - 2 * n, this.font, this.patterns, this.fonts), a = this.textAlign, o = this.lineHeight || 1.5 * this.font.replace(/.*?([\d\.]+)px.*/, "$1") | 0, s = i.length, u = o + n, c = i.length * o + 2 * n;
+if (c != r && (c > r && (this.parentWidget.supportScroll = !0), this.parentWidget.supportScroll)) return void this.resize(e, c);
+for (var l = 0; s > l; l++) {
+var h = i[l], f = n;
+if ("center" == a) {
+for (var p = 0, v = 0; v < h.length; v += 3) p += h[v + 1];
+f += (e - p) / 2;
 }
-for (var j = 0; j < line.length; ) {
-var patternIndex = line[j++], w = line[j++], text = line[j++], font = 0 > patternIndex ? this.font : this.fonts[patternIndex], color = 0 > patternIndex ? this.color : this.colors[patternIndex];
-ctx.font = font, ctx.fillStyle = color, ctx.fillText(text, x, y), x += w;
+for (var v = 0; v < h.length; ) {
+var d = h[v++], p = h[v++], m = h[v++], g = 0 > d ? this.font : this.fonts[d], w = 0 > d ? this.color : this.colors[d];
+t.font = g, t.fillStyle = w, t.fillText(m, f, u), f += p;
 }
-y += lineHeight;
+u += o;
 }
 }
-function liteui_ui_text$buildTextLines(text, width, font, patterns, fonts) {
-for (var patterns = liteui_ui_text$matchPatterns(text, patterns), words = liteui_ui_text$_splitText(text), len = words.length, index = 0, lineWidth = 0, line = [], rows = [ line ], i = 0; len > i; i++) {
-var word = words[i], patternIndex = liteui_ui_text$getPatternIndex(patterns, index), font = 0 > patternIndex ? font : fonts[patternIndex] || font, w = liteui_ui_text$_measureTexts(word, font), lineEnd = /\n|\r\n/.test(word);
-if ((lineEnd || lineWidth + w > width) && (rows.push(line = []), lineWidth = 0), 
-!lineEnd) {
-var lastIndex = line.length - 1, last = line[lastIndex];
-line[lastIndex - 2] == patternIndex ? (line[lastIndex - 1] += w, last.push(word)) : (last && (line[lastIndex] = last.join()), 
-line.push(patternIndex, w, [ word ])), lineWidth += w;
+function rt(t, e, r, n, i) {
+for (var n = it(t, n), a = at(t), o = a.length, s = 0, u = 0, c = [], l = [ c ], h = 0; o > h; h++) {
+var f = a[h], p = nt(n, s), r = 0 > p ? r : i[p] || r, v = ot(f, r), d = /\n|\r\n/.test(f);
+if ((d || u + v > e) && (l.push(c = []), u = 0), !d) {
+var m = c.length - 1, g = c[m];
+c[m - 2] == p ? (c[m - 1] += v, g.push(f)) : (g && (c[m] = g.join()), c.push(p, v, [ f ])), 
+u += v;
 }
-index += word.length;
+s += f.length;
 }
-for (var i = rows.length - 1; i >= 0; i--) line = rows[i], line.length && line.push(line.pop().join(""));
-return rows;
+for (var h = l.length - 1; h >= 0; h--) c = l[h], c.length && c.push(c.pop().join(""));
+return l;
 }
-function liteui_ui_text$getPatternIndex(patterns, value) {
-for (var i = 0; i < patterns.length; i++) {
-for (var matchs = patterns[i], end = matchs.length - 1, start = 0, k = end >> 1; end > start; ) {
-var v = matchs[k];
-if (value > v) start = k + 1; else {
-if (!(v > value)) return i;
-end = k - 1;
+function nt(t, e) {
+for (var r = 0; r < t.length; r++) {
+for (var n = t[r], i = n.length - 1, a = 0, o = i >> 1; i > a; ) {
+var s = n[o];
+if (e > s) a = o + 1; else {
+if (!(s > e)) return r;
+i = o - 1;
 }
-k = start + end >> 1;
+o = a + i >> 1;
 }
-if (v = matchs[start], 0 == start) {
-if (value >= v) return i;
-} else if (1 & start ^ value > v) return i;
+if (s = n[a], 0 == a) {
+if (e >= s) return r;
+} else if (1 & a ^ e > s) return r;
 }
 return -1;
 }
-function liteui_ui_text$matchPatterns(text, patterns) {
-for (var result = [], i = 0; i < patterns.length; i++) {
-var matches = [], p = patterns[i], m = p.exec(text);
-if (m && matches.push(m.index, p.lastIndex - 1), p.global) for (;m = p.exec(text); ) matches.push(m.index, p.lastIndex - 1);
-result.push(matches);
+function it(t, e) {
+for (var r = [], n = 0; n < e.length; n++) {
+var i = [], a = e[n], o = a.exec(t);
+if (o && i.push(o.index, a.lastIndex - 1), a.global) for (;o = a.exec(t); ) i.push(o.index, a.lastIndex - 1);
+r.push(i);
 }
-return result;
+return r;
 }
-function liteui_ui_text$_splitText(words) {
-return words.match(/[\ud800-\udbff][\udc00-\udfff]|\r\n|[\s\S]/g);
+function at(t) {
+return t.match(/[\ud800-\udbff][\udc00-\udfff]|\r\n|[\s\S]/g);
 }
-function liteui_ui_text$_measureTexts(words, font) {
-var ctx = liteui_ui_text$getMeasureContext(font);
-return ctx.measureText(words).width;
+function ot(t, e) {
+var r = st(e);
+return r.measureText(t).width;
 }
-function liteui_ui_text$getMeasureContext(font) {
-var ctx = liteui_ui_text$measureContextMap[font];
-return ctx || (ctx = document.createElement("canvas"), ctx.width = ctx.height = 0, 
-ctx = ctx.getContext("2d"), ctx.font = font, liteui_ui_text$measureContextMap[font] = ctx), 
-ctx;
+function st(t) {
+var e = ut[t];
+return e || (e = document.createElement("canvas"), e.width = e.height = 0, e = e.getContext("2d"), 
+e.font = t, ut[t] = e), e;
 }
-function liteui_uibase$computeFps(frameStart, frameEnd) {
-if (liteui_uibase$fpsInc++, liteui_uibase$fpsBegin += frameStart, liteui_uibase$fpsEnd += frameEnd, 
-liteui_uibase$fpsInc > 20) {
-var record = [ 1e3 * liteui_uibase$fpsInc / (frameEnd - liteui_uibase$fpsStart), (liteui_uibase$fpsEnd - liteui_uibase$fpsBegin) / liteui_uibase$fpsInc, liteui_uibase$externalTime / liteui_uibase$fpsInc ].map(function(a) {
-return a.toFixed(1);
+function pt(t, e) {
+if (Nt++, Et += t, Tt += e, Nt > 20) {
+var r = [ 1e3 * Nt / (e - yt), (Tt - Et) / Nt, xt / Nt ].map(function(t) {
+return t.toFixed(1);
 }).join("	");
-liteui_uibase$fpsRecords.push(record) > 4 && liteui_uibase$fpsRecords.shift(), console.log("fps:" + record), 
-liteui_uibase$fpsStart = frameEnd, liteui_uibase$fpsInc = liteui_uibase$fpsBegin = liteui_uibase$fpsEnd = liteui_uibase$externalTime = 0;
+bt.push(r) > 4 && bt.shift(), console.log("fps:" + r), yt = e, Nt = Et = Tt = xt = 0;
 }
 }
-function liteui_uibase$useTime(t) {
-liteui_uibase$externalTime += +t;
+function vt(t) {
+xt += +t;
 }
-function liteui_uibase$resetPage(painter, action) {
-liteui_uibase$resetAction(action), liteui_uibase$resetPainter(painter);
+function dt(t, e) {
+Jt(e), gt(t);
 }
-function liteui_uibase$doRepaint() {
-var frameStart = +new Date();
-liteui_uibase$hasRepaintRequest = -1;
-var ctx = liteui_uibase$canvas.getContext("2d");
-if (liteui_uibase$painterChanged && (liteui_uibase$painterChanged = !1, ctx.clearRect(0, 0, liteui_uibase$canvas.width, liteui_uibase$canvas.height)), 
-null != liteui_uibase$canvas.nativeId) {
-liteui_uibase$depth && console.error("invalid depth status!!!"), liteui_uibase$depth++;
+function mt() {
+var t = +new Date();
+St = -1;
+var e = It.getContext("2d");
+if (_t && (_t = !1, e.clearRect(0, 0, It.width, It.height)), null != It.nativeId) {
+wt && console.error("invalid depth status!!!"), wt++;
 try {
-var alive = liteui_uibase$currentPainter(ctx);
+var r = Ct(e);
 } finally {
-liteui_uibase$canvas.commit(!0);
+It.commit(!0);
 }
-liteui_uibase$depth--;
-} else alive = liteui_uibase$currentPainter(ctx);
-alive || liteui_uibase$hasRepaintRequest > 0 ? (liteui_uibase$hasRepaintRequest = 1, 
-liteui_uibase$requestFrame(liteui_uibase$doRepaint, "anima")) : liteui_uibase$hasRepaintRequest = 0, 
-liteui_uibase$computeFps(frameStart, +new Date());
+wt--;
+} else r = Ct(e);
+r || St > 0 ? (St = 1, At(mt, "anima")) : St = 0, pt(t, +new Date());
 }
-function liteui_uibase$resetPainter(painter) {
-painter != liteui_uibase$currentPainter && (liteui_uibase$painterChanged = !0), 
-liteui_uibase$currentPainter = painter, liteui_uibase$hasRepaintRequest || liteui_uibase$requestFrame(liteui_uibase$doRepaint), 
-liteui_uibase$hasRepaintRequest = 1;
+function gt(t) {
+t != Ct && (_t = !0), Ct = t, St || At(mt), St = 1;
 }
-function liteui_uibase$initCanvas(el, action) {
-if (liteui_uibase$canvas != el) {
-liteui_uibase$canvas = el;
-for (var i = liteui_uibase$events.length; i--; ) liteui_uibase$canvas.addEventListener(liteui_uibase$events[i], liteui_uibase$eventHandler, !1);
-action && liteui_uibase$resetAction(action);
+function zt(t, e) {
+if (It != t) {
+It = t;
+for (var r = Ft.length; r--; ) It.addEventListener(Ft[r], ee, !1);
+e && Jt(e);
 }
 }
-function liteui_uibase$removeEvent(events) {
-for (var i = events.length; i--; ) liteui_uibase$canvas.removeEventListener(events[i], liteui_uibase$eventHandler, !1);
+function Gt(t) {
+for (var e = t.length; e--; ) It.removeEventListener(t[e], ee, !1);
 }
-function liteui_uibase$resetAction(action) {
-liteui_uibase$reset(!0);
-var oldEvent = liteui_uibase$onevent;
-return liteui_uibase$onevent = action, oldEvent;
+function Jt(t) {
+te(!0);
+var e = Ot;
+return Ot = t, e;
 }
-function liteui_uibase$onstart(e, x, y) {
-liteui_uibase$touchStart = new Date(), liteui_uibase$moveCount = 0, liteui_uibase$longPressTimeout && clearTimeout(liteui_uibase$longPressTimeout), 
-liteui_uibase$longPressTimeout = setTimeout(function() {
-liteui_uibase$longPressTimeout = 0, liteui_uibase$onevent(0, e, liteui_uibase$startX, liteui_uibase$startY, 0 | liteui_uibase$latestX, 0 | liteui_uibase$latestY);
-}, liteui_uiconfig$longPressTime), liteui_uibase$onevent(-1, e, liteui_uibase$startX = x, liteui_uibase$startY = y, liteui_uibase$latestX = x, liteui_uibase$latestY = y);
+function Kt(t, e, r) {
+Rt = new Date(), Lt = 0, $t && clearTimeout($t), $t = setTimeout(function() {
+$t = 0, Ot(0, t, Ut, Wt, 0 | jt, 0 | Bt);
+}, fe), Ot(-1, t, Ut = e, Wt = r, jt = e, Bt = r);
 }
-function liteui_uibase$onmove(e, x, y) {
-liteui_uibase$longPressTimeout && (Math.abs(x - liteui_uibase$startX) > liteui_uibase$moveThreshold || Math.abs(y - liteui_uibase$startY) > liteui_uibase$moveThreshold) && (liteui_uibase$longPressTimeout = clearTimeout(liteui_uibase$longPressTimeout)), 
-liteui_uibase$moveCount++, liteui_uibase$latestX = .8 * liteui_uibase$latestX + .2 * x, 
-liteui_uibase$latestY = .8 * liteui_uibase$latestY + .2 * y, liteui_uibase$onevent(-2, e, liteui_uibase$startX, liteui_uibase$startY, 0 | liteui_uibase$latestX, 0 | liteui_uibase$latestY);
+function Zt(t, e, r) {
+$t && (Math.abs(e - Ut) > Pt || Math.abs(r - Wt) > Pt) && ($t = clearTimeout($t)), 
+Lt++, jt = .8 * jt + .2 * e, Bt = .8 * Bt + .2 * r, Ot(-2, t, Ut, Wt, 0 | jt, 0 | Bt);
 }
-function liteui_uibase$onend(e, x, y) {
-function tapTiger() {
-liteui_uibase$longPressTimeout && new Date() - liteui_uibase$touchStart < liteui_uiconfig$maxTapInterval ? liteui_uibase$tapTimeout = setTimeout(tapTiger, liteui_uiconfig$maxTapInterval) : (0 > liteui_uibase$moveCount && liteui_uibase$onevent(liteui_uibase$tapCount, e, liteui_uibase$startX, liteui_uibase$startY, x, y), 
-3 == liteui_uibase$tapCount && prompt(liteui_uibase$fpsRecords.join("\n")), liteui_uibase$tapTimeout = liteui_uibase$tapCount = 0);
+function Qt(t, e, r) {
+function n() {
+$t && new Date() - Rt < he ? Mt = setTimeout(n, he) : (0 > Lt && Ot(kt, t, Ut, Wt, e, r), 
+3 == kt && prompt(bt.join("\n")), Mt = kt = 0);
 }
 try {
-liteui_uibase$longPressTimeout && (liteui_uibase$longPressTimeout = clearTimeout(liteui_uibase$longPressTimeout), 
-liteui_uibase$tapCount ? (liteui_uibase$tapCount++, clearTimeout(liteui_uibase$tapTimeout)) : liteui_uibase$tapCount = 1, 
-liteui_uibase$tapTimeout = setTimeout(tapTiger, liteui_uiconfig$maxTapInterval)), 
-liteui_uibase$onevent(-3, e, liteui_uibase$startX, liteui_uibase$startY, x, y, liteui_uibase$tapCount);
+$t && ($t = clearTimeout($t), kt ? (kt++, clearTimeout(Mt)) : kt = 1, Mt = setTimeout(n, he)), 
+Ot(-3, t, Ut, Wt, e, r, kt);
 } finally {
-liteui_uibase$reset();
+te();
 }
 }
-function liteui_uibase$reset(changeEventer) {
-liteui_uibase$longPressTimeout && (liteui_uibase$longPressTimeout = clearTimeout(liteui_uibase$longPressTimeout)), 
-changeEventer && liteui_uibase$tapTimeout && (liteui_uibase$tapTimeout = clearTimeout(liteui_uibase$tapTimeout), 
-liteui_uibase$tapCount = 0), liteui_uibase$moveCount = -1, liteui_uibase$eventSourceClientRect = null;
+function te(t) {
+$t && ($t = clearTimeout($t)), t && Mt && (Mt = clearTimeout(Mt), kt = 0), Lt = -1, 
+Yt = null;
 }
-function liteui_uibase$eventHandler(e) {
+function ee(t) {
 try {
-var start = new Date(), firstTouch = e.changedTouches && e.changedTouches[0] || e, x = firstTouch.clientX - (liteui_uibase$eventSourceClientRect || (liteui_uibase$eventSourceClientRect = e.srcElement.getBoundingClientRect())).left, y = firstTouch.clientY - liteui_uibase$eventSourceClientRect.top;
-switch (e.type) {
+var e = new Date(), r = t.changedTouches && t.changedTouches[0] || t, n = r.clientX - (Yt || (Yt = t.srcElement.getBoundingClientRect())).left, i = r.clientY - Yt.top;
+switch (t.type) {
 case "touchstart":
-var start = new Date();
-liteui_uibase$events.length > 6 && liteui_uibase$removeEvent(liteui_uibase$events.splice(4));
+var e = new Date();
+Ft.length > 6 && Gt(Ft.splice(4));
 case "mousedown":
-e.preventDefault(), 0 > liteui_uibase$moveCount && liteui_uibase$onstart(e, x, y);
+t.preventDefault(), 0 > Lt && Kt(t, n, i);
 break;
 case "mousemove":
-liteui_uibase$events.length > 6 && liteui_uibase$removeEvent(liteui_uibase$events.splice(0, 4));
+Ft.length > 6 && Gt(Ft.splice(0, 4));
 case "touchmove":
-if (0 > liteui_uibase$moveCount) break;
-liteui_uibase$onmove(e, x, y), e.preventDefault();
+if (0 > Lt) break;
+Zt(t, n, i), t.preventDefault();
 break;
 case "touchend":
 case "touchcancel":
 case "mouseout":
 case "mouseup":
-if (e.preventDefault(), 0 > liteui_uibase$moveCount) break;
-liteui_uibase$onend(e, x, y);
+if (t.preventDefault(), 0 > Lt) break;
+Qt(t, n, i);
 break;
 default:
-console.warn("unknow event:", e.type, e);
+console.warn("unknow event:", t.type, t);
 }
 } finally {
-liteui_uibase$useTime(new Date() - start);
+vt(new Date() - e);
 }
 }
-function liteui_uibase$Widget(width, height, baseDrawer, baseEvent, supportScroll) {
-this.width = width || liteui_uibase$canvas.width, this.height = height || liteui_uibase$canvas.height, 
-this.draw = baseDrawer, this.event = baseEvent, this.children = [], this.rangeX = [], 
-this.rangeY = [], this.supportScroll = supportScroll, this.x = this.y = 0, this.offsetX = this.offsetY = 0, 
-this.dirty = liteui_uibase$DIRTY_SELF;
+function re(t, e, r, n, i) {
+this.width = t || It.width, this.height = e || It.height, this.draw = r, this.event = n, 
+this.children = [], this.rangeX = [], this.rangeY = [], this.supportScroll = i, 
+this.x = this.y = 0, this.offsetX = this.offsetY = 0, this.dirty = Xt;
 }
-function liteui_uibase$prepareWidgetDraw(ctx, widget, clips, cmd, forceRedraw) {
-function vistChild(x, y, w, h) {
-cmd.push(widget, cmd = []);
-for (var i = 0, len = children.length; len > i; i++) {
-var child = children[i], childDirty = child.dirty;
-if (childDirty || forceRedraw) {
-var k = i << 1, x0 = rangeX[k] - drawOffsetX, y0 = rangeY[k] - drawOffsetY, x1 = rangeX[++k] - drawOffsetX, y1 = rangeY[k] - drawOffsetY;
-if (child.x = x0, child.y = y0, x > x1 || y > y1 || x0 > x + w || y0 > y + h) continue;
+function ne(t, e, r, n, i) {
+function A(u, c, l, h) {
+n.push(e, n = []);
+for (var v = 0, d = a.length; d > v; v++) {
+var m = a[v], g = m.dirty;
+if (g || i) {
+var w = v << 1, y = o[w] - f, b = s[w] - p, N = o[++w] - f, x = s[w] - p;
+if (m.x = y, m.y = b, u > N || c > x || y > u + l || b > c + h) continue;
 try {
-liteui_uibase$prepareWidgetDraw(ctx, child, clips, cmd, forceRedraw);
+ne(t, m, r, n, i);
 } finally {}
 }
 }
 }
-var children = widget.children, rangeX = widget.rangeX, rangeY = widget.rangeY, w = widget.width, h = widget.height, bottom = rangeY[rangeY.length - 1], parentDirty = widget.dirty, drawOffsetX = 0;
-if (parentDirty & liteui_uibase$DIRTY_SCROLL) {
-var drawOffsetY = liteui_uibase$computeOverOffset(widget.offsetY, bottom - h), dif = drawOffsetY - (widget.drawOffsetY || 0);
-widget.drawOffsetY = drawOffsetY;
-} else var drawOffsetY = widget.drawOffsetY || 0;
-if (forceRedraw) vistChild(0, 0, w, h); else if (parentDirty > liteui_uibase$DIRTY_SCROLL) forceRedraw = !0, 
-vistChild(0, 0, w, h), liteui_uibase$appendDirtyRect(widget, 0, 0, w, h, clips); else if (parentDirty == liteui_uibase$DIRTY_SCROLL) {
-forceRedraw = !0, ctx.imageSmoothingEnabled = !1;
-var absDif = Math.abs(dif), mapHeight = h - absDif, dirtyY = dif > 0 ? h - dif - 0 : 0;
-vistChild(0, dirtyY, w, absDif);
-var absXy = liteui_uibase$getAbsolute(widget, w, h), canvasHeight = ctx.canvas.height, overedY = absXy[1] - canvasHeight;
-overedY > 0 && dirtyY > 0 ? dirtyY -= overedY : absXy[1] - h < 0 && 0 == dirtyY && (dirtyY += h - absXy[1]);
-var base = liteui_uibase$appendDirtyRect(widget, 0, dirtyY, w, absDif, clips);
-if (base) {
+var a = e.children, o = e.rangeX, s = e.rangeY, u = e.width, c = e.height, l = s[s.length - 1], h = e.dirty, f = 0;
+if (h & Vt) {
+var p = oe(e.offsetY, l - c), v = p - (e.drawOffsetY || 0);
+e.drawOffsetY = p;
+} else var p = e.drawOffsetY || 0;
+if (i) A(0, 0, u, c); else if (h > Vt) i = !0, A(0, 0, u, c), ae(e, 0, 0, u, c, r); else if (h == Vt) {
+i = !0, t.imageSmoothingEnabled = !1;
+var d = Math.abs(v), m = c - d, g = v > 0 ? c - v - 0 : 0;
+A(0, g, u, d);
+var w = ie(e, u, c), y = t.canvas.height, b = w[1] - y;
+b > 0 && g > 0 ? g -= b : w[1] - c < 0 && 0 == g && (g += c - w[1]);
+var N = ae(e, 0, g, u, d, r);
+if (N) {
 {
-var x = base[0], y = base[1];
-ctx.canvas;
+var x = N[0], E = N[1];
+t.canvas;
 }
-dirtyY > 0 && (y = y - dirtyY + dif), ctx.putImageData(ctx.getImageData(x, y, w, mapHeight), x, y - dif);
+g > 0 && (E = E - g + v), t.putImageData(t.getImageData(x, E, u, m), x, E - v);
 }
-} else vistChild(0, 0, w, h);
+} else A(0, 0, u, c);
 }
-function liteui_uibase$getAbsolute(p, x, y) {
+function ie(t, e, r) {
 for (;;) {
-if (x += p.x, y += p.y, !p.parentWidget) return [ x, y ];
-p = p.parentWidget;
+if (e += t.x, r += t.y, !t.parentWidget) return [ e, r ];
+t = t.parentWidget;
 }
 }
-function liteui_uibase$appendDirtyRect(p, x, y, w, h, clips) {
+function ae(t, e, r, n, i, a) {
 for (;;) {
-if (0 > y ? (h += y, y = 0) : y + h > p.height && (h -= y + h - p.height), 0 >= h) return void console.log("crop to empty");
-if (x += p.x, y += p.y, !p.parentWidget) return clips.push(x, y, w, h), [ x, y ];
-p = p.parentWidget;
+if (0 > r ? (i += r, r = 0) : r + i > t.height && (i -= r + i - t.height), 0 >= i) return void console.log("crop to empty");
+if (e += t.x, r += t.y, !t.parentWidget) return a.push(e, r, n, i), [ e, r ];
+t = t.parentWidget;
 }
 }
-function liteui_uibase$computeOverOffset(drawOffsetY, maxOffset) {
-if (maxOffset > 0 && drawOffsetY > maxOffset || 0 > drawOffsetY) if (0 > drawOffsetY) {
-var over = -drawOffsetY;
-drawOffsetY = 50 * -Math.log(over / 50 + 1);
-} else over = drawOffsetY - maxOffset, drawOffsetY = maxOffset + 50 * Math.log(over / 50 + 1);
-return drawOffsetY || 0;
+function oe(t, e) {
+if (e > 0 && t > e || 0 > t) if (0 > t) {
+var r = -t;
+t = 50 * -Math.log(r / 50 + 1);
+} else r = t - e, t = e + 50 * Math.log(r / 50 + 1);
+return t || 0;
 }
-function liteui_uibase$dispatchWidgetEvent(type, e, sx, sy, x, y, widget) {
+function se(t, e, r, n, i, a, o) {
 try {
-if (widget.event && widget.event.apply(widget, arguments)) return !0;
-for (var children = widget.children, i = children.length; i-- > 0; ) {
-var w = children[i];
-if (w) {
-var x0 = w.x, y0 = w.y, x1 = x0 + w.width, y1 = y0 + w.height;
-if (y1 >= sy && sy >= y0 && x1 >= sx && sx >= x0 && liteui_uibase$dispatchWidgetEvent(type, e, sx - x0, sy - y0, x - x0, y - y0, w)) return !0;
+if (o.event && o.event.apply(o, arguments)) return !0;
+for (var s = o.children, u = s.length; u-- > 0; ) {
+var c = s[u];
+if (c) {
+var l = c.x, h = c.y, f = l + c.width, p = h + c.height;
+if (p >= n && n >= h && f >= r && r >= l && se(t, e, r - l, n - h, i - l, a - h, c)) return !0;
 }
 }
-widget.supportScroll && liteui_uibase$doScroll(widget, type, x, y);
+o.supportScroll && ue(o, t, i, a);
 } finally {
-widget.previousY = y;
+o.previousY = a;
 }
 }
-function liteui_uibase$doScroll(widget, type, x, y) {
-var height = widget.height, bottom = Math.max.apply(Math, widget.rangeY), maxOffset = bottom - height;
-if (-2 == type && maxOffset > 0) {
-var dy = y - widget.previousY || 0;
-widget.offsetY -= dy, dy && widget.repaint(liteui_uibase$DIRTY_SCROLL);
-} else if (-3 == type && maxOffset > 0) {
-widget.repaint(liteui_uibase$DIRTY_SELF);
-var offsetY = widget.offsetY;
-(0 > offsetY || offsetY > maxOffset) && (widget.restore && clearInterval(widget.restore), 
-widget.restore = setInterval(function() {
-0 > offsetY ? (widget.offsetY = offsetY = Math.min(.9 * offsetY + 10, 0), widget.repaint(liteui_uibase$DIRTY_SCROLL)) : offsetY > maxOffset && (widget.offsetY = offsetY = Math.max(offsetY - 10 - .1 * (offsetY - maxOffset), maxOffset), 
-widget.repaint(liteui_uibase$DIRTY_SCROLL)), offsetY >= 0 && maxOffset >= offsetY && (widget.restore = clearInterval(widget.restore), 
-widget.repaint(liteui_uibase$DIRTY_SELF));
+function ue(t, e, r, n) {
+var i = t.height, a = Math.max.apply(Math, t.rangeY), o = a - i;
+if (-2 == e && o > 0) {
+var s = n - t.previousY || 0;
+t.offsetY -= s, s && t.repaint(Vt);
+} else if (-3 == e && o > 0) {
+t.repaint(Xt);
+var u = t.offsetY;
+(0 > u || u > o) && (t.restore && clearInterval(t.restore), t.restore = setInterval(function() {
+0 > u ? (t.offsetY = u = Math.min(.9 * u + 10, 0), t.repaint(Vt)) : u > o && (t.offsetY = u = Math.max(u - 10 - .1 * (u - o), o), 
+t.repaint(Vt)), u >= 0 && o >= u && (t.restore = clearInterval(t.restore), t.repaint(Xt));
 }, 20));
 }
 }
-function liteui_xul$registor(tagName, factory) {
-liteui_xul$widgetFactoryMap[tagName] = factory;
+function me(t, e) {
+de[t] = e;
 }
-function liteui_xul$loadXUL(path, args, w, h) {
-liteui_xul$width = w, liteui_xul$height = h, liteui_xul$loadURL(path, function(xml) {
-liteui_xul$xulLoaded(xml, args);
+function ge(t, e, r, n) {
+pe = r, ve = n, Ie(t, function(t) {
+ye(t, e);
 });
 }
-function liteui_xul$checkDynamic(widget) {
-widget.prepare && widget.prepare();
-var dyn = widget._dynamic;
-if (dyn) for (var n in dyn) {
-var v = dyn[n]();
-widget[n] != v && (widget[n] = v, widget.repaint());
+function we(t) {
+t.prepare && t.prepare();
+var r = t._dynamic;
+if (r) for (var n in r) {
+var i = r[n]();
+t[n] != i && (t[n] = i, t.repaint());
 }
-for (var chs = widget.children, len = chs.length, i = 0; len > i; i++) liteui_xul$checkDynamic(chs[i]);
+for (var a = t.children, o = a.length, s = 0; o > s; s++) we(a[s]);
 }
-function liteui_xul$xulLoaded(xml, args) {
+function ye(t, e) {
 {
-var doc = new xmldom$DOMParser().parseFromString(xml), root = doc.documentElement;
-doc.model = new liteui_xul$ModelFactory(root.getAttribute("arguments"), args);
+var r = new Fe().parseFromString(t), n = r.documentElement;
+r.model = new be(n.getAttribute("arguments"), e);
 }
-root = liteui_xul$createWidget(root, liteui_xul$width, liteui_xul$height), liteui_xul$checkDynamic(root), 
-root.attach();
+n = Ae(n, pe, ve), we(n), n.attach();
 }
-function liteui_xul$ModelFactory(args, values) {
-this.idCache = {}, this.vars = args.split(/[^\w\$]+/), this.values = values, this.inc = 1;
+function be(t, e) {
+this.idCache = {}, this.vars = t.split(/[^\w\$]+/), this.values = e, this.inc = 1;
 }
-function liteui_xul$addVarable(node) {
-for (var doc = node.ownerDocument, vars = doc.model.vars, i = arguments.length; i-- > 1; ) {
-var varName = arguments[i];
-vars.indexOf(varName) < 0 && vars.push(varName);
+function Ne(t) {
+for (var e = t.ownerDocument, r = e.model.vars, n = arguments.length; n-- > 1; ) {
+var i = arguments[n];
+r.indexOf(i) < 0 && r.push(i);
 }
 }
-function liteui_xul$createExpression(node, el) {
-var doc = node.ownerDocument, model = doc.model, idCache = model.idCache;
-if (el in idCache) var inc = idCache[el]; else {
-var inc = model.inc++;
-idCache[el] = inc;
+function xe(t, e) {
+var r = t.ownerDocument, n = r.model, i = n.idCache;
+if (e in i) var a = i[e]; else {
+var a = n.inc++;
+i[e] = a;
 }
 return function() {
-return model.getCallback().apply(inc, arguments);
+return n.getCallback().apply(a, arguments);
 };
 }
-function liteui_xul$registorDynamic(node, widget) {
-for (var len = arguments.length; len-- > 2; ) {
-var p = arguments[len], v = widget[p], el = liteui_xul$parseEL(node, v);
-if (el) {
-var dyn = widget._dynamic;
-dyn || (dyn = widget._dynamic = {}), dyn[p] = el;
+function Ee(t, e) {
+for (var r = arguments.length; r-- > 2; ) {
+var n = arguments[r], i = e[n], a = Te(t, i);
+if (a) {
+var o = e._dynamic;
+o || (o = e._dynamic = {}), o[n] = a;
 }
 }
 }
-function liteui_xul$parseEL(node, v, forceEL) {
-var el = v.replace(/^\s*\$\{([\s\S]+)\}\s*$/, "$1");
-return forceEL || el != v ? liteui_xul$createExpression(node, el.replace(/\bfor\.(index|lastIndex)/g, "_for_$1")) : void 0;
+function Te(t, e, r) {
+var n = e.replace(/^\s*\$\{([\s\S]+)\}\s*$/, "$1");
+return r || n != e ? xe(t, n.replace(/\bfor\.(index|lastIndex)/g, "_for_$1")) : void 0;
 }
-function liteui_xul$createWidget(dom, width, height) {
-var factory = liteui_xul$widgetFactoryMap[dom.localName] || liteui_xul$defaultFactory;
-return factory(dom, width, height);
+function Ae(t, e, r) {
+var n = de[t.localName] || De;
+return n(t, e, r);
 }
-function liteui_xul$defaultFactory(el, width, height) {
-width = liteui_xul$computeSize(el.getAttribute("width"), width, width), height = liteui_xul$computeSize(el.getAttribute("height"), height, height);
-var bgColor = el.getAttribute("background"), widget = new liteui_uibase$Widget(width, height, bgColor);
-return liteui_xul$appendChildDefault(widget, el, width, height), widget;
+function De(t, e, r) {
+e = _e(t.getAttribute("width"), e, e), r = _e(t.getAttribute("height"), r, r);
+var n = t.getAttribute("background"), i = new re(e, r, n);
+return Ce(i, t, e, r), i;
 }
-function liteui_xul$textFactory(el, width, height) {
-width = liteui_xul$computeSize(el.getAttribute("width"), width), height = liteui_xul$computeSize(el.getAttribute("height"), height);
-var bgColor = el.getAttribute("background"), action = el.getAttribute("action"), textColor = el.getAttribute("color"), textValue = el.getAttribute("value"), widget = new liteui_ui_text$TextView(width, height, textValue, textColor), keywordPattern = el.getAttribute("keywordPattern");
-return keywordPattern && widget.addPattern(keywordPattern, el.getAttribute("keywordStyle")), 
-action && (action = liteui_xul$parseEL(el, action, !0), widget.event = function(type) {
-if (1 == type) {
-action();
-for (var p = this; p.parentWidget; ) p = p.parentWidget;
-liteui_xul$checkDynamic(p);
+function Se(t, e, r) {
+e = _e(t.getAttribute("width"), e), r = _e(t.getAttribute("height"), r);
+var n = t.getAttribute("background"), i = t.getAttribute("action"), a = t.getAttribute("color"), o = t.getAttribute("value"), s = new Q(e, r, o, a), u = t.getAttribute("keywordPattern");
+return u && s.addPattern(u, t.getAttribute("keywordStyle")), i && (i = Te(t, i, !0), 
+s.event = function(t) {
+if (1 == t) {
+i();
+for (var e = this; e.parentWidget; ) e = e.parentWidget;
+we(e);
 }
-}), widget.padding = liteui_xul$computeSize(el.getAttribute("padding"), width), 
-widget.textAlign = el.getAttribute("textAlign"), widget.background = bgColor, liteui_xul$registorDynamic(el, widget, "text", "color", "background"), 
-widget;
+}), s.padding = _e(t.getAttribute("padding"), e), s.textAlign = t.getAttribute("textAlign"), 
+s.background = n, Ee(t, s, "text", "color", "background"), s;
 }
-function liteui_xul$appendChildDefault(parentWidget, el, width, height) {
-for (var el = el.firstChild; el; ) {
-if (1 == el.nodeType) {
-var widget = liteui_xul$createWidget(el, width, height), l = liteui_xul$computeSize(el.getAttribute("left"), width, 0), t = liteui_xul$computeSize(el.getAttribute("top"), height, 0);
-parentWidget.add(widget, l && l, t);
+function Ce(t, e, r, n) {
+for (var e = e.firstChild; e; ) {
+if (1 == e.nodeType) {
+var i = Ae(e, r, n), a = _e(e.getAttribute("left"), r, 0), o = _e(e.getAttribute("top"), n, 0);
+t.add(i, a && a, o);
 }
-el = el.nextSibling;
+e = e.nextSibling;
 }
 }
-function liteui_xul$computeSize(attr, size, defualtValue) {
-return "%" == attr.slice(-1) ? size * attr.slice(0, -1) / 100 | 0 : attr ? 1 * attr | 0 : null == defualtValue ? -2 : defualtValue;
+function _e(t, e, r) {
+return "%" == t.slice(-1) ? e * t.slice(0, -1) / 100 | 0 : t ? 1 * t | 0 : null == r ? -2 : r;
 }
-function liteui_xul$loadURL(url, callback) {
-if (/^</.test(url)) return callback(url);
-var xhr = new XMLHttpRequest(), headers = {
+function Ie(t, e) {
+if (/^</.test(t)) return e(t);
+var r = new XMLHttpRequest(), n = {
 Accept: "'*/*'"
 };
-xhr.onreadystatechange = function() {
-var state = xhr.readyState;
-if (4 == state) {
-console.log("complete url:", url);
-var data = xhr.responseText, status = null != data && xhr.status, result = status ? 304 == status || status >= 200 && 300 > status : null;
-result = result ? data : "<error>" + data.replace(/</g, "&lt;") + "</error>", xhr.onreadystatechange = Function.prototype, 
-callback(result);
+r.onreadystatechange = function() {
+var n = r.readyState;
+if (4 == n) {
+console.log("complete url:", t);
+var i = r.responseText, a = null != i && r.status, o = a ? 304 == a || a >= 200 && 300 > a : null;
+o = o ? i : "<error>" + i.replace(/</g, "&lt;") + "</error>", r.onreadystatechange = Function.prototype, 
+e(o);
 }
-}, xhr.open("GET", url, !0);
-for (var n in headers) xhr.setRequestHeader(n, headers[n]);
-xhr.send("");
+}, r.open("GET", t, !0);
+for (var i in n) r.setRequestHeader(i, n[i]);
+r.send("");
 }
-function xmldom$DOMParser(options) {
-this.options = options || {
+function Fe(t) {
+this.options = t || {
 locator: {}
 };
 }
-function xmldom$buildErrorHandler(errorImpl, domBuilder, locator) {
-function build(key) {
-var fn = errorImpl[key];
-!fn && isCallback && (fn = 2 == errorImpl.length ? function(msg) {
-errorImpl(key, msg);
-} : errorImpl), errorHandler[key] = fn && function(msg) {
-fn("[xmldom " + key + "]	" + msg + xmldom$_locator(locator));
+function Oe(t, e, r) {
+function a(e) {
+var a = t[e];
+!a && i && (a = 2 == t.length ? function(r) {
+t(e, r);
+} : t), n[e] = a && function(t) {
+a("[xmldom " + e + "]	" + t + Me(r));
 } || function() {};
 }
-if (!errorImpl) {
-if (domBuilder instanceof xmldom$DOMHandler) return domBuilder;
-errorImpl = domBuilder;
+if (!t) {
+if (e instanceof Re) return e;
+t = e;
 }
-var errorHandler = {}, isCallback = errorImpl instanceof Function;
-return locator = locator || {}, build("warning"), build("error"), build("fatalError"), 
-errorHandler;
+var n = {}, i = t instanceof Function;
+return r = r || {}, a("warning"), a("error"), a("fatalError"), n;
 }
-function xmldom$DOMHandler() {
+function Re() {
 this.cdata = !1;
 }
-function xmldom$position(locator, node) {
-node.lineNumber = locator.lineNumber, node.columnNumber = locator.columnNumber;
+function ke(t, e) {
+e.lineNumber = t.lineNumber, e.columnNumber = t.columnNumber;
 }
-function xmldom$_locator(l) {
-return l ? "\n@" + (l.systemId || "") + "#[line:" + l.lineNumber + ",col:" + l.columnNumber + "]" : void 0;
+function Me(t) {
+return t ? "\n@" + (t.systemId || "") + "#[line:" + t.lineNumber + ",col:" + t.columnNumber + "]" : void 0;
 }
-function xmldom$_toString(chars, start, length) {
-return "string" == typeof chars ? chars.substr(start, length) : chars.length >= start + length || start ? new java.lang.String(chars, start, length) + "" : chars;
+function $e(t, e, r) {
+return "string" == typeof t ? t.substr(e, r) : t.length >= e + r || e ? new java.lang.String(t, e, r) + "" : t;
 }
-function xmldom$appendElement(hander, node) {
-hander.currentElement ? hander.currentElement.appendChild(node) : hander.document.appendChild(node);
+function Pe(t, e) {
+t.currentElement ? t.currentElement.appendChild(e) : t.document.appendChild(e);
 }
-function xmldom_dom$copy(src, dest) {
-for (var p in src) dest[p] = src[p];
+function je(t, e) {
+for (var r in t) e[r] = t[r];
 }
-function xmldom_dom$_extends(Class, Super) {
-function t() {}
-var pt = Class.prototype;
+function Be(t, e) {
+function i() {}
+var r = t.prototype;
 if (Object.create) {
-var ppt = Object.create(Super.prototype);
-pt.__proto__ = ppt;
+var n = Object.create(e.prototype);
+r.__proto__ = n;
 }
-pt instanceof Super || (t.prototype = Super.prototype, t = new t(), xmldom_dom$copy(pt, t), 
-Class.prototype = pt = t), pt.constructor != Class && ("function" != typeof Class && console.error("unknow Class:" + Class), 
-pt.constructor = Class);
+r instanceof e || (i.prototype = e.prototype, i = new i(), je(r, i), t.prototype = r = i), 
+r.constructor != t && ("function" != typeof t && console.error("unknow Class:" + t), 
+r.constructor = t);
 }
-function xmldom_dom$DOMException(code, message) {
-if (message instanceof Error) var error = message; else error = this, Error.call(this, xmldom_dom$ExceptionMessage[code]), 
-this.message = xmldom_dom$ExceptionMessage[code], Error.captureStackTrace && Error.captureStackTrace(this, xmldom_dom$DOMException);
-return error.code = code, message && (this.message = this.message + ": " + message), 
-error;
+function yr(t, e) {
+if (e instanceof Error) var r = e; else r = this, Error.call(this, nr[t]), this.message = nr[t], 
+Error.captureStackTrace && Error.captureStackTrace(this, yr);
+return r.code = t, e && (this.message = this.message + ": " + e), r;
 }
-function xmldom_dom$NodeList() {}
-function xmldom_dom$LiveNodeList(node, refresh) {
-this._node = node, this._refresh = refresh, xmldom_dom$_updateLiveList(this);
+function br() {}
+function Nr(t, e) {
+this._node = t, this._refresh = e, xr(this);
 }
-function xmldom_dom$_updateLiveList(list) {
-var inc = list._node._inc || list._node.ownerDocument._inc;
-if (list._inc != inc) {
-var ls = list._refresh(list._node);
-xmldom_dom$__set__(list, "length", ls.length), xmldom_dom$copy(ls, list), list._inc = inc;
-}
-}
-function xmldom_dom$NamedNodeMap() {}
-function xmldom_dom$_findNodeIndex(list, node) {
-for (var i = list.length; i--; ) if (list[i] === node) return i;
-}
-function xmldom_dom$_addNamedNode(el, list, newAttr, oldAttr) {
-if (oldAttr ? list[xmldom_dom$_findNodeIndex(list, oldAttr)] = newAttr : list[list.length++] = newAttr, 
-el) {
-newAttr.ownerElement = el;
-var doc = el.ownerDocument;
-doc && (oldAttr && xmldom_dom$_onRemoveAttribute(doc, el, oldAttr), xmldom_dom$_onAddAttribute(doc, el, newAttr));
+function xr(t) {
+var e = t._node._inc || t._node.ownerDocument._inc;
+if (t._inc != e) {
+var r = t._refresh(t._node);
+tn(t, "length", r.length), je(r, t), t._inc = e;
 }
 }
-function xmldom_dom$_removeNamedNode(el, list, attr) {
-var i = xmldom_dom$_findNodeIndex(list, attr);
-if (!(i >= 0)) throw xmldom_dom$DOMException(xmldom_dom$NOT_FOUND_ERR, new Error());
-for (var lastIndex = list.length - 1; lastIndex > i; ) list[i] = list[++i];
-if (list.length = lastIndex, el) {
-var doc = el.ownerDocument;
-doc && (xmldom_dom$_onRemoveAttribute(doc, el, attr), attr.ownerElement = null);
+function Er() {}
+function Tr(t, e) {
+for (var r = t.length; r--; ) if (t[r] === e) return r;
+}
+function Ar(t, e, r, n) {
+if (n ? e[Tr(e, n)] = r : e[e.length++] = r, t) {
+r.ownerElement = t;
+var i = t.ownerDocument;
+i && (n && Rr(i, t, n), Or(i, t, r));
 }
 }
-function xmldom_dom$DOMImplementation(features) {
-if (this._features = {}, features) for (var feature in features) this._features = features[feature];
+function Dr(t, e, r) {
+var n = Tr(e, r);
+if (!(n >= 0)) throw yr(hr, new Error());
+for (var i = e.length - 1; i > n; ) e[n] = e[++n];
+if (e.length = i, t) {
+var a = t.ownerDocument;
+a && (Rr(a, t, r), r.ownerElement = null);
 }
-function xmldom_dom$Node() {}
-function xmldom_dom$_xmlEncoder(c) {
-return "<" == c && "&lt;" || ">" == c && "&gt;" || "&" == c && "&amp;" || '"' == c && "&quot;" || "&#" + c.charCodeAt() + ";";
 }
-function xmldom_dom$_visitNode(node, callback) {
-if (callback(node)) return !0;
-if (node = node.firstChild) do if (xmldom_dom$_visitNode(node, callback)) return !0; while (node = node.nextSibling);
+function Sr(t) {
+if (this._features = {}, t) for (var e in t) this._features = t[e];
 }
-function xmldom_dom$Document() {}
-function xmldom_dom$_onAddAttribute(doc, el, newAttr) {
-doc && doc._inc++;
-var ns = newAttr.namespaceURI;
-"http://www.w3.org/2000/xmlns/" == ns && (el._nsMap[newAttr.prefix ? newAttr.localName : ""] = newAttr.value);
+function Cr() {}
+function _r(t) {
+return "<" == t && "&lt;" || ">" == t && "&gt;" || "&" == t && "&amp;" || '"' == t && "&quot;" || "&#" + t.charCodeAt() + ";";
 }
-function xmldom_dom$_onRemoveAttribute(doc, el, newAttr) {
-doc && doc._inc++;
-var ns = newAttr.namespaceURI;
-"http://www.w3.org/2000/xmlns/" == ns && delete el._nsMap[newAttr.prefix ? newAttr.localName : ""];
+function Ir(t, e) {
+if (e(t)) return !0;
+if (t = t.firstChild) do if (Ir(t, e)) return !0; while (t = t.nextSibling);
 }
-function xmldom_dom$_onUpdateChild(doc, el, newChild) {
-if (doc && doc._inc) {
-doc._inc++;
-var cs = el.childNodes;
-if (newChild) cs[cs.length++] = newChild; else {
-for (var child = el.firstChild, i = 0; child; ) cs[i++] = child, child = child.nextSibling;
-cs.length = i;
+function Fr() {}
+function Or(t, e, r) {
+t && t._inc++;
+var n = r.namespaceURI;
+"http://www.w3.org/2000/xmlns/" == n && (e._nsMap[r.prefix ? r.localName : ""] = r.value);
+}
+function Rr(t, e, r) {
+t && t._inc++;
+var i = r.namespaceURI;
+"http://www.w3.org/2000/xmlns/" == i && delete e._nsMap[r.prefix ? r.localName : ""];
+}
+function kr(t, e, r) {
+if (t && t._inc) {
+t._inc++;
+var n = e.childNodes;
+if (r) n[n.length++] = r; else {
+for (var i = e.firstChild, a = 0; i; ) n[a++] = i, i = i.nextSibling;
+n.length = a;
 }
 }
 }
-function xmldom_dom$_removeChild(parentNode, child) {
-var previous = child.previousSibling, next = child.nextSibling;
-return previous ? previous.nextSibling = next : parentNode.firstChild = next, next ? next.previousSibling = previous : parentNode.lastChild = previous, 
-xmldom_dom$_onUpdateChild(parentNode.ownerDocument, parentNode), child;
+function Mr(t, e) {
+var r = e.previousSibling, n = e.nextSibling;
+return r ? r.nextSibling = n : t.firstChild = n, n ? n.previousSibling = r : t.lastChild = r, 
+kr(t.ownerDocument, t), e;
 }
-function xmldom_dom$_insertBefore(parentNode, newChild, nextChild) {
-var cp = newChild.parentNode;
-if (cp && cp.removeChild(newChild), newChild.nodeType === xmldom_dom$DOCUMENT_FRAGMENT_NODE) {
-var newFirst = newChild.firstChild;
-if (null == newFirst) return newChild;
-var newLast = newChild.lastChild;
-} else newFirst = newLast = newChild;
-var pre = nextChild ? nextChild.previousSibling : parentNode.lastChild;
-newFirst.previousSibling = pre, newLast.nextSibling = nextChild, pre ? pre.nextSibling = newFirst : parentNode.firstChild = newFirst, 
-null == nextChild ? parentNode.lastChild = newLast : nextChild.previousSibling = newLast;
-do newFirst.parentNode = parentNode; while (newFirst !== newLast && (newFirst = newFirst.nextSibling));
-return xmldom_dom$_onUpdateChild(parentNode.ownerDocument || parentNode, parentNode), 
-newChild.nodeType == xmldom_dom$DOCUMENT_FRAGMENT_NODE && (newChild.firstChild = newChild.lastChild = null), 
-newChild;
+function $r(t, e, r) {
+var n = e.parentNode;
+if (n && n.removeChild(e), e.nodeType === tr) {
+var i = e.firstChild;
+if (null == i) return e;
+var a = e.lastChild;
+} else i = a = e;
+var o = r ? r.previousSibling : t.lastChild;
+i.previousSibling = o, a.nextSibling = r, o ? o.nextSibling = i : t.firstChild = i, 
+null == r ? t.lastChild = a : r.previousSibling = a;
+do i.parentNode = t; while (i !== a && (i = i.nextSibling));
+return kr(t.ownerDocument || t, t), e.nodeType == tr && (e.firstChild = e.lastChild = null), 
+e;
 }
-function xmldom_dom$_appendSingleChild(parentNode, newChild) {
-var cp = newChild.parentNode;
-if (cp) {
-var pre = parentNode.lastChild;
-cp.removeChild(newChild);
-var pre = parentNode.lastChild;
+function Pr(t, e) {
+var r = e.parentNode;
+if (r) {
+var n = t.lastChild;
+r.removeChild(e);
+var n = t.lastChild;
 }
-var pre = parentNode.lastChild;
-return newChild.parentNode = parentNode, newChild.previousSibling = pre, newChild.nextSibling = null, 
-pre ? pre.nextSibling = newChild : parentNode.firstChild = newChild, parentNode.lastChild = newChild, 
-xmldom_dom$_onUpdateChild(parentNode.ownerDocument, parentNode, newChild), newChild;
+var n = t.lastChild;
+return e.parentNode = t, e.previousSibling = n, e.nextSibling = null, n ? n.nextSibling = e : t.firstChild = e, 
+t.lastChild = e, kr(t.ownerDocument, t, e), e;
 }
-function xmldom_dom$Element() {
+function Lr() {
 this._nsMap = {};
 }
-function xmldom_dom$Attr() {}
-function xmldom_dom$CharacterData() {}
-function xmldom_dom$Text() {}
-function xmldom_dom$Comment() {}
-function xmldom_dom$CDATASection() {}
-function xmldom_dom$DocumentType() {}
-function xmldom_dom$Notation() {}
-function xmldom_dom$Entity() {}
-function xmldom_dom$EntityReference() {}
-function xmldom_dom$DocumentFragment() {}
-function xmldom_dom$ProcessingInstruction() {}
-function xmldom_dom$XMLSerializer() {}
-function xmldom_dom$serializeToString(node, buf, attributeSorter, isHTML) {
-switch (node.nodeType) {
-case xmldom_dom$ELEMENT_NODE:
-var attrs = node.attributes, len = attrs.length, child = node.firstChild, nodeName = node.tagName;
-isHTML = xmldom_dom$htmlns === node.namespaceURI || isHTML, buf.push("<", nodeName), 
-attributeSorter && buf.sort.apply(attrs, attributeSorter);
-for (var i = 0; len > i; i++) xmldom_dom$serializeToString(attrs.item(i), buf, attributeSorter, isHTML);
-if (child || isHTML && !/^(?:meta|link|img|br|hr|input|button)$/i.test(nodeName)) {
-if (buf.push(">"), isHTML && /^script$/i.test(nodeName)) child && buf.push(child.data); else for (;child; ) xmldom_dom$serializeToString(child, buf, attributeSorter, isHTML), 
-child = child.nextSibling;
-buf.push("</", nodeName, ">");
-} else buf.push("/>");
+function Yr() {}
+function jr() {}
+function Br() {}
+function Ur() {}
+function Wr() {}
+function Hr() {}
+function qr() {}
+function Vr() {}
+function Xr() {}
+function zr() {}
+function Gr() {}
+function Jr() {}
+function Kr(t, e, r, n) {
+switch (t.nodeType) {
+case He:
+var i = t.attributes, a = i.length, o = t.firstChild, s = t.tagName;
+n = Ue === t.namespaceURI || n, e.push("<", s), r && e.sort.apply(i, r);
+for (var u = 0; a > u; u++) Kr(i.item(u), e, r, n);
+if (o || n && !/^(?:meta|link|img|br|hr|input|button)$/i.test(s)) {
+if (e.push(">"), n && /^script$/i.test(s)) o && e.push(o.data); else for (;o; ) Kr(o, e, r, n), 
+o = o.nextSibling;
+e.push("</", s, ">");
+} else e.push("/>");
 return;
-case xmldom_dom$DOCUMENT_NODE:
-case xmldom_dom$DOCUMENT_FRAGMENT_NODE:
-for (var child = node.firstChild; child; ) xmldom_dom$serializeToString(child, buf, attributeSorter, isHTML), 
-child = child.nextSibling;
+case Ze:
+case tr:
+for (var o = t.firstChild; o; ) Kr(o, e, r, n), o = o.nextSibling;
 return;
-case xmldom_dom$ATTRIBUTE_NODE:
-return buf.push(" ", node.name, '="', node.value.replace(/[<&"]/g, xmldom_dom$_xmlEncoder), '"');
-case xmldom_dom$TEXT_NODE:
-return buf.push(node.data.replace(/[<&]/g, xmldom_dom$_xmlEncoder));
-case xmldom_dom$CDATA_SECTION_NODE:
-return buf.push("<![CDATA[", node.data, "]]>");
-case xmldom_dom$COMMENT_NODE:
-return buf.push("<!--", node.data, "-->");
-case xmldom_dom$DOCUMENT_TYPE_NODE:
-var pubid = node.publicId, sysid = node.systemId;
-if (buf.push("<!DOCTYPE ", node.name), pubid) buf.push(' PUBLIC "', pubid), sysid && "." != sysid && buf.push('" "', sysid), 
-buf.push('">'); else if (sysid && "." != sysid) buf.push(' SYSTEM "', sysid, '">'); else {
-var sub = node.internalSubset;
-sub && buf.push(" [", sub, "]"), buf.push(">");
+case qe:
+return e.push(" ", t.name, '="', t.value.replace(/[<&"]/g, _r), '"');
+case Ve:
+return e.push(t.data.replace(/[<&]/g, _r));
+case Xe:
+return e.push("<![CDATA[", t.data, "]]>");
+case Ke:
+return e.push("<!--", t.data, "-->");
+case Qe:
+var c = t.publicId, l = t.systemId;
+if (e.push("<!DOCTYPE ", t.name), c) e.push(' PUBLIC "', c), l && "." != l && e.push('" "', l), 
+e.push('">'); else if (l && "." != l) e.push(' SYSTEM "', l, '">'); else {
+var h = t.internalSubset;
+h && e.push(" [", h, "]"), e.push(">");
 }
 return;
-case xmldom_dom$PROCESSING_INSTRUCTION_NODE:
-return buf.push("<?", node.target, " ", node.data, "?>");
-case xmldom_dom$ENTITY_REFERENCE_NODE:
-return buf.push("&", node.nodeName, ";");
+case Je:
+return e.push("<?", t.target, " ", t.data, "?>");
+case ze:
+return e.push("&", t.nodeName, ";");
 default:
-buf.push("??", node.nodeName);
+e.push("??", t.nodeName);
 }
 }
-function xmldom_dom$importNode(doc, node, deep) {
-var node2;
-switch (node.nodeType) {
-case xmldom_dom$ELEMENT_NODE:
-node2 = node.cloneNode(!1), node2.ownerDocument = doc;
-case xmldom_dom$DOCUMENT_FRAGMENT_NODE:
+function Zr(t, e, r) {
+var n;
+switch (e.nodeType) {
+case He:
+n = e.cloneNode(!1), n.ownerDocument = t;
+case tr:
 break;
-case xmldom_dom$ATTRIBUTE_NODE:
-deep = !0;
+case qe:
+r = !0;
 }
-if (node2 || (node2 = node.cloneNode(!1)), node2.ownerDocument = doc, node2.parentNode = null, 
-deep) for (var child = node.firstChild; child; ) node2.appendChild(xmldom_dom$importNode(doc, child, deep)), 
-child = child.nextSibling;
-return node2;
+if (n || (n = e.cloneNode(!1)), n.ownerDocument = t, n.parentNode = null, r) for (var i = e.firstChild; i; ) n.appendChild(Zr(t, i, r)), 
+i = i.nextSibling;
+return n;
 }
-function xmldom_dom$cloneNode(doc, node, deep) {
-var node2 = new node.constructor();
-for (var n in node) {
-var v = node[n];
-"object" != typeof v && v != node2[n] && (node2[n] = v);
+function Qr(t, e, r) {
+var n = new e.constructor();
+for (var i in e) {
+var a = e[i];
+"object" != typeof a && a != n[i] && (n[i] = a);
 }
-switch (node.childNodes && (node2.childNodes = new xmldom_dom$NodeList()), node2.ownerDocument = doc, 
-node2.nodeType) {
-case xmldom_dom$ELEMENT_NODE:
-var attrs = node.attributes, attrs2 = node2.attributes = new xmldom_dom$NamedNodeMap(), len = attrs.length;
-attrs2._ownerElement = node2;
-for (var i = 0; len > i; i++) node2.setAttributeNode(xmldom_dom$cloneNode(doc, attrs.item(i), !0));
+switch (e.childNodes && (n.childNodes = new br()), n.ownerDocument = t, n.nodeType) {
+case He:
+var o = e.attributes, s = n.attributes = new Er(), u = o.length;
+s._ownerElement = n;
+for (var c = 0; u > c; c++) n.setAttributeNode(Qr(t, o.item(c), !0));
 break;
-case xmldom_dom$ATTRIBUTE_NODE:
-deep = !0;
+case qe:
+r = !0;
 }
-if (deep) for (var child = node.firstChild; child; ) node2.appendChild(xmldom_dom$cloneNode(doc, child, deep)), 
-child = child.nextSibling;
-return node2;
+if (r) for (var l = e.firstChild; l; ) n.appendChild(Qr(t, l, r)), l = l.nextSibling;
+return n;
 }
-function xmldom_dom$__set__(object, key, value) {
-object[key] = value;
+function tn(t, e, r) {
+t[e] = r;
 }
-function xmldom_dom$getTextContent(node) {
-switch (node.nodeType) {
+function en(t) {
+switch (t.nodeType) {
 case 1:
 case 11:
-var buf = [];
-for (node = node.firstChild; node; ) 7 !== node.nodeType && 8 !== node.nodeType && buf.push(xmldom_dom$getTextContent(node)), 
-node = node.nextSibling;
-return buf.join("");
+var e = [];
+for (t = t.firstChild; t; ) 7 !== t.nodeType && 8 !== t.nodeType && e.push(en(t)), 
+t = t.nextSibling;
+return e.join("");
 default:
-return node.nodeValue;
+return t.nodeValue;
 }
 }
-function xmldom_sax$XMLReader() {}
-function xmldom_sax$parse(source, defaultNSMapCopy, entityMap, domBuilder, errorHandler) {
-function fixedFromCharCode(code) {
-if (code > 65535) {
-code -= 65536;
-var surrogate1 = 55296 + (code >> 10), surrogate2 = 56320 + (1023 & code);
-return String.fromCharCode(surrogate1, surrogate2);
+function dn() {}
+function mn(t, e, r, n, i) {
+function a(t) {
+if (t > 65535) {
+t -= 65536;
+var e = 55296 + (t >> 10), r = 56320 + (1023 & t);
+return String.fromCharCode(e, r);
 }
-return String.fromCharCode(code);
+return String.fromCharCode(t);
 }
-function entityReplacer(a) {
-var k = a.slice(1, -1);
-return k in entityMap ? entityMap[k] : "#" === k.charAt(0) ? fixedFromCharCode(parseInt(k.substr(1).replace("x", "0x"))) : (errorHandler.error("entity not found:" + a), 
-a);
+function o(t) {
+var e = t.slice(1, -1);
+return e in r ? r[e] : "#" === e.charAt(0) ? a(parseInt(e.substr(1).replace("x", "0x"))) : (i.error("entity not found:" + t), 
+t);
 }
-function appendText(end) {
-if (end > start) {
-var xt = source.substring(start, end).replace(/&#?\w+;/g, entityReplacer);
-locator && position(start), domBuilder.characters(xt, 0, end - start), start = end;
+function s(e) {
+if (e > d) {
+var r = t.substring(d, e).replace(/&#?\w+;/g, o);
+f && u(d), n.characters(r, 0, e - d), d = e;
 }
 }
-function position(p, m) {
-for (;p >= lineEnd && (m = linePattern.exec(source)); ) lineStart = m.index, lineEnd = lineStart + m[0].length, 
-locator.lineNumber++;
-locator.columnNumber = p - lineStart + 1;
+function u(e, r) {
+for (;e >= l && (r = h.exec(t)); ) c = r.index, l = c + r[0].length, f.lineNumber++;
+f.columnNumber = e - c + 1;
 }
-for (var lineStart = 0, lineEnd = 0, linePattern = /.+(?:\r\n?|\n)|.*$/g, locator = domBuilder.locator, parseStack = [ {
-currentNSMap: defaultNSMapCopy
-} ], closeMap = {}, start = 0; ;) {
+for (var c = 0, l = 0, h = /.+(?:\r\n?|\n)|.*$/g, f = n.locator, p = [ {
+currentNSMap: e
+} ], v = {}, d = 0; ;) {
 try {
-var tagStart = source.indexOf("<", start);
-if (0 > tagStart) {
-if (!source.substr(start).match(/^\s*$/)) {
-var doc = domBuilder.document, text = doc.createTextNode(source.substr(start));
-doc.appendChild(text), domBuilder.currentElement = text;
+var m = t.indexOf("<", d);
+if (0 > m) {
+if (!t.substr(d).match(/^\s*$/)) {
+var g = n.document, w = g.createTextNode(t.substr(d));
+g.appendChild(w), n.currentElement = w;
 }
 return;
 }
-switch (tagStart > start && appendText(tagStart), source.charAt(tagStart + 1)) {
+switch (m > d && s(m), t.charAt(m + 1)) {
 case "/":
-var end = source.indexOf(">", tagStart + 3), tagName = source.substring(tagStart + 2, end), config = parseStack.pop(), localNSMap = config.localNSMap;
-if (config.tagName != tagName && errorHandler.fatalError("end tag name: " + tagName + " is not match the current start tagName:" + config.tagName), 
-domBuilder.endElement(config.uri, config.localName, tagName), localNSMap) for (var prefix in localNSMap) domBuilder.endPrefixMapping(prefix);
-end++;
+var y = t.indexOf(">", m + 3), b = t.substring(m + 2, y), N = p.pop(), x = N.localNSMap;
+if (N.tagName != b && i.fatalError("end tag name: " + b + " is not match the current start tagName:" + N.tagName), 
+n.endElement(N.uri, N.localName, b), x) for (var E in x) n.endPrefixMapping(E);
+y++;
 break;
 case "?":
-locator && position(tagStart), end = xmldom_sax$parseInstruction(source, tagStart, domBuilder);
+f && u(m), y = Tn(t, m, n);
 break;
 case "!":
-locator && position(tagStart), end = xmldom_sax$parseDCC(source, tagStart, domBuilder, errorHandler);
+f && u(m), y = En(t, m, n, i);
 break;
 default:
-locator && position(tagStart);
-var el = new xmldom_sax$ElementAttributes(), end = xmldom_sax$parseElementStartPart(source, tagStart, el, entityReplacer, errorHandler), len = el.length;
-if (locator) {
-if (len) for (var i = 0; len > i; i++) {
-var a = el[i];
-position(a.offset), a.offset = xmldom_sax$copyLocator(locator, {});
+f && u(m);
+var T = new An(), y = wn(t, m, T, o, i), A = T.length;
+if (f) {
+if (A) for (var D = 0; A > D; D++) {
+var S = T[D];
+u(S.offset), S.offset = gn(f, {});
 }
-position(end);
+u(y);
 }
-!el.closed && xmldom_sax$fixSelfClosed(source, end, el.tagName, closeMap) && (el.closed = !0, 
-entityMap.nbsp || errorHandler.warning("unclosed xml attribute")), xmldom_sax$appendElement(el, domBuilder, parseStack), 
-"http://www.w3.org/1999/xhtml" !== el.uri || el.closed ? end++ : end = xmldom_sax$parseHtmlSpecialContent(source, end, el.tagName, entityReplacer, domBuilder);
+!T.closed && Nn(t, y, T.tagName, v) && (T.closed = !0, r.nbsp || i.warning("unclosed xml attribute")), 
+yn(T, n, p), "http://www.w3.org/1999/xhtml" !== T.uri || T.closed ? y++ : y = bn(t, y, T.tagName, o, n);
 }
-} catch (e) {
-errorHandler.error("element parse error: " + e), end = -1;
+} catch (C) {
+i.error("element parse error: " + C), y = -1;
 }
-end > start ? start = end : appendText(Math.max(tagStart, start) + 1);
+y > d ? d = y : s(Math.max(m, d) + 1);
 }
 }
-function xmldom_sax$copyLocator(f, t) {
-return t.lineNumber = f.lineNumber, t.columnNumber = f.columnNumber, t;
+function gn(t, e) {
+return e.lineNumber = t.lineNumber, e.columnNumber = t.columnNumber, e;
 }
-function xmldom_sax$parseElementStartPart(source, start, el, entityReplacer, errorHandler) {
-for (var attrName, value, p = ++start, s = xmldom_sax$S_TAG; ;) {
-var c = source.charAt(p);
+function wn(t, e, r, n, i) {
+for (var a, o, s = ++e, u = sn; ;) {
+var c = t.charAt(s);
 switch (c) {
 case "=":
-if (s === xmldom_sax$S_ATTR) attrName = source.slice(start, p), s = xmldom_sax$S_EQ; else {
-if (s !== xmldom_sax$S_ATTR_S) throw new Error("attribute equal must after attrName");
-s = xmldom_sax$S_EQ;
+if (u === un) a = t.slice(e, s), u = ln; else {
+if (u !== cn) throw new Error("attribute equal must after attrName");
+u = ln;
 }
 break;
 case "'":
 case '"':
-if (s === xmldom_sax$S_EQ) {
-if (start = p + 1, p = source.indexOf(c, start), !(p > 0)) throw new Error("attribute value no end '" + c + "' match");
-value = source.slice(start, p).replace(/&#?\w+;/g, entityReplacer), el.add(attrName, value, start - 1), 
-s = xmldom_sax$S_E;
+if (u === ln) {
+if (e = s + 1, s = t.indexOf(c, e), !(s > 0)) throw new Error("attribute value no end '" + c + "' match");
+o = t.slice(e, s).replace(/&#?\w+;/g, n), r.add(a, o, e - 1), u = fn;
 } else {
-if (s != xmldom_sax$S_V) throw new Error('attribute value must after "="');
-value = source.slice(start, p).replace(/&#?\w+;/g, entityReplacer), el.add(attrName, value, start), 
-errorHandler.warning('attribute "' + attrName + '" missed start quot(' + c + ")!!"), 
-start = p + 1, s = xmldom_sax$S_E;
+if (u != hn) throw new Error('attribute value must after "="');
+o = t.slice(e, s).replace(/&#?\w+;/g, n), r.add(a, o, e), i.warning('attribute "' + a + '" missed start quot(' + c + ")!!"), 
+e = s + 1, u = fn;
 }
 break;
 case "/":
-switch (s) {
-case xmldom_sax$S_TAG:
-el.setTagName(source.slice(start, p));
-case xmldom_sax$S_E:
-case xmldom_sax$S_S:
-case xmldom_sax$S_C:
-s = xmldom_sax$S_C, el.closed = !0;
-case xmldom_sax$S_V:
-case xmldom_sax$S_ATTR:
-case xmldom_sax$S_ATTR_S:
+switch (u) {
+case sn:
+r.setTagName(t.slice(e, s));
+case fn:
+case pn:
+case vn:
+u = vn, r.closed = !0;
+case hn:
+case un:
+case cn:
 break;
 default:
 throw new Error("attribute invalid close char('/')");
 }
 break;
 case "":
-errorHandler.error("unexpected end of input");
+i.error("unexpected end of input");
 case ">":
-switch (s) {
-case xmldom_sax$S_TAG:
-el.setTagName(source.slice(start, p));
-case xmldom_sax$S_E:
-case xmldom_sax$S_S:
-case xmldom_sax$S_C:
+switch (u) {
+case sn:
+r.setTagName(t.slice(e, s));
+case fn:
+case pn:
+case vn:
 break;
-case xmldom_sax$S_V:
-case xmldom_sax$S_ATTR:
-value = source.slice(start, p), "/" === value.slice(-1) && (el.closed = !0, value = value.slice(0, -1));
-case xmldom_sax$S_ATTR_S:
-s === xmldom_sax$S_ATTR_S && (value = attrName), s == xmldom_sax$S_V ? (errorHandler.warning('attribute "' + value + '" missed quot(")!!'), 
-el.add(attrName, value.replace(/&#?\w+;/g, entityReplacer), start)) : (errorHandler.warning('attribute "' + value + '" missed value!! "' + value + '" instead!!'), 
-el.add(value, value, start));
+case hn:
+case un:
+o = t.slice(e, s), "/" === o.slice(-1) && (r.closed = !0, o = o.slice(0, -1));
+case cn:
+u === cn && (o = a), u == hn ? (i.warning('attribute "' + o + '" missed quot(")!!'), 
+r.add(a, o.replace(/&#?\w+;/g, n), e)) : (i.warning('attribute "' + o + '" missed value!! "' + o + '" instead!!'), 
+r.add(o, o, e));
 break;
-case xmldom_sax$S_EQ:
+case ln:
 throw new Error("attribute value missed!!");
 }
-return p;
+return s;
 case "":
 c = " ";
 default:
-if (" " >= c) switch (s) {
-case xmldom_sax$S_TAG:
-el.setTagName(source.slice(start, p)), s = xmldom_sax$S_S;
+if (" " >= c) switch (u) {
+case sn:
+r.setTagName(t.slice(e, s)), u = pn;
 break;
-case xmldom_sax$S_ATTR:
-attrName = source.slice(start, p), s = xmldom_sax$S_ATTR_S;
+case un:
+a = t.slice(e, s), u = cn;
 break;
-case xmldom_sax$S_V:
-var value = source.slice(start, p).replace(/&#?\w+;/g, entityReplacer);
-errorHandler.warning('attribute "' + value + '" missed quot(")!!'), el.add(attrName, value, start);
-case xmldom_sax$S_E:
-s = xmldom_sax$S_S;
-} else switch (s) {
-case xmldom_sax$S_ATTR_S:
-errorHandler.warning('attribute "' + attrName + '" missed value!! "' + attrName + '" instead!!'), 
-el.add(attrName, attrName, start), start = p, s = xmldom_sax$S_ATTR;
+case hn:
+var o = t.slice(e, s).replace(/&#?\w+;/g, n);
+i.warning('attribute "' + o + '" missed quot(")!!'), r.add(a, o, e);
+case fn:
+u = pn;
+} else switch (u) {
+case cn:
+i.warning('attribute "' + a + '" missed value!! "' + a + '" instead!!'), r.add(a, a, e), 
+e = s, u = un;
 break;
-case xmldom_sax$S_E:
-errorHandler.warning('attribute space is required"' + attrName + '"!!');
-case xmldom_sax$S_S:
-s = xmldom_sax$S_ATTR, start = p;
+case fn:
+i.warning('attribute space is required"' + a + '"!!');
+case pn:
+u = un, e = s;
 break;
-case xmldom_sax$S_EQ:
-s = xmldom_sax$S_V, start = p;
+case ln:
+u = hn, e = s;
 break;
-case xmldom_sax$S_C:
+case vn:
 throw new Error("elements closed character '/' and '>' must be connected to");
 }
 }
-p++;
+s++;
 }
 }
-function xmldom_sax$appendElement(el, domBuilder, parseStack) {
-for (var tagName = el.tagName, localNSMap = null, currentNSMap = parseStack[parseStack.length - 1].currentNSMap, i = el.length; i--; ) {
-var a = el[i], qName = a.qName, value = a.value, nsp = qName.indexOf(":");
-if (nsp > 0) var prefix = a.prefix = qName.slice(0, nsp), localName = qName.slice(nsp + 1), nsPrefix = "xmlns" === prefix && localName; else localName = qName, 
-prefix = null, nsPrefix = "xmlns" === qName && "";
-a.localName = localName, nsPrefix !== !1 && (null == localNSMap && (localNSMap = {}, 
-xmldom_sax$_copy(currentNSMap, currentNSMap = {})), currentNSMap[nsPrefix] = localNSMap[nsPrefix] = value, 
-a.uri = "http://www.w3.org/2000/xmlns/", domBuilder.startPrefixMapping(nsPrefix, value));
+function yn(t, e, r) {
+for (var n = t.tagName, i = null, a = r[r.length - 1].currentNSMap, o = t.length; o--; ) {
+var s = t[o], u = s.qName, c = s.value, l = u.indexOf(":");
+if (l > 0) var h = s.prefix = u.slice(0, l), f = u.slice(l + 1), p = "xmlns" === h && f; else f = u, 
+h = null, p = "xmlns" === u && "";
+s.localName = f, p !== !1 && (null == i && (i = {}, xn(a, a = {})), a[p] = i[p] = c, 
+s.uri = "http://www.w3.org/2000/xmlns/", e.startPrefixMapping(p, c));
 }
-for (var i = el.length; i--; ) {
-a = el[i];
-var prefix = a.prefix;
-prefix && ("xml" === prefix && (a.uri = "http://www.w3.org/XML/1998/namespace"), 
-"xmlns" !== prefix && (a.uri = currentNSMap[prefix]));
+for (var o = t.length; o--; ) {
+s = t[o];
+var h = s.prefix;
+h && ("xml" === h && (s.uri = "http://www.w3.org/XML/1998/namespace"), "xmlns" !== h && (s.uri = a[h]));
 }
-var nsp = tagName.indexOf(":");
-nsp > 0 ? (prefix = el.prefix = tagName.slice(0, nsp), localName = el.localName = tagName.slice(nsp + 1)) : (prefix = null, 
-localName = el.localName = tagName);
-var ns = el.uri = currentNSMap[prefix || ""];
-if (domBuilder.startElement(ns, localName, tagName, el), el.closed) {
-if (domBuilder.endElement(ns, localName, tagName), localNSMap) for (prefix in localNSMap) domBuilder.endPrefixMapping(prefix);
-} else el.currentNSMap = currentNSMap, el.localNSMap = localNSMap, parseStack.push(el);
+var l = n.indexOf(":");
+l > 0 ? (h = t.prefix = n.slice(0, l), f = t.localName = n.slice(l + 1)) : (h = null, 
+f = t.localName = n);
+var v = t.uri = a[h || ""];
+if (e.startElement(v, f, n, t), t.closed) {
+if (e.endElement(v, f, n), i) for (h in i) e.endPrefixMapping(h);
+} else t.currentNSMap = a, t.localNSMap = i, r.push(t);
 }
-function xmldom_sax$parseHtmlSpecialContent(source, elStartEnd, tagName, entityReplacer, domBuilder) {
-if (/^(?:script|textarea)$/i.test(tagName)) {
-var elEndStart = source.indexOf("</" + tagName + ">", elStartEnd), text = source.substring(elStartEnd + 1, elEndStart);
-if (/[&<]/.test(text)) return /^script$/i.test(tagName) ? (domBuilder.characters(text, 0, text.length), 
-elEndStart) : (text = text.replace(/&#?\w+;/g, entityReplacer), domBuilder.characters(text, 0, text.length), 
-elEndStart);
+function bn(t, e, r, n, i) {
+if (/^(?:script|textarea)$/i.test(r)) {
+var a = t.indexOf("</" + r + ">", e), o = t.substring(e + 1, a);
+if (/[&<]/.test(o)) return /^script$/i.test(r) ? (i.characters(o, 0, o.length), 
+a) : (o = o.replace(/&#?\w+;/g, n), i.characters(o, 0, o.length), a);
 }
-return elStartEnd + 1;
+return e + 1;
 }
-function xmldom_sax$fixSelfClosed(source, elStartEnd, tagName, closeMap) {
-var pos = closeMap[tagName];
-return null == pos && (pos = closeMap[tagName] = source.lastIndexOf("</" + tagName + ">")), 
-elStartEnd > pos;
+function Nn(t, e, r, n) {
+var i = n[r];
+return null == i && (i = n[r] = t.lastIndexOf("</" + r + ">")), e > i;
 }
-function xmldom_sax$_copy(source, target) {
-for (var n in source) target[n] = source[n];
+function xn(t, e) {
+for (var r in t) e[r] = t[r];
 }
-function xmldom_sax$parseDCC(source, start, domBuilder, errorHandler) {
-var next = source.charAt(start + 2);
-switch (next) {
+function En(t, e, r, n) {
+var i = t.charAt(e + 2);
+switch (i) {
 case "-":
-if ("-" === source.charAt(start + 3)) {
-var end = source.indexOf("-->", start + 4);
-return end > start ? (domBuilder.comment(source, start + 4, end - start - 4), end + 3) : (errorHandler.error("Unclosed comment"), 
+if ("-" === t.charAt(e + 3)) {
+var a = t.indexOf("-->", e + 4);
+return a > e ? (r.comment(t, e + 4, a - e - 4), a + 3) : (n.error("Unclosed comment"), 
 -1);
 }
 return -1;
 default:
-if ("CDATA[" == source.substr(start + 3, 6)) {
-var end = source.indexOf("]]>", start + 9);
-return domBuilder.startCDATA(), domBuilder.characters(source, start + 9, end - start - 9), 
-domBuilder.endCDATA(), end + 3;
+if ("CDATA[" == t.substr(e + 3, 6)) {
+var a = t.indexOf("]]>", e + 9);
+return r.startCDATA(), r.characters(t, e + 9, a - e - 9), r.endCDATA(), a + 3;
 }
-var matchs = xmldom_sax$split(source, start), len = matchs.length;
-if (len > 1 && /!doctype/i.test(matchs[0][0])) {
-var name = matchs[1][0], pubid = len > 3 && /^public$/i.test(matchs[2][0]) && matchs[3][0], sysid = len > 4 && matchs[4][0], lastMatch = matchs[len - 1];
-return domBuilder.startDTD(name, pubid && pubid.replace(/^(['"])(.*?)\1$/, "$2"), sysid && sysid.replace(/^(['"])(.*?)\1$/, "$2")), 
-domBuilder.endDTD(), lastMatch.index + lastMatch[0].length;
+var o = Sn(t, e), s = o.length;
+if (s > 1 && /!doctype/i.test(o[0][0])) {
+var u = o[1][0], c = s > 3 && /^public$/i.test(o[2][0]) && o[3][0], l = s > 4 && o[4][0], h = o[s - 1];
+return r.startDTD(u, c && c.replace(/^(['"])(.*?)\1$/, "$2"), l && l.replace(/^(['"])(.*?)\1$/, "$2")), 
+r.endDTD(), h.index + h[0].length;
 }
 }
 return -1;
 }
-function xmldom_sax$parseInstruction(source, start, domBuilder) {
-var end = source.indexOf("?>", start);
-if (end) {
-var match = source.substring(start, end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);
-if (match) {
+function Tn(t, e, r) {
+var n = t.indexOf("?>", e);
+if (n) {
+var i = t.substring(e, n).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);
+if (i) {
 {
-match[0].length;
+i[0].length;
 }
-return domBuilder.processingInstruction(match[1], match[2]), end + 2;
-}
-return -1;
+return r.processingInstruction(i[1], i[2]), n + 2;
 }
 return -1;
 }
-function xmldom_sax$ElementAttributes() {}
-function xmldom_sax$_set_proto_(thiz, parent) {
-return thiz.__proto__ = parent, thiz;
+return -1;
 }
-function xmldom_sax$split(source, start) {
-var match, buf = [], reg = /'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;
-for (reg.lastIndex = start, reg.exec(source); match = reg.exec(source); ) if (buf.push(match), 
-match[1]) return buf;
+function An() {}
+function Dn(t, e) {
+return t.__proto__ = e, t;
 }
-var liteui_liteui$height, liteui_liteui$width, example_greek_alphabet$alphaBeta = [ "Αα 阿尔法 Alpha", "Ββ 贝塔 Beta", "Γγ 伽玛 Gamma", "Δδ 德尔塔 Delta", "Εε 艾普西龙 Epsilon", "Ζζ 捷塔 Zeta", "Ζη 依塔 Eta", "Θθ 西塔 Theta", "Ιι 艾欧塔 Iota", "Κκ 喀帕 Kappa", "Λλ 拉姆达 Lambda", "Μμ 缪 Mu", "Νν 拗 Nu", "Ξξ 克西 Xi", "Οο 欧麦克轮 Omicron", "Ππ 派 Pi", "Ρρ 柔 Rho", "Σσ 西格玛 Sigma", "Ττ 套 Tau", "Υυ 宇普西龙 Upsilon", "Φφ fai Phi", "Χχ 器 Chi", "Ψψ 普赛 Psi", "Ωω 欧米伽 Omega" ], example_greek_alphabet$content = [ "Αα:", "A代表:", "α代表:", "	几何:", "		三角形里第一个角，在 边A的对面", "		一元二次方程里的其中一个根（β代表另一个）", "	统计:", "			统计学上的假阳性率", "			一个结果的显著性差异	", "	物理:", "		角加速度", "		双极性晶体管中集极电流与射极电流的比例", "		物理学上的精细结构常数", "		一粒α粒子（He2+）", "	热力学:", "		热胀冷缩的系数", "		热扩散率", "	天文:", "		天文测量学的赤经", "		一个星座内最亮的一个星，如：半人马座α（次亮为β，以此类推）。", "	化学:", "		α碳原子为与有机物中与官能团相连的第一个碳原子（第二个为β碳原子，以此类推），如氨基酸中与羰基中的碳相连的碳原子即为α碳原子。", "		解离度，指电解质达到解离平衡时，已解离的分子数和原有分子数之比。用希腊字母α来表示。", "	金融:", "		牺牲率的倒数", "	其他:", "		飞机的攻角", "Ββ:", "Β代表:", "	概率:", "		贝塔函数", "β代表:", "	几何:", "		三角形里的第二个角，在 边B的对面", "	代数:", "		一元二次方程里的其中一个根（α代表另一个）", "	概率:", "		统计学上的假阴性率", "	物理:", "		双极性晶体管中集极电流与基极电流的比例", "		β粒子（e-）", "		声强", "		速度除以狭义相对论上的光速", "	金融:", "		金融数学上的Beta系数（资产的不可分发率）", "	天文:", "		天文测量学上的黄道座标系统", "	其他:", "		飞机的侧滑角", "		脑或认知科学里的 beta脑电波（β-脑波）", "Γγ:", "Γ代表:", "	物理:", "		传输或电讯线路的反射系数", "		波导的光学模式的限制因子", "	数学:", "		伽玛函数（产生阶乘的函数）", "		模群", "		伽玛分布（以Γ函数定义的连续机率分布）", "		第二种的克氏符号", "		图中与一顶点中有边相连的顶点", "γ代表:", "	物理:", "		结构工程中负荷与材质的安全系数", "		物质的比重量", "	数学:", "		下不完全Γ函数", "		三角形里第三个角，在 边C的对面", "		数学上的欧拉-马歇罗尼常数", "	物理:", "		伽马射线和光子", "		热力学上的绝热指数", "		狭义相对论上的劳仑兹因子", "		阻尼系数（kg/s）", "Δδ:", "Δ代表:", "	数学:", "		有限差分", "		差分算子", "		对称差", "		拉普拉斯算子", "		一元二次方程的判别式；;b²-4ac", "	几何:", "		一条圆形曲线的圆心角", "		反矩阵的行列式", "		图中各顶点度数的最小值", "		给定变量的变化，如 ∆v 代表速度的变化", "	金融:", "		金融数学上的价格敏感度", "	天文:", "		以天文单位作单位，与地球的距离", "	化学:", "		化学式的热量", "δ代表:", "	数学:", "		变分法的一个变分", "		克罗内克函数", "		斯科罗霍德积分", "		图中最小的角度", "	金融:", "		金融数学上的复利", "		狄拉克δ函数", "	天文:", "		天文测量学上的赤纬", "		特纳函数（Turner Function）", "		光程差", "Εε:", "ε代表:", "	数学:", "		在统计学和机率论中的期望值", "		在极限中代表一个很小的正数", "		回归分析中一个随机的错误", "		集合论中最大的序数：ε，ε^ε，ε^ε^ε，……", "		列维-奇维塔符号", "		在集合中，属于一集合的元素的符号∈是由 ε 演变而来的。", "	计算机:", "		在计算机科学中的空串", "	物理:", "		电动势", "		在电磁学中的介电质电容率", "		发射率", "		在连续介质力学中的形变", "		电容率", "		力学中的应变", "	天文:", "		在天文测量学中，地球的转轴倾角", "	金融:", "		在经济学中的弹性", "	化学:", "		在化学中，发色团的莫耳吸光度", "Ϝϝ:", "Ϝ代表:", "	数学:", "		有时用作表示双伽玛函数，但通常被拉丁字母 F（差不多一样）替代。", "Ζζ:", "ζ代表:", "	数学:", "		在数学中的黎曼ζ函数和其他的ζ函数", "	物理:", "		聚合物力学的黏性系数", "		阻尼比", "		流体力学中的涡量", "Ζη:", "η代表:", "	物理:", "		指自由空间的本质阻抗", "		折射率", "		介子的一种", "		黏度", "		物理学中的效率", "		在相对论中的闵考斯基时空", "		通信系统里的杂音", "	概率统计:", "		在统计学中的部分回归系数", "		统计学中的效率", "	金融:", "		在经济学中的弹性", "	气象:", "		气象学中的绝对涡量，指将相对涡量与地球转动造成的科氏力一并考虑的涡量。", "Θθ:", "Θ代表:", "	数学:", "		指非零的序数", "	金融:", "		金融数学中已过的时间的敏感度", "θ代表:", "	数学:", "		Θ函数", "		切比雪夫函数", "	几何:", "		在几何学中的角", "		在球坐标系或圆柱坐标系中，x轴与xy平面的角", "	热力学:", "		在热力学中的位温", "	其他:", "		工程学以θ代表平均故障间隔", "		土壤含水量", "		德拜温度", "Ιι:", "ι代表:", "	计算机:", "		APL语言中的指标生成函数", "Κκ:", "κ代表:", "	物理:", "		壁面紊流", "	几何:", "		曲率", "		连通图", "		Kappa曲线", "	数学:", "		矩阵条件数，指数量在数值计算中的容易程度的衡量。", "	物理:", "		介电常数( ε / ε0)", "		热导率（亦常使用小写拉丁字母 k）", "		弹簧的劲度系数（亦常使用小写拉丁字母 k）", "		绝热指数（亦常用 γ）", "Λλ:", "Λ代表:", "	数学:", "		线性代数中特征矢量的对角矩阵", "		冯·曼戈尔特函数", "		公理系统内一个逻辑公理", "	天文:", "		宇宙学常数", "	物理:", "		Λ粒子，一种重子", "		电磁学中的磁导", "λ代表:", "	物理:", "		波长，一固定的频率里，离平衡位置的位移与时间皆相同的两个质点之间的最短距离。", "		聚变的潜热", "	数学:", "		指数衰减", "		刘维尔函数", "		卡迈克尔函数", "		等于一微升（1 µL）或 一立方毫米（1 mm³）【1 微升 = 1 立方毫米】", "	计算机:", "		λ演算", "		计算机科学中的空字符串", "	概率统计:", "		卜瓦松分布的一个参数", "		矩阵的特征值", "		等候理论的到达率", "		指数分布的一个参数", "		失效率", "		平均数", "		勒贝格可测集的勒贝格测度，等于这个集合通常意义的体积。", "	金融:", "		拉格朗日乘数，也应用于经济学的影子价格", "		经度", "	天文:", "		黄经，为黄道座标系统中用来确定天体在天球上位置的一个座标值。", "	其他:", "		线密度", "Μμ:", "μ代表:", "	数学:", "		数论中的莫比乌斯函数", "		表示模的环表示", "	概率统计:", "		概率论和统计学中总体的平均数或期望值", "		测度论中的一个测度", "		等候理论中的服务效率", "	物理:", "		物理学中的动摩擦因数", "		物理学中的黏度", "		电磁学中的磁导率", "		μ子", "		约化质量", "		凝聚态物理学中的化学势", "	其他:", "		微, 一个国际单位制词头，表示 10-6（百万分之一）", "		药理学中，使得与其结合的脑内啡有最高的亲和势的受体。", "Νν:", "ν代表:", "	物理:", "		物理学中的频率（以赫兹(Hz) 为单位）", "		材料科学中的泊松比", "		中微子", "		液体的kinematic viscosity（动黏滞率，动黏度；运动粘度；运动粘性）", "	化学:", "		化学计量系数", "	数学:", "		数学中的零空间", "Ξξ:", "Ξ代表:", "	物理:", "		统计力学中的巨正则系综", "		一类重子", "ξ代表:", "	概率统计:", "		概率论中的一个随机变量", "	物理:", "		相干长度", "		阻尼比", "	化学:", "		化学反应的程度", "Οο:", "Ο代表:", "Ππ:", "Π代表:", "	数学:", "		数学中用以表示乘积的符号", "	几何:", "		几何学中一个平面", "π代表:", "	几何:", "		圆周率，为圆的周长与直径的比值", "	数学:", "		数论中的素数计数函数", "	金融:", "		微观经济学和博弈论中的利润", "		宏观经济学中的通货膨胀率，表示为与时间有关的常数", "	概率统计:", "		马尔科夫链的状态分布", "	化学:", "		化学中的一种共价键(π键)", "	物理:", "		粒子物理学中的π介子", "		电子学中，一种小信号模型又被称为混合π模型", "ϖ代表:π一种变体) ：", "	天文:", "		流体力学中的波浪的角频率（角频率常用ω表示，但易与涡度的符号混淆）", "		天体力学中的近心点经度", "		宇宙学中的同移距离", "Ρρ:", "ρ代表:", "	物理:", "		密度", "		电阻率", "	数学:", "		矩阵的秩", "	几何:", "		极坐标系，柱坐标系和球坐标系中的半径", "	概率统计:", "		统计学中的相关系数", "	金融:", "		金融数学中的利率敏感度", "	计算机:", "		APL语言中的变形运算符", "Σσ:", "Σ代表:", "	数学:", "		求和算子", "		协方差矩阵", "	计算机:", "		形式语言中的终结符号的集合", "σ代表:", "	物理:", "		黑体辐射的斯特藩-玻尔兹曼常数", "		力学中的应力", "		电导率（电阻率的倒数）", "		面积密度", "	数学:", "		数论中的一类除数函数", "		解析数论中复变量的实部", "		群论中的一个置换", "		关系代数中的选择算子", "	概率统计:", "		概率论，统计中一个分布的标准差", "		不确定性", "	化学:", "		化学中的一种共价键 (σ键)", "Ττ:", "τ代表:", "	概率统计:", "		一个时间区间", "		指数衰减的量的平均寿命", "	物理:", "		力学中的力矩", "		τ子，粒子物理学中的一种基本粒子", "		自发发射过程的寿命", "		RC电路的时间常数", "		相对论中的原时", "		连续介质力学中的剪应力", "	几何:", "		黄金分区率0.618…… (尽管 φ 更常用)", "		拓扑学中一个指定的拓扑", "		圆周率的2倍（2π），即圆的周长与半径之比。", "	数学:", "		数论中的拉马努金τ函数", "		表示论中的缠结算子", "		高欧拉商数的除数个数（OEIS中的数列A000005）", "		类型论中的类型变量，如简单类型λ演算", "	天文:", "		天文学中，透明度的衡量，或者说，有多少阳光不能穿透大气。", "	化学:", "		Tau 蛋白，一种与微管结合的蛋白", "Υυ:", "Υ代表:", "	物理:", "		Υ介子，一种粒子", "Φφ:", "Φ代表:", "	物理:", "		逸出功，是指使一个电子立即从固体表面逸出，所需提供的最小能量。", "		磁通量", "	概率统计:", "		正态分布的累积分布函数", "	几何:", "		黄金分区率的倒数，即 1/φ", "	化学:", "		苯基", "φ代表:", "	几何:", "		平面角的大小值", "		球坐标下与 z 轴的夹角", "		黄金分区率，约等于 0.618……", "		大地测量学中的纬度", "	数学:", "		数论中的欧拉函数", "		解析空间中的全纯函数", "		复数的辐角", "		表示体积分数，符号为φ，是指分散质的体积/分散剂的体积。例如白酒标注的度数所谓的'°'其实就是指的白酒中酒精的体积分数。", "	物理:", "		辐射通量", "		电势", "		物理学和数学中的标量场", "	概率统计:", "		正态分布的密度函数", "Χχ:", "χ代表:", "	概率统计:", "		统计学中的χ分布（卡方分布（χ2分布）相对更为常见）", "		数学中的特征，特别是指狄利克雷特征", "	数学:", "		图论中一个图的着色数", "		代数拓扑中的欧拉示性数", "		数学中的指示函数", "	化学:", "		元素周期表中表示电负性", "	物理:", "		拉比频率", "		基本粒子的旋量", "		水势能", "Ψψ:", "Ψ代表:", "	数学:", "		组合子逻辑中的 quaternary 组合子", "	概率统计:", "		统计学中的残差矩阵", "ψ代表:", "	物理:", "		量子力学中薛定谔方程的波函数", "		流体动力学中的流体函数", "	其他:", "		车辆的偏航角", "	数学:", "		数论中的第二切比雪夫函数", "	几何:", "		在内蕴坐标系下，曲线的切线与x轴的夹角", "Ωω:", "Ω代表:", "	数学:", "		数学中的欧米加常数", "		与大O记号相关的一个渐进下界记号", "		算术函数Ω(n), 等于n的素因子分解中所有素因子的方次的和", "	概率统计:", "		样本空间，概率论和统计力学中所有可能的事件或系统状态的集合", "	其他:", "		欧姆，国际单位制中电阻的单位", "	几何:", "		立体角", "	物理:", "		物体的转速", "		Ω重子", "	天文:", "		天体力学中的升交点黄经", "		物理宇宙学中的密度参数", "ω代表:", "	数学:", "		第一个无穷序数", "		自然数集，常用于集合论中，其他数学领域中则常用来表示自然数集", "		与大O记号相关的一个渐进下界记号", "		三次单位根的一个，另一个是它的平方：ω²", "		算术函数ω(n) ，等于n 的不相同的素因子的个数", "		微分形式", "	概率统计:", "		概率论中，一个实验的可能结果", "	物理:", "		角速度", "		角频率", "		使用位势高度的坐标系下的垂直速度，常用于大气动力学中", "		ω介子", "	天文:", "		天体力学中的近心点幅角" ], example_greek_alphabet$values = [], example_greek_alphabet$keys = example_greek_alphabet$alphaBeta.map(function(a) {
-var m = a.split(" "), k = m[0], n = m[2].toLowerCase(), v = {
-title: "🔊 " + m[1] + " " + m[2],
-name: n,
+function Sn(t, e) {
+var r, n = [], i = /'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;
+for (i.lastIndex = e, i.exec(t); r = i.exec(t); ) if (n.push(r), r[1]) return n;
+}
+var c, l, t = [ "Αα 阿尔法 Alpha", "Ββ 贝塔 Beta", "Γγ 伽玛 Gamma", "Δδ 德尔塔 Delta", "Εε 艾普西龙 Epsilon", "Ζζ 捷塔 Zeta", "Ζη 依塔 Eta", "Θθ 西塔 Theta", "Ιι 艾欧塔 Iota", "Κκ 喀帕 Kappa", "Λλ 拉姆达 Lambda", "Μμ 缪 Mu", "Νν 拗 Nu", "Ξξ 克西 Xi", "Οο 欧麦克轮 Omicron", "Ππ 派 Pi", "Ρρ 柔 Rho", "Σσ 西格玛 Sigma", "Ττ 套 Tau", "Υυ 宇普西龙 Upsilon", "Φφ fai Phi", "Χχ 器 Chi", "Ψψ 普赛 Psi", "Ωω 欧米伽 Omega" ], e = [ "Αα:", "A代表:", "α代表:", "	几何:", "		三角形里第一个角，在 边A的对面", "		一元二次方程里的其中一个根（β代表另一个）", "	统计:", "			统计学上的假阳性率", "			一个结果的显著性差异	", "	物理:", "		角加速度", "		双极性晶体管中集极电流与射极电流的比例", "		物理学上的精细结构常数", "		一粒α粒子（He2+）", "	热力学:", "		热胀冷缩的系数", "		热扩散率", "	天文:", "		天文测量学的赤经", "		一个星座内最亮的一个星，如：半人马座α（次亮为β，以此类推）。", "	化学:", "		α碳原子为与有机物中与官能团相连的第一个碳原子（第二个为β碳原子，以此类推），如氨基酸中与羰基中的碳相连的碳原子即为α碳原子。", "		解离度，指电解质达到解离平衡时，已解离的分子数和原有分子数之比。用希腊字母α来表示。", "	金融:", "		牺牲率的倒数", "	其他:", "		飞机的攻角", "Ββ:", "Β代表:", "	概率:", "		贝塔函数", "β代表:", "	几何:", "		三角形里的第二个角，在 边B的对面", "	代数:", "		一元二次方程里的其中一个根（α代表另一个）", "	概率:", "		统计学上的假阴性率", "	物理:", "		双极性晶体管中集极电流与基极电流的比例", "		β粒子（e-）", "		声强", "		速度除以狭义相对论上的光速", "	金融:", "		金融数学上的Beta系数（资产的不可分发率）", "	天文:", "		天文测量学上的黄道座标系统", "	其他:", "		飞机的侧滑角", "		脑或认知科学里的 beta脑电波（β-脑波）", "Γγ:", "Γ代表:", "	物理:", "		传输或电讯线路的反射系数", "		波导的光学模式的限制因子", "	数学:", "		伽玛函数（产生阶乘的函数）", "		模群", "		伽玛分布（以Γ函数定义的连续机率分布）", "		第二种的克氏符号", "		图中与一顶点中有边相连的顶点", "γ代表:", "	物理:", "		结构工程中负荷与材质的安全系数", "		物质的比重量", "	数学:", "		下不完全Γ函数", "		三角形里第三个角，在 边C的对面", "		数学上的欧拉-马歇罗尼常数", "	物理:", "		伽马射线和光子", "		热力学上的绝热指数", "		狭义相对论上的劳仑兹因子", "		阻尼系数（kg/s）", "Δδ:", "Δ代表:", "	数学:", "		有限差分", "		差分算子", "		对称差", "		拉普拉斯算子", "		一元二次方程的判别式；;b²-4ac", "	几何:", "		一条圆形曲线的圆心角", "		反矩阵的行列式", "		图中各顶点度数的最小值", "		给定变量的变化，如 ∆v 代表速度的变化", "	金融:", "		金融数学上的价格敏感度", "	天文:", "		以天文单位作单位，与地球的距离", "	化学:", "		化学式的热量", "δ代表:", "	数学:", "		变分法的一个变分", "		克罗内克函数", "		斯科罗霍德积分", "		图中最小的角度", "	金融:", "		金融数学上的复利", "		狄拉克δ函数", "	天文:", "		天文测量学上的赤纬", "		特纳函数（Turner Function）", "		光程差", "Εε:", "ε代表:", "	数学:", "		在统计学和机率论中的期望值", "		在极限中代表一个很小的正数", "		回归分析中一个随机的错误", "		集合论中最大的序数：ε，ε^ε，ε^ε^ε，……", "		列维-奇维塔符号", "		在集合中，属于一集合的元素的符号∈是由 ε 演变而来的。", "	计算机:", "		在计算机科学中的空串", "	物理:", "		电动势", "		在电磁学中的介电质电容率", "		发射率", "		在连续介质力学中的形变", "		电容率", "		力学中的应变", "	天文:", "		在天文测量学中，地球的转轴倾角", "	金融:", "		在经济学中的弹性", "	化学:", "		在化学中，发色团的莫耳吸光度", "Ϝϝ:", "Ϝ代表:", "	数学:", "		有时用作表示双伽玛函数，但通常被拉丁字母 F（差不多一样）替代。", "Ζζ:", "ζ代表:", "	数学:", "		在数学中的黎曼ζ函数和其他的ζ函数", "	物理:", "		聚合物力学的黏性系数", "		阻尼比", "		流体力学中的涡量", "Ζη:", "η代表:", "	物理:", "		指自由空间的本质阻抗", "		折射率", "		介子的一种", "		黏度", "		物理学中的效率", "		在相对论中的闵考斯基时空", "		通信系统里的杂音", "	概率统计:", "		在统计学中的部分回归系数", "		统计学中的效率", "	金融:", "		在经济学中的弹性", "	气象:", "		气象学中的绝对涡量，指将相对涡量与地球转动造成的科氏力一并考虑的涡量。", "Θθ:", "Θ代表:", "	数学:", "		指非零的序数", "	金融:", "		金融数学中已过的时间的敏感度", "θ代表:", "	数学:", "		Θ函数", "		切比雪夫函数", "	几何:", "		在几何学中的角", "		在球坐标系或圆柱坐标系中，x轴与xy平面的角", "	热力学:", "		在热力学中的位温", "	其他:", "		工程学以θ代表平均故障间隔", "		土壤含水量", "		德拜温度", "Ιι:", "ι代表:", "	计算机:", "		APL语言中的指标生成函数", "Κκ:", "κ代表:", "	物理:", "		壁面紊流", "	几何:", "		曲率", "		连通图", "		Kappa曲线", "	数学:", "		矩阵条件数，指数量在数值计算中的容易程度的衡量。", "	物理:", "		介电常数( ε / ε0)", "		热导率（亦常使用小写拉丁字母 k）", "		弹簧的劲度系数（亦常使用小写拉丁字母 k）", "		绝热指数（亦常用 γ）", "Λλ:", "Λ代表:", "	数学:", "		线性代数中特征矢量的对角矩阵", "		冯·曼戈尔特函数", "		公理系统内一个逻辑公理", "	天文:", "		宇宙学常数", "	物理:", "		Λ粒子，一种重子", "		电磁学中的磁导", "λ代表:", "	物理:", "		波长，一固定的频率里，离平衡位置的位移与时间皆相同的两个质点之间的最短距离。", "		聚变的潜热", "	数学:", "		指数衰减", "		刘维尔函数", "		卡迈克尔函数", "		等于一微升（1 µL）或 一立方毫米（1 mm³）【1 微升 = 1 立方毫米】", "	计算机:", "		λ演算", "		计算机科学中的空字符串", "	概率统计:", "		卜瓦松分布的一个参数", "		矩阵的特征值", "		等候理论的到达率", "		指数分布的一个参数", "		失效率", "		平均数", "		勒贝格可测集的勒贝格测度，等于这个集合通常意义的体积。", "	金融:", "		拉格朗日乘数，也应用于经济学的影子价格", "		经度", "	天文:", "		黄经，为黄道座标系统中用来确定天体在天球上位置的一个座标值。", "	其他:", "		线密度", "Μμ:", "μ代表:", "	数学:", "		数论中的莫比乌斯函数", "		表示模的环表示", "	概率统计:", "		概率论和统计学中总体的平均数或期望值", "		测度论中的一个测度", "		等候理论中的服务效率", "	物理:", "		物理学中的动摩擦因数", "		物理学中的黏度", "		电磁学中的磁导率", "		μ子", "		约化质量", "		凝聚态物理学中的化学势", "	其他:", "		微, 一个国际单位制词头，表示 10-6（百万分之一）", "		药理学中，使得与其结合的脑内啡有最高的亲和势的受体。", "Νν:", "ν代表:", "	物理:", "		物理学中的频率（以赫兹(Hz) 为单位）", "		材料科学中的泊松比", "		中微子", "		液体的kinematic viscosity（动黏滞率，动黏度；运动粘度；运动粘性）", "	化学:", "		化学计量系数", "	数学:", "		数学中的零空间", "Ξξ:", "Ξ代表:", "	物理:", "		统计力学中的巨正则系综", "		一类重子", "ξ代表:", "	概率统计:", "		概率论中的一个随机变量", "	物理:", "		相干长度", "		阻尼比", "	化学:", "		化学反应的程度", "Οο:", "Ο代表:", "Ππ:", "Π代表:", "	数学:", "		数学中用以表示乘积的符号", "	几何:", "		几何学中一个平面", "π代表:", "	几何:", "		圆周率，为圆的周长与直径的比值", "	数学:", "		数论中的素数计数函数", "	金融:", "		微观经济学和博弈论中的利润", "		宏观经济学中的通货膨胀率，表示为与时间有关的常数", "	概率统计:", "		马尔科夫链的状态分布", "	化学:", "		化学中的一种共价键(π键)", "	物理:", "		粒子物理学中的π介子", "		电子学中，一种小信号模型又被称为混合π模型", "ϖ代表:π一种变体) ：", "	天文:", "		流体力学中的波浪的角频率（角频率常用ω表示，但易与涡度的符号混淆）", "		天体力学中的近心点经度", "		宇宙学中的同移距离", "Ρρ:", "ρ代表:", "	物理:", "		密度", "		电阻率", "	数学:", "		矩阵的秩", "	几何:", "		极坐标系，柱坐标系和球坐标系中的半径", "	概率统计:", "		统计学中的相关系数", "	金融:", "		金融数学中的利率敏感度", "	计算机:", "		APL语言中的变形运算符", "Σσ:", "Σ代表:", "	数学:", "		求和算子", "		协方差矩阵", "	计算机:", "		形式语言中的终结符号的集合", "σ代表:", "	物理:", "		黑体辐射的斯特藩-玻尔兹曼常数", "		力学中的应力", "		电导率（电阻率的倒数）", "		面积密度", "	数学:", "		数论中的一类除数函数", "		解析数论中复变量的实部", "		群论中的一个置换", "		关系代数中的选择算子", "	概率统计:", "		概率论，统计中一个分布的标准差", "		不确定性", "	化学:", "		化学中的一种共价键 (σ键)", "Ττ:", "τ代表:", "	概率统计:", "		一个时间区间", "		指数衰减的量的平均寿命", "	物理:", "		力学中的力矩", "		τ子，粒子物理学中的一种基本粒子", "		自发发射过程的寿命", "		RC电路的时间常数", "		相对论中的原时", "		连续介质力学中的剪应力", "	几何:", "		黄金分区率0.618…… (尽管 φ 更常用)", "		拓扑学中一个指定的拓扑", "		圆周率的2倍（2π），即圆的周长与半径之比。", "	数学:", "		数论中的拉马努金τ函数", "		表示论中的缠结算子", "		高欧拉商数的除数个数（OEIS中的数列A000005）", "		类型论中的类型变量，如简单类型λ演算", "	天文:", "		天文学中，透明度的衡量，或者说，有多少阳光不能穿透大气。", "	化学:", "		Tau 蛋白，一种与微管结合的蛋白", "Υυ:", "Υ代表:", "	物理:", "		Υ介子，一种粒子", "Φφ:", "Φ代表:", "	物理:", "		逸出功，是指使一个电子立即从固体表面逸出，所需提供的最小能量。", "		磁通量", "	概率统计:", "		正态分布的累积分布函数", "	几何:", "		黄金分区率的倒数，即 1/φ", "	化学:", "		苯基", "φ代表:", "	几何:", "		平面角的大小值", "		球坐标下与 z 轴的夹角", "		黄金分区率，约等于 0.618……", "		大地测量学中的纬度", "	数学:", "		数论中的欧拉函数", "		解析空间中的全纯函数", "		复数的辐角", "		表示体积分数，符号为φ，是指分散质的体积/分散剂的体积。例如白酒标注的度数所谓的'°'其实就是指的白酒中酒精的体积分数。", "	物理:", "		辐射通量", "		电势", "		物理学和数学中的标量场", "	概率统计:", "		正态分布的密度函数", "Χχ:", "χ代表:", "	概率统计:", "		统计学中的χ分布（卡方分布（χ2分布）相对更为常见）", "		数学中的特征，特别是指狄利克雷特征", "	数学:", "		图论中一个图的着色数", "		代数拓扑中的欧拉示性数", "		数学中的指示函数", "	化学:", "		元素周期表中表示电负性", "	物理:", "		拉比频率", "		基本粒子的旋量", "		水势能", "Ψψ:", "Ψ代表:", "	数学:", "		组合子逻辑中的 quaternary 组合子", "	概率统计:", "		统计学中的残差矩阵", "ψ代表:", "	物理:", "		量子力学中薛定谔方程的波函数", "		流体动力学中的流体函数", "	其他:", "		车辆的偏航角", "	数学:", "		数论中的第二切比雪夫函数", "	几何:", "		在内蕴坐标系下，曲线的切线与x轴的夹角", "Ωω:", "Ω代表:", "	数学:", "		数学中的欧米加常数", "		与大O记号相关的一个渐进下界记号", "		算术函数Ω(n), 等于n的素因子分解中所有素因子的方次的和", "	概率统计:", "		样本空间，概率论和统计力学中所有可能的事件或系统状态的集合", "	其他:", "		欧姆，国际单位制中电阻的单位", "	几何:", "		立体角", "	物理:", "		物体的转速", "		Ω重子", "	天文:", "		天体力学中的升交点黄经", "		物理宇宙学中的密度参数", "ω代表:", "	数学:", "		第一个无穷序数", "		自然数集，常用于集合论中，其他数学领域中则常用来表示自然数集", "		与大O记号相关的一个渐进下界记号", "		三次单位根的一个，另一个是它的平方：ω²", "		算术函数ω(n) ，等于n 的不相同的素因子的个数", "		微分形式", "	概率统计:", "		概率论中，一个实验的可能结果", "	物理:", "		角速度", "		角频率", "		使用位势高度的坐标系下的垂直速度，常用于大气动力学中", "		ω介子", "	天文:", "		天体力学中的近心点幅角" ], r = [], n = t.map(function(t) {
+var e = t.split(" "), n = e[0], o = e[2].toLowerCase(), s = {
+title: "🔊 " + e[1] + " " + e[2],
+name: o,
 play: function() {
-example_greek_alphabet$play(n);
+i(o);
 }
 };
-return Object.defineProperty(v, "value", {
+return Object.defineProperty(s, "value", {
 get: function() {
-return example_greek_alphabet$findContent(k);
+return a(n);
 }
-}), example_greek_alphabet$values.push(v), k;
-}), example_greek_alphabet$source = '<Layout width=\'100%\' height=\'100%\' background=\'#FFF\' arguments="keys,contents,index">\n	<List width="16%" height="100%" background=\'#ddd\' \n		var=\'key\' value="${keys}" observe="${index}">\n		<Button color="#333" textAlign="center" action=\'${index = for.index}\' width="100%" height="60" \n			background="${for.index == index? \'#bbb\':\'#eee\'}" value="  ${key}"/>\n	</List>\n	<Card id="content" background=\'#ddd\' \n		width="84%" height="100%" left=\'16.2%\' top=\'0\'\n		index="${index}" var="content" value=\'${contents}\'>\n		<Text padding="12" color="#000" background="#ccc"\n		     action="${content.play()}"\n		     width="100%" height="8%" value="${content.title}"/>\n		<Layout width="100%" height="92%" top="8%" background="#ddd" >\n			<Text padding="12" color="#333" width="100%" height="100%" \n				value="${content.value}"\n				keywordPattern="/^[^\\s]+/gm"\n				keywordStyle="#933"\n				\n				/>\n		</Layout>\n	</Card>\n</Layout>', example_greek_alphabet$load = function() {
-liteui_liteui$load(example_greek_alphabet$source || "./assets/greek-xul.xml", [ example_greek_alphabet$keys, example_greek_alphabet$values, 1 ]);
+}), r.push(s), n;
+}), s = '<Layout width=\'100%\' height=\'100%\' background=\'#FFF\' arguments="keys,contents,index">\n	<List width="16%" height="100%" background=\'#ddd\' \n		var=\'key\' value="${keys}" observe="${index}">\n		<Button color="#333" textAlign="center" action=\'${index = for.index}\' width="100%" height="60" \n			background="${for.index == index? \'#bbb\':\'#eee\'}" value="  ${key}"/>\n	</List>\n	<Card id="content" background=\'#ddd\' \n		width="84%" height="100%" left=\'16.2%\' top=\'0\'\n		index="${index}" var="content" value=\'${contents}\'>\n		<Text padding="12" color="#000" background="#ccc"\n		     action="${content.play()}"\n		     width="100%" height="8%" value="${content.title}"/>\n		<Layout width="100%" height="92%" top="8%" background="#ddd" >\n			<Text padding="12" color="#333" width="100%" height="100%" \n				value="${content.value}"\n				keywordPattern="/^[^\\s]+/gm"\n				keywordStyle="#933"\n				\n				/>\n		</Layout>\n	</Card>\n</Layout>', u = function() {
+f(s || "./assets/greek-xul.xml", [ n, r, 1 ]);
 };
-window.onload = liteui_liteui$init;
-var liteui_liteui$load = function(path, args) {
-liteui_liteui$width || liteui_liteui$init(), liteui_xul$loadXUL(path, args, liteui_liteui$width, liteui_liteui$height);
-}, liteui_native_canvas$OP_MOVE2 = 0, liteui_native_canvas$OP_LINE2 = 1, liteui_native_canvas$OP_CLOSE = 2, liteui_native_canvas$OP_ARC6 = 3, liteui_native_canvas$CMD_PROXY = 0, liteui_native_canvas$CMD_CLIP = 1, liteui_native_canvas$CMD_IMG = 2, liteui_native_canvas$CMD_FILL = 3, liteui_native_canvas$CMD_STROKE = 4, liteui_native_canvas$CMD_FILL_TEXT = 5, liteui_native_canvas$CMD_STROKE_TEXT = 6, liteui_native_canvas$CMD_CLEAR = 7, liteui_native_canvas$CMD_SAVE = 8, liteui_native_canvas$CMD_RESTORE = 9, liteui_native_canvas$CMD_TRANSLATE = 10, liteui_native_canvas$CMD_MEASURE = 11, liteui_native_canvas$CMD_STATUS = 12, liteui_native_canvas$PIx2 = 2 * Math.PI, liteui_native_canvas$nativeHost = window.nativeHost;
-liteui_native_canvas$Canvas.prototype.commit = function(complete) {
-var rtv = liteui_native_canvas$nativeHost.commit(this.nativeId, this.cmds.join(""), !!complete);
-return this.cmds = [], rtv;
-}, "font,fillStyle,strokeStyle,lineCap,lineJoin,miterLimit,lineWidth,textAlign,textBaseline".replace(/\w+/g, function(attr) {
-Object.defineProperty(liteui_native_canvas$Canvas.prototype, attr, {
+window.onload = h;
+var f = function(t, e) {
+l || h(), ge(t, e, l, c);
+}, v = 0, d = 1, m = 2, g = 3, w = 0, y = 1, b = 2, N = 3, x = 4, E = 5, T = 6, A = 7, D = 8, S = 9, C = 10, _ = 11, I = 12, F = 2 * Math.PI, O = window.nativeHost;
+M.prototype.commit = function(t) {
+var e = O.commit(this.nativeId, this.cmds.join(""), !!t);
+return this.cmds = [], e;
+}, "font,fillStyle,strokeStyle,lineCap,lineJoin,miterLimit,lineWidth,textAlign,textBaseline".replace(/\w+/g, function(t) {
+Object.defineProperty(M.prototype, t, {
 get: function() {
-return this._style[attr];
+return this._style[t];
 },
-set: function(v) {
-this._style[attr] !== v && (this._styleJSON = 0, this._style[attr] = v);
+set: function(e) {
+this._style[t] !== e && (this._styleJSON = 0, this._style[t] = e);
 }
 });
-}), Object.defineProperty(liteui_native_canvas$Canvas.prototype, "width", {
+}), Object.defineProperty(M.prototype, "width", {
 get: function() {
 return this._width;
 },
-set: function(v) {
-liteui_native_canvas$nativeHost.setWidth(this.nativeId, v), this._width = v;
+set: function(t) {
+O.setWidth(this.nativeId, t), this._width = t;
 }
-}), Object.defineProperty(liteui_native_canvas$Canvas.prototype, "height", {
+}), Object.defineProperty(M.prototype, "height", {
 get: function() {
 return this._height;
 },
-set: function(v) {
-liteui_native_canvas$nativeHost.setHeight(this.nativeId, v), this._height = v;
+set: function(t) {
+O.setHeight(this.nativeId, t), this._height = t;
 }
 });
-var liteui_native_canvas$namedColor = "BLACK,#FF000000,DKGRAY,#FF444444,GRAY,#FF888888,LTGRAY,#FFCCCCCC,WHITE,#FFFFFFFF,RED,#FFFF0000,GREEN,#FF00FF00,BLUE,#FF0000FF,YELLOW,#FFFFFF00,CYAN,#FF00FFFF,MAGENTA,#FFFF00FF,TRANSPARENT,#00000000".split(",");
-liteui_native_canvas$Canvas.prototype.clip = function() {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_CLIP, liteui_native_canvas$encodePath(this._path));
-}, liteui_native_canvas$Canvas.prototype.fill = function() {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_FILL, liteui_native_canvas$encodePath(this._path));
-}, liteui_native_canvas$Canvas.prototype.stroke = function() {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_STROKE, liteui_native_canvas$encodePath(this._path));
-}, liteui_native_canvas$Canvas.prototype.drawImage = function(img) {
-var args = [];
-switch (args.push.apply(args, arguments), args.length) {
+var Y = "BLACK,#FF000000,DKGRAY,#FF444444,GRAY,#FF888888,LTGRAY,#FFCCCCCC,WHITE,#FFFFFFFF,RED,#FFFF0000,GREEN,#FF00FF00,BLUE,#FF0000FF,YELLOW,#FFFFFF00,CYAN,#FF00FFFF,MAGENTA,#FFFF00FF,TRANSPARENT,#00000000".split(",");
+M.prototype.clip = function() {
+R(this, y, $(this._path));
+}, M.prototype.fill = function() {
+R(this, N, $(this._path));
+}, M.prototype.stroke = function() {
+R(this, x, $(this._path));
+}, M.prototype.drawImage = function(t) {
+var c = [];
+switch (c.push.apply(c, arguments), c.length) {
 case 3:
 case 5:
 case 9:
-img.cmds.length && liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_PROXY, img), 
-args[0] = img.nativeId, console.log("image id:" + args[0]), liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_IMG, liteui_native_canvas$encodePath(args));
+t.cmds.length && R(this, w, t), c[0] = t.nativeId, console.log("image id:" + c[0]), 
+R(this, b, $(c));
 break;
 default:
-console.error("error arguments" + args);
+console.error("error arguments" + c);
 }
-}, liteui_native_canvas$Canvas.prototype.measureText = function(text) {
+}, M.prototype.measureText = function(t) {
 return {
-width: liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_MEASURE, text)
+width: R(this, _, t)
 };
-}, liteui_native_canvas$Canvas.prototype.fillText = function(text, x, y, maxWidth) {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_FILL_TEXT, liteui_native_canvas$encodePath([ x, y, 0 | maxWidth ]) + text);
-}, liteui_native_canvas$Canvas.prototype.strokeText = function(text, x, y, maxWidth) {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_STROKE_TEXT, liteui_native_canvas$encodePath([ x, y, 0 | maxWidth ]) + text);
-}, liteui_native_canvas$Canvas.prototype.clearRect = function(x, y, w, h) {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_CLEAR, liteui_native_canvas$encodePath([ x, y, w, h ]));
-}, liteui_native_canvas$Canvas.prototype.beginPath = function() {
+}, M.prototype.fillText = function(t, e, r, n) {
+R(this, E, $([ e, r, 0 | n ]) + t);
+}, M.prototype.strokeText = function(t, e, r, n) {
+R(this, T, $([ e, r, 0 | n ]) + t);
+}, M.prototype.clearRect = function(t, e, r, n) {
+R(this, A, $([ t, e, r, n ]));
+}, M.prototype.beginPath = function() {
 this._path = [];
-}, liteui_native_canvas$Canvas.prototype.moveTo = function(x, y) {
-liteui_native_canvas$p(this).push(liteui_native_canvas$OP_MOVE2, x, y);
-}, liteui_native_canvas$Canvas.prototype.lineTo = function(x, y) {
-liteui_native_canvas$p(this).push(liteui_native_canvas$OP_LINE2, x, y);
-}, liteui_native_canvas$Canvas.prototype.closePath = function() {
-liteui_native_canvas$p(this).push(liteui_native_canvas$OP_CLOSE);
-}, liteui_native_canvas$Canvas.prototype.arc = function(x, y, r, startAngle, endAngle, anticlockwise) {
-var a1 = liteui_native_canvas$pi2char(startAngle), ad = liteui_native_canvas$pi2char(endAngle - startAngle);
-liteui_native_canvas$p(this).push(liteui_native_canvas$OP_ARC6, x, y, r, a1, a1 + ad, anticlockwise ? 1 : 0);
-}, liteui_native_canvas$Canvas.prototype.save = function() {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_SAVE, "");
-}, liteui_native_canvas$Canvas.prototype.restore = function() {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_RESTORE, "");
-}, liteui_native_canvas$Canvas.prototype.translate = function(dx, dy) {
-liteui_native_canvas$executeCommand(this, liteui_native_canvas$CMD_TRANSLATE, liteui_native_canvas$encodePath([ dx, dy ]));
-}, liteui_native_canvas$Canvas.prototype.rotate = function() {}, liteui_native_canvas$Canvas.prototype.setTransform = function() {}, 
-liteui_native_canvas$Canvas.prototype.scale = function() {}, liteui_native_canvas$Canvas.prototype.transform = function() {}, 
-liteui_native_canvas$Canvas.prototype.resetTransform = function() {}, liteui_native_canvas$CanvasGradient.prototype = new String(), 
-liteui_native_canvas$Canvas.prototype.createLinearGradient = function(x0, y0, x1, y1) {
-return new liteui_native_canvas$CanvasGradient("linear:" + [ 0 | x0, 0 | y0, 0 | x1, 0 | y1, "" ].join(","));
-}, liteui_native_canvas$Canvas.prototype.createRadialGradient = function(x0, y0, r0, x1, y1, r1) {
-return new liteui_native_canvas$CanvasGradient("radial:" + [ 0 | x0, 0 | y0, 0 | r0, 0 | x1, 0 | y1, 0 | r1 ].join(","));
-}, liteui_native_canvas$Canvas.prototype.getImageData = function() {}, liteui_native_canvas$Canvas.prototype.putImageData = function() {}, 
-liteui_native_canvas$Canvas.prototype.rect = function(x, y, w, h) {
-this.beginPath(), this.moveTo(x, y), this.lineTo(x + w, y), this.lineTo(x + w, y + h), 
-this.lineTo(x, y + h), this.closePath();
-}, liteui_native_canvas$Canvas.prototype.strokeRect = function(x, y, w, h) {
-this.rect(x, y, w, h), this.stroke();
-}, liteui_native_canvas$Canvas.prototype.fillRect = function(x, y, w, h) {
-this.rect(x, y, w, h), this.fill();
-}, liteui_native_canvas$Canvas.prototype.getContext = function() {
+}, M.prototype.moveTo = function(t, e) {
+B(this).push(v, t, e);
+}, M.prototype.lineTo = function(t, e) {
+B(this).push(d, t, e);
+}, M.prototype.closePath = function() {
+B(this).push(m);
+}, M.prototype.arc = function(t, e, r, n, i, a) {
+var o = U(n), s = U(i - n);
+B(this).push(g, t, e, r, o, o + s, a ? 1 : 0);
+}, M.prototype.save = function() {
+R(this, D, "");
+}, M.prototype.restore = function() {
+R(this, S, "");
+}, M.prototype.translate = function(t, e) {
+R(this, C, $([ t, e ]));
+}, M.prototype.rotate = function() {}, M.prototype.setTransform = function() {}, 
+M.prototype.scale = function() {}, M.prototype.transform = function() {}, M.prototype.resetTransform = function() {}, 
+W.prototype = new String(), M.prototype.createLinearGradient = function(t, e, r, n) {
+return new W("linear:" + [ 0 | t, 0 | e, 0 | r, 0 | n, "" ].join(","));
+}, M.prototype.createRadialGradient = function(t, e, r, n, i, a) {
+return new W("radial:" + [ 0 | t, 0 | e, 0 | r, 0 | n, 0 | i, 0 | a ].join(","));
+}, M.prototype.getImageData = function() {}, M.prototype.putImageData = function() {}, 
+M.prototype.rect = function(t, e, r, n) {
+this.beginPath(), this.moveTo(t, e), this.lineTo(t + r, e), this.lineTo(t + r, e + n), 
+this.lineTo(t, e + n), this.closePath();
+}, M.prototype.strokeRect = function(t, e, r, n) {
+this.rect(t, e, r, n), this.stroke();
+}, M.prototype.fillRect = function(t, e, r, n) {
+this.rect(t, e, r, n), this.fill();
+}, M.prototype.getContext = function() {
 return this;
-}, liteui_native_canvas$Canvas.prototype.addEventListener = function() {
+}, M.prototype.addEventListener = function() {
 console.log("native canvas not support event listener");
-}, liteui_native_canvas$Canvas.prototype.setLineDash = function() {}, liteui_native_canvas$Canvas.prototype.arcTo = function() {}, 
-liteui_native_canvas$Canvas.prototype.bezierCurveTo = function() {}, liteui_native_canvas$Canvas.prototype.createImageData = function() {}, 
-liteui_native_canvas$Canvas.prototype.createPattern = function() {}, liteui_native_canvas$Canvas.prototype.drawFocusIfNeeded = function() {}, 
-liteui_native_canvas$Canvas.prototype.ellipse = function() {}, liteui_native_canvas$Canvas.prototype.getLineDash = function() {}, 
-liteui_native_canvas$Canvas.prototype.isPointInPath = function() {}, liteui_native_canvas$Canvas.prototype.isPointInStroke = function() {}, 
-liteui_native_canvas$Canvas.prototype.quadraticCurveTo = function() {}, liteui_ui_list$UIList.prototype = Object.create(liteui_uibase$Widget.prototype), 
-liteui_ui_list$UICard.prototype = Object.create(liteui_uibase$Widget.prototype), 
-liteui_ui_list$UIList.prototype.prepare = function() {
+}, M.prototype.setLineDash = function() {}, M.prototype.arcTo = function() {}, M.prototype.bezierCurveTo = function() {}, 
+M.prototype.createImageData = function() {}, M.prototype.createPattern = function() {}, 
+M.prototype.drawFocusIfNeeded = function() {}, M.prototype.ellipse = function() {}, 
+M.prototype.getLineDash = function() {}, M.prototype.isPointInPath = function() {}, 
+M.prototype.isPointInStroke = function() {}, M.prototype.quadraticCurveTo = function() {}, 
+q.prototype = Object.create(re.prototype), H.prototype = Object.create(re.prototype), 
+q.prototype.prepare = function() {
 null == this.template && (this.template = [ this.children, this.rangeX, this.rangeY ], 
 this.children = [], this.rangeX = [], this.rangeY = [], this.repaint()), this.values = this.getValues();
-for (var len = this.values.length, cellHeight = this.template[0][0].height, width = this.width, dividerHeight = this.dividerHeight || 2, y = 0, i = this.children.length; len > i; i++) this.add(new liteui_ui_list$ListItem(this, i, width, cellHeight), 0, y), 
-y += cellHeight + dividerHeight;
-this.children.length = len;
-}, liteui_ui_list$UICard.prototype.prepare = function() {
+for (var t = this.values.length, e = this.template[0][0].height, r = this.width, n = this.dividerHeight || 2, i = 0, a = this.children.length; t > a; a++) this.add(new X(this, a, r, e), 0, i), 
+i += e + n;
+this.children.length = t;
+}, H.prototype.prepare = function() {
 this.value = this.getValues()[this.getIndex() || 0], this.setStatus(this.value);
-}, liteui_ui_list$ListItem.prototype = Object.create(liteui_uibase$Widget.prototype), 
-liteui_ui_list$ListItem.prototype.prepare = function() {
-var list = this.list;
-list.setStatus(list.values, this.index);
-}, liteui_ui_picker$UIPicker.prototype = Object.create(liteui_uibase$Widget.prototype), 
-liteui_ui_picker$UIPicker.prototype.getIndex = function() {
-var len = this.options.length;
-return (len + Math.round(this.offset)) % len;
-}, liteui_ui_picker$UIPicker.prototype.onchange = function() {}, liteui_ui_picker$UIPicker.prototype.getValue = function() {
+}, X.prototype = Object.create(re.prototype), X.prototype.prepare = function() {
+var t = this.list;
+t.setStatus(t.values, this.index);
+}, J.prototype = Object.create(re.prototype), J.prototype.getIndex = function() {
+var t = this.options.length;
+return (t + Math.round(this.offset)) % t;
+}, J.prototype.onchange = function() {}, J.prototype.getValue = function() {
 return this.options[this.getIndex()];
-}, liteui_ui_picker$UIPicker.prototype.roll = function(dif) {
-var idx = this.getIndex(), len = this.options.length, idx2 = (idx + dif) % len;
-return this.offset = idx2 = 0 > idx2 ? idx2 + len : idx2, this.onchange(idx2, idx), 
-this.repaint(), Math.abs(idx2 - idx) > len - 2;
-}, liteui_ui_picker$UIPicker.prototype.drawOption = function(ctx, idx, cx, cy, offsetRate) {
-var fontRate = .2 - .1 * offsetRate;
-ctx.font = (this.height * fontRate | 0) + "px " + liteui_uiconfig$fontFamily, ctx.globalAlpha = Math.pow(Math.min(1 - offsetRate + .1, 1), 3), 
-ctx.fillText(this.options[idx], cx, cy);
-}, liteui_ui_text$TextView.prototype = Object.create(liteui_uibase$Widget.prototype), 
-liteui_ui_text$TextView.prototype.addPattern = function(keywordPattern, style) {
-if ("string" == typeof keywordPattern) {
-var end = keywordPattern.lastIndexOf("/");
-keywordPattern = new RegExp(keywordPattern.slice(1, end), keywordPattern.slice(end + 1));
+}, J.prototype.roll = function(t) {
+var e = this.getIndex(), r = this.options.length, n = (e + t) % r;
+return this.offset = n = 0 > n ? n + r : n, this.onchange(n, e), this.repaint(), 
+Math.abs(n - e) > r - 2;
+}, J.prototype.drawOption = function(t, e, r, n, i) {
+var a = .2 - .1 * i;
+t.font = (this.height * a | 0) + "px " + ce, t.globalAlpha = Math.pow(Math.min(1 - i + .1, 1), 3), 
+t.fillText(this.options[e], r, n);
+}, Q.prototype = Object.create(re.prototype), Q.prototype.addPattern = function(t, e) {
+if ("string" == typeof t) {
+var r = t.lastIndexOf("/");
+t = new RegExp(t.slice(1, r), t.slice(r + 1));
 }
-this.patterns.push(keywordPattern);
-var styles = style.split(";");
-this.colors.push(styles[0]), this.fonts.push(styles[1] || this.font);
+this.patterns.push(t);
+var n = e.split(";");
+this.colors.push(n[0]), this.fonts.push(n[1] || this.font);
 };
-var liteui_ui_text$measureContextMap = {};
+var ut = {};
 if (!window.requestAnimationFrame) {
-for (var liteui_uibase$ps = [ "webkit", "moz", "o", "ms" ], liteui_uibase$i = liteui_uibase$ps.length; liteui_uibase$i--; ) if (requestAnimationFrame = window[liteui_uibase$ps[liteui_uibase$i] + "RequestAnimationFrame"], 
+for (var ht = [ "webkit", "moz", "o", "ms" ], ft = ht.length; ft--; ) if (requestAnimationFrame = window[ht[ft] + "RequestAnimationFrame"], 
 requestAnimationFrame) {
-cancelAnimationFrame = window[liteui_uibase$ps[liteui_uibase$i] + "CancelAnimationFrame"];
+cancelAnimationFrame = window[ht[ft] + "CancelAnimationFrame"];
 break;
 }
-requestAnimationFrame || (requestAnimationFrame = function(callback) {
-return setTimeout(callback, 1e3 / 60);
-}, cancelAnimationFrame = function(id) {
-return clearTimeout(id);
+requestAnimationFrame || (requestAnimationFrame = function(t) {
+return setTimeout(t, 1e3 / 60);
+}, cancelAnimationFrame = function(t) {
+return clearTimeout(t);
 });
 }
-var liteui_uibase$hasRepaintRequest, liteui_uibase$currentPainter, liteui_uibase$painterChanged, liteui_uibase$canvas, liteui_uibase$onevent, liteui_uibase$touchStart, liteui_uibase$tapCount, liteui_uibase$tapTimeout, liteui_uibase$longPressTimeout, liteui_uibase$eventSourceClientRect, liteui_uibase$latestX, liteui_uibase$latestY, liteui_uibase$startX, liteui_uibase$startY, liteui_uibase$depth = 0, liteui_uibase$fpsStart = +new Date(), liteui_uibase$fpsRecords = [], liteui_uibase$fpsInc = 0, liteui_uibase$externalTime = 0, liteui_uibase$fpsBegin = 0, liteui_uibase$fpsEnd = 0, liteui_uibase$requestFrame = requestAnimationFrame, liteui_uibase$latest = new Date(), liteui_uibase$requestFrame = function(fn) {
-var t = new Date();
-return liteui_uibase$latest = t, requestAnimationFrame(fn, 30);
-}, liteui_uibase$events = "touchstart,touchmove,touchend,touchcancel,mousedown,mousemove,mouseup,mouseout".split(","), liteui_uibase$moveThreshold = 10, liteui_uibase$moveCount = -1, liteui_uibase$i = liteui_uibase$events.length, liteui_uibase$DIRTY_CHILD_REPAINT = 2, liteui_uibase$DIRTY_SCROLL = 4, liteui_uibase$DIRTY_SELF = 8;
-window.matchMedia && window.matchMedia("(pointer:coarse)").matches && liteui_uibase$events.splice(4), 
-liteui_uibase$Widget.prototype.attach = function() {
-function dispatchDraw(ctx) {
-function doWidgetDraw(ctx, cmds, deep) {
-for (var i = 0; i < cmds.length; ) {
-var w = cmds[i++], children = cmds[i++], width = w.width, height = w.height;
-ctx.save();
+var St, Ct, _t, It, Ot, Rt, kt, Mt, $t, Yt, jt, Bt, Ut, Wt, wt = 0, yt = +new Date(), bt = [], Nt = 0, xt = 0, Et = 0, Tt = 0, At = requestAnimationFrame, Dt = new Date(), At = function(t) {
+var r = new Date();
+return Dt = r, requestAnimationFrame(t, 30);
+}, Ft = "touchstart,touchmove,touchend,touchcancel,mousedown,mousemove,mouseup,mouseout".split(","), Pt = 10, Lt = -1, ft = Ft.length, qt = 2, Vt = 4, Xt = 8;
+window.matchMedia && window.matchMedia("(pointer:coarse)").matches && Ft.splice(4), 
+re.prototype.attach = function() {
+function e(e) {
+function o(t, e, r) {
+for (var n = 0; n < e.length; ) {
+var i = e[n++], a = e[n++], s = i.width, u = i.height;
+t.save();
 try {
-ctx.translate(w.x, w.y), ctx.beginPath(), ctx.rect(0, 0, width, height), ctx.closePath(), 
-ctx.clip(), w.dirty = 0, w.draw instanceof Function ? w.draw(ctx, width, height) : (ctx.fillStyle = w.draw, 
-ctx.fillRect(0, 0, width, height)), doWidgetDraw(ctx, children, deep + 1);
+t.translate(i.x, i.y), t.beginPath(), t.rect(0, 0, s, u), t.closePath(), t.clip(), 
+i.dirty = 0, i.draw instanceof Function ? i.draw(t, s, u) : (t.fillStyle = i.draw, 
+t.fillRect(0, 0, s, u)), o(t, a, r + 1);
 } finally {
-ctx.restore();
+t.restore();
 }
 }
 }
-var clips = [], cmds = [];
-liteui_uibase$prepareWidgetDraw(ctx, widget, clips, cmds), ctx.save();
+var r = [], n = [];
+ne(e, t, r, n), e.save();
 try {
-ctx.beginPath();
-for (var i = 0, len = clips.length; len > i; ) ctx.rect(clips[i++], clips[i++], clips[i++], clips[i++]);
-ctx.closePath(), ctx.clip(), ctx.clearRect(0, 0, widget.width, widget.height), doWidgetDraw(ctx, cmds, 0);
+e.beginPath();
+for (var i = 0, a = r.length; a > i; ) e.rect(r[i++], r[i++], r[i++], r[i++]);
+e.closePath(), e.clip(), e.clearRect(0, 0, t.width, t.height), o(e, n, 0);
 } finally {
-ctx.restore();
+e.restore();
 }
 }
-function dispatchEvent(type, e, sx, sy, x, y) {
-return liteui_uibase$dispatchWidgetEvent(type, e, sx, sy, x, y, widget);
+function r(e, r, n, i, a, o) {
+return se(e, r, n, i, a, o, t);
 }
-var widget = this;
-liteui_uibase$resetPage(this.dispatchDraw = dispatchDraw, dispatchEvent);
-}, liteui_uibase$Widget.prototype.clone = function() {
-for (var newNode = Object.create(this.__proto__ || this), cns = this.children.concat(), i = cns.length; i--; ) cns[i] = cns[i].clone();
-for (i in this) newNode[i] = this[i];
-return newNode.children = cns, newNode;
-}, liteui_uibase$Widget.prototype.resize = function(w, h) {
-if (null != w && w != this.width) this.width = w; else {
-if (null == h || h == this.height) return;
-this.height = h;
+var t = this;
+dt(this.dispatchDraw = e, r);
+}, re.prototype.clone = function() {
+for (var t = Object.create(this.__proto__ || this), e = this.children.concat(), r = e.length; r--; ) e[r] = e[r].clone();
+for (r in this) t[r] = this[r];
+return t.children = e, t;
+}, re.prototype.resize = function(t, e) {
+if (null != t && t != this.width) this.width = t; else {
+if (null == e || e == this.height) return;
+this.height = e;
 }
-var pw = this.parentWidget, i = pw.children.indexOf(this);
-if (i >= 0) {
-i <<= 1, pw.rangeX[i + 1] = pw.rangeX[i] + this.width, pw.rangeY[i + 1] = pw.rangeY[i] + this.height;
-var maxY = Math.max.apply(Math, pw.rangeY);
-pw.offsetY = pw.drawOffsetY = Math.max(Math.min(pw.offsetY, maxY - pw.height), 0), 
-this.repaint();
+var r = this.parentWidget, n = r.children.indexOf(this);
+if (n >= 0) {
+n <<= 1, r.rangeX[n + 1] = r.rangeX[n] + this.width, r.rangeY[n + 1] = r.rangeY[n] + this.height;
+var i = Math.max.apply(Math, r.rangeY);
+r.offsetY = r.drawOffsetY = Math.max(Math.min(r.offsetY, i - r.height), 0), this.repaint();
 }
-}, liteui_uibase$Widget.prototype.add = function(widget, x, y) {
-null == y && (y = this.rangeY.length ? Math.max.apply(Math, this.rangeY) : 0, null == x && (x = 0)), 
-widget.parentWidget = this, this.children.push(widget), this.rangeX.push(x, widget.width + x), 
-this.rangeY.push(y, widget.height + y), this.repaint(liteui_uibase$DIRTY_CHILD_REPAINT);
-}, liteui_uibase$Widget.prototype.remove = function(widget) {
-var i = this.children.indexOf(widget);
-i >= 0 && (this.children.splice(i, 1), this.rangeX.splice(2 * i, 2), this.rangeY.splice(2 * i, 2)), 
-this.repaint(liteui_uibase$DIRTY_SCROLL);
-}, liteui_uibase$Widget.prototype.clear = function() {
-this.children.length = this.rangeX.length = this.rangeY.length = 0, this.repaint(liteui_uibase$DIRTY_SELF);
-}, liteui_uibase$Widget.prototype.repaint = function(flag) {
-this.dirty |= flag || liteui_uibase$DIRTY_SELF;
-for (var w = this; w.parentWidget; ) w = w.parentWidget, w.dirty |= liteui_uibase$DIRTY_CHILD_REPAINT;
-w.dispatchDraw && liteui_uibase$resetPainter(w.dispatchDraw);
+}, re.prototype.add = function(t, e, r) {
+null == r && (r = this.rangeY.length ? Math.max.apply(Math, this.rangeY) : 0, null == e && (e = 0)), 
+t.parentWidget = this, this.children.push(t), this.rangeX.push(e, t.width + e), 
+this.rangeY.push(r, t.height + r), this.repaint(qt);
+}, re.prototype.remove = function(t) {
+var e = this.children.indexOf(t);
+e >= 0 && (this.children.splice(e, 1), this.rangeX.splice(2 * e, 2), this.rangeY.splice(2 * e, 2)), 
+this.repaint(Vt);
+}, re.prototype.clear = function() {
+this.children.length = this.rangeX.length = this.rangeY.length = 0, this.repaint(Xt);
+}, re.prototype.repaint = function(t) {
+this.dirty |= t || Xt;
+for (var e = this; e.parentWidget; ) e = e.parentWidget, e.dirty |= qt;
+e.dispatchDraw && gt(e.dispatchDraw);
 };
-var liteui_xul$width, liteui_xul$height, liteui_uiconfig$fontFamily = "STHeiti serif", liteui_uiconfig$lineWidth = 1.5 * devicePixelRatio, liteui_uiconfig$maxTapInterval = 240, liteui_uiconfig$longPressTime = 600, liteui_xul$widgetFactoryMap = [];
-liteui_xul$ModelFactory.prototype.getCallback = function() {
+var pe, ve, ce = "STHeiti serif", le = 1.5 * devicePixelRatio, he = 240, fe = 600, de = [];
+be.prototype.getCallback = function() {
 if (!this.impl) {
-var buf = [ "return function(){switch(+this){" ];
-for (var n in this.idCache) buf.push("case ", this.idCache[n], ":", "return ", n, ";\r\n");
-buf.push("}}");
-var scope = new Function(this.vars, buf.join(""));
-this.impl = scope.apply(null, this.values);
+var t = [ "return function(){switch(+this){" ];
+for (var e in this.idCache) t.push("case ", this.idCache[e], ":", "return ", e, ";\r\n");
+t.push("}}");
+var r = new Function(this.vars, t.join(""));
+this.impl = r.apply(null, this.values);
 }
 return this.impl;
-}, liteui_xul$registor("Layout", liteui_xul$defaultFactory), liteui_xul$registor("List", function(el, width, height) {
-width = liteui_xul$computeSize(el.getAttribute("width"), width), height = liteui_xul$computeSize(el.getAttribute("height"), height);
-var varName = el.getAttribute("var"), valueEL = liteui_xul$parseEL(el, el.getAttribute("value"), !0), statusEL = liteui_xul$parseEL(el, varName + "=arguments[0][_for_index = arguments[1]];", !0), widget = new liteui_ui_list$UIList(width, height, valueEL, statusEL);
-return liteui_xul$addVarable(el, varName), liteui_xul$appendChildDefault(widget, el, width, height), 
-widget;
-}), liteui_xul$registor("Card", function(el, width, height) {
-width = liteui_xul$computeSize(el.getAttribute("width"), width), height = liteui_xul$computeSize(el.getAttribute("height"), height);
-var indexName = el.getAttribute("index").replace(/^\$\{|\}$/g, ""), varName = el.getAttribute("var"), indexEL = liteui_xul$parseEL(el, indexName, !0), valueEL = liteui_xul$parseEL(el, el.getAttribute("value"), !0), statusEL = liteui_xul$parseEL(el, varName + "=arguments[0];", !0), widget = new liteui_ui_list$UICard(width, height, valueEL, indexEL, statusEL);
-return liteui_xul$addVarable(el, indexName, varName), liteui_xul$appendChildDefault(widget, el, width, height), 
-widget;
-}), liteui_xul$registor("Button", function() {
-var widget = liteui_xul$textFactory.apply(this, arguments);
-return widget;
-}), liteui_xul$registor("Text", liteui_xul$textFactory), xmldom$DOMParser.prototype.parseFromString = function(source, mimeType) {
-var options = this.options, sax = new xmldom$XMLReader(), domBuilder = options.domBuilder || new xmldom$DOMHandler(), errorHandler = options.errorHandler, locator = options.locator, defaultNSMap = options.xmlns || {}, entityMap = {
+}, me("Layout", De), me("List", function(t, e, r) {
+e = _e(t.getAttribute("width"), e), r = _e(t.getAttribute("height"), r);
+var n = t.getAttribute("var"), i = Te(t, t.getAttribute("value"), !0), a = Te(t, n + "=arguments[0][_for_index = arguments[1]];", !0), o = new q(e, r, i, a);
+return Ne(t, n), Ce(o, t, e, r), o;
+}), me("Card", function(t, e, r) {
+e = _e(t.getAttribute("width"), e), r = _e(t.getAttribute("height"), r);
+var n = t.getAttribute("index").replace(/^\$\{|\}$/g, ""), i = t.getAttribute("var"), a = Te(t, n, !0), o = Te(t, t.getAttribute("value"), !0), s = Te(t, i + "=arguments[0];", !0), u = new H(e, r, o, a, s);
+return Ne(t, n, i), Ce(u, t, e, r), u;
+}), me("Button", function() {
+var e = Se.apply(this, arguments);
+return e;
+}), me("Text", Se), Fe.prototype.parseFromString = function(t, e) {
+var r = this.options, n = new Le(), i = r.domBuilder || new Re(), a = r.errorHandler, o = r.locator, s = r.xmlns || {}, u = {
 lt: "<",
 gt: ">",
 amp: "&",
 quot: '"',
 apos: "'"
 };
-return locator && domBuilder.setDocumentLocator(locator), sax.errorHandler = xmldom$buildErrorHandler(errorHandler, domBuilder, locator), 
-sax.domBuilder = options.domBuilder || domBuilder, /\/x?html?$/.test(mimeType) && (entityMap.nbsp = " ", 
-entityMap.copy = "©", defaultNSMap[""] = "http://www.w3.org/1999/xhtml"), defaultNSMap.xml = defaultNSMap.xml || "http://www.w3.org/XML/1998/namespace", 
-source ? sax.parse(source, defaultNSMap, entityMap) : sax.errorHandler.error("invalid document source"), 
-domBuilder.document;
-}, xmldom$DOMHandler.prototype = {
+return o && i.setDocumentLocator(o), n.errorHandler = Oe(a, i, o), n.domBuilder = r.domBuilder || i, 
+/\/x?html?$/.test(e) && (u.nbsp = " ", u.copy = "©", s[""] = "http://www.w3.org/1999/xhtml"), 
+s.xml = s.xml || "http://www.w3.org/XML/1998/namespace", t ? n.parse(t, s, u) : n.errorHandler.error("invalid document source"), 
+i.document;
+}, Re.prototype = {
 startDocument: function() {
-this.document = new xmldom$DOMImplementation().createDocument(null, null, null), 
-this.locator && (this.document.documentURI = this.locator.systemId);
+this.document = new Ye().createDocument(null, null, null), this.locator && (this.document.documentURI = this.locator.systemId);
 },
-startElement: function(namespaceURI, localName, qName, attrs) {
-var doc = this.document, el = doc.createElementNS(namespaceURI, qName || localName), len = attrs.length;
-xmldom$appendElement(this, el), this.currentElement = el, this.locator && xmldom$position(this.locator, el);
-for (var i = 0; len > i; i++) {
-var namespaceURI = attrs.getURI(i), value = attrs.getValue(i), qName = attrs.getQName(i), attr = doc.createAttributeNS(namespaceURI, qName);
-attr.getOffset && xmldom$position(attr.getOffset(1), attr), attr.value = attr.nodeValue = value, 
-el.setAttributeNode(attr);
+startElement: function(t, e, r, n) {
+var i = this.document, a = i.createElementNS(t, r || e), o = n.length;
+Pe(this, a), this.currentElement = a, this.locator && ke(this.locator, a);
+for (var s = 0; o > s; s++) {
+var t = n.getURI(s), u = n.getValue(s), r = n.getQName(s), c = i.createAttributeNS(t, r);
+c.getOffset && ke(c.getOffset(1), c), c.value = c.nodeValue = u, a.setAttributeNode(c);
 }
 },
 endElement: function() {
 {
-var current = this.currentElement;
-current.tagName;
+var n = this.currentElement;
+n.tagName;
 }
-this.currentElement = current.parentNode;
+this.currentElement = n.parentNode;
 },
 startPrefixMapping: function() {},
 endPrefixMapping: function() {},
-processingInstruction: function(target, data) {
-var ins = this.document.createProcessingInstruction(target, data);
-this.locator && xmldom$position(this.locator, ins), xmldom$appendElement(this, ins);
+processingInstruction: function(t, e) {
+var r = this.document.createProcessingInstruction(t, e);
+this.locator && ke(this.locator, r), Pe(this, r);
 },
 ignorableWhitespace: function() {},
-characters: function(chars) {
-if (chars = xmldom$_toString.apply(this, arguments), this.currentElement && chars) {
+characters: function(t) {
+if (t = $e.apply(this, arguments), this.currentElement && t) {
 if (this.cdata) {
-var charNode = this.document.createCDATASection(chars);
-this.currentElement.appendChild(charNode);
+var n = this.document.createCDATASection(t);
+this.currentElement.appendChild(n);
 } else {
-var charNode = this.document.createTextNode(chars);
-this.currentElement.appendChild(charNode);
+var n = this.document.createTextNode(t);
+this.currentElement.appendChild(n);
 }
-this.locator && xmldom$position(this.locator, charNode);
+this.locator && ke(this.locator, n);
 }
 },
 skippedEntity: function() {},
 endDocument: function() {
 this.document.normalize();
 },
-setDocumentLocator: function(locator) {
-(this.locator = locator) && (locator.lineNumber = 0);
+setDocumentLocator: function(t) {
+(this.locator = t) && (t.lineNumber = 0);
 },
-comment: function(chars) {
-chars = xmldom$_toString.apply(this, arguments);
-var comm = this.document.createComment(chars);
-this.locator && xmldom$position(this.locator, comm), xmldom$appendElement(this, comm);
+comment: function(t) {
+t = $e.apply(this, arguments);
+var n = this.document.createComment(t);
+this.locator && ke(this.locator, n), Pe(this, n);
 },
 startCDATA: function() {
 this.cdata = !0;
@@ -1400,115 +1339,104 @@ this.cdata = !0;
 endCDATA: function() {
 this.cdata = !1;
 },
-startDTD: function(name, publicId, systemId) {
-var impl = this.document.implementation;
-if (impl && impl.createDocumentType) {
-var dt = impl.createDocumentType(name, publicId, systemId);
-this.locator && xmldom$position(this.locator, dt), xmldom$appendElement(this, dt);
+startDTD: function(t, e, r) {
+var n = this.document.implementation;
+if (n && n.createDocumentType) {
+var i = n.createDocumentType(t, e, r);
+this.locator && ke(this.locator, i), Pe(this, i);
 }
 },
-warning: function(error) {
-console.warn("[xmldom warning]	" + error, xmldom$_locator(this.locator));
+warning: function(t) {
+console.warn("[xmldom warning]	" + t, Me(this.locator));
 },
-error: function(error) {
-console.error("[xmldom error]	" + error, xmldom$_locator(this.locator));
+error: function(t) {
+console.error("[xmldom error]	" + t, Me(this.locator));
 },
-fatalError: function(error) {
-throw console.error("[xmldom fatalError]	" + error, xmldom$_locator(this.locator)), 
-error;
+fatalError: function(t) {
+throw console.error("[xmldom fatalError]	" + t, Me(this.locator)), t;
 }
-}, "endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g, function(key) {
-xmldom$DOMHandler.prototype[key] = function() {
+}, "endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g, function(t) {
+Re.prototype[t] = function() {
 return null;
 };
 });
 {
-var xmldom$XMLReader = xmldom_sax$XMLReader, xmldom$DOMImplementation = xmldom_dom$DOMImplementation, xmldom_dom$htmlns = "http://www.w3.org/1999/xhtml", xmldom_dom$NodeType = {}, xmldom_dom$ELEMENT_NODE = xmldom_dom$NodeType.ELEMENT_NODE = 1, xmldom_dom$ATTRIBUTE_NODE = xmldom_dom$NodeType.ATTRIBUTE_NODE = 2, xmldom_dom$TEXT_NODE = xmldom_dom$NodeType.TEXT_NODE = 3, xmldom_dom$CDATA_SECTION_NODE = xmldom_dom$NodeType.CDATA_SECTION_NODE = 4, xmldom_dom$ENTITY_REFERENCE_NODE = xmldom_dom$NodeType.ENTITY_REFERENCE_NODE = 5, xmldom_dom$ENTITY_NODE = xmldom_dom$NodeType.ENTITY_NODE = 6, xmldom_dom$PROCESSING_INSTRUCTION_NODE = xmldom_dom$NodeType.PROCESSING_INSTRUCTION_NODE = 7, xmldom_dom$COMMENT_NODE = xmldom_dom$NodeType.COMMENT_NODE = 8, xmldom_dom$DOCUMENT_NODE = xmldom_dom$NodeType.DOCUMENT_NODE = 9, xmldom_dom$DOCUMENT_TYPE_NODE = xmldom_dom$NodeType.DOCUMENT_TYPE_NODE = 10, xmldom_dom$DOCUMENT_FRAGMENT_NODE = xmldom_dom$NodeType.DOCUMENT_FRAGMENT_NODE = 11, xmldom_dom$NOTATION_NODE = xmldom_dom$NodeType.NOTATION_NODE = 12, xmldom_dom$ExceptionCode = {}, xmldom_dom$ExceptionMessage = {}, xmldom_dom$NOT_FOUND_ERR = (xmldom_dom$ExceptionCode.INDEX_SIZE_ERR = (xmldom_dom$ExceptionMessage[1] = "Index size error", 
-1), xmldom_dom$ExceptionCode.DOMSTRING_SIZE_ERR = (xmldom_dom$ExceptionMessage[2] = "DOMString size error", 
-2), xmldom_dom$ExceptionCode.HIERARCHY_REQUEST_ERR = (xmldom_dom$ExceptionMessage[3] = "Hierarchy request error", 
-3), xmldom_dom$ExceptionCode.WRONG_DOCUMENT_ERR = (xmldom_dom$ExceptionMessage[4] = "Wrong document", 
-4), xmldom_dom$ExceptionCode.INVALID_CHARACTER_ERR = (xmldom_dom$ExceptionMessage[5] = "Invalid character", 
-5), xmldom_dom$ExceptionCode.NO_DATA_ALLOWED_ERR = (xmldom_dom$ExceptionMessage[6] = "No data allowed", 
-6), xmldom_dom$ExceptionCode.NO_MODIFICATION_ALLOWED_ERR = (xmldom_dom$ExceptionMessage[7] = "No modification allowed", 
-7), xmldom_dom$ExceptionCode.NOT_FOUND_ERR = (xmldom_dom$ExceptionMessage[8] = "Not found", 
-8)), xmldom_dom$INUSE_ATTRIBUTE_ERR = (xmldom_dom$ExceptionCode.NOT_SUPPORTED_ERR = (xmldom_dom$ExceptionMessage[9] = "Not supported", 
-9), xmldom_dom$ExceptionCode.INUSE_ATTRIBUTE_ERR = (xmldom_dom$ExceptionMessage[10] = "Attribute in use", 
-10));
-xmldom_dom$ExceptionCode.INVALID_STATE_ERR = (xmldom_dom$ExceptionMessage[11] = "Invalid state", 
-11), xmldom_dom$ExceptionCode.SYNTAX_ERR = (xmldom_dom$ExceptionMessage[12] = "Syntax error", 
-12), xmldom_dom$ExceptionCode.INVALID_MODIFICATION_ERR = (xmldom_dom$ExceptionMessage[13] = "Invalid modification", 
-13), xmldom_dom$ExceptionCode.NAMESPACE_ERR = (xmldom_dom$ExceptionMessage[14] = "Invalid namespace", 
-14), xmldom_dom$ExceptionCode.INVALID_ACCESS_ERR = (xmldom_dom$ExceptionMessage[15] = "Invalid access", 
-15);
+var Le = dn, Ye = Sr, Ue = "http://www.w3.org/1999/xhtml", We = {}, He = We.ELEMENT_NODE = 1, qe = We.ATTRIBUTE_NODE = 2, Ve = We.TEXT_NODE = 3, Xe = We.CDATA_SECTION_NODE = 4, ze = We.ENTITY_REFERENCE_NODE = 5, Ge = We.ENTITY_NODE = 6, Je = We.PROCESSING_INSTRUCTION_NODE = 7, Ke = We.COMMENT_NODE = 8, Ze = We.DOCUMENT_NODE = 9, Qe = We.DOCUMENT_TYPE_NODE = 10, tr = We.DOCUMENT_FRAGMENT_NODE = 11, er = We.NOTATION_NODE = 12, rr = {}, nr = {}, hr = (rr.INDEX_SIZE_ERR = (nr[1] = "Index size error", 
+1), rr.DOMSTRING_SIZE_ERR = (nr[2] = "DOMString size error", 2), rr.HIERARCHY_REQUEST_ERR = (nr[3] = "Hierarchy request error", 
+3), rr.WRONG_DOCUMENT_ERR = (nr[4] = "Wrong document", 4), rr.INVALID_CHARACTER_ERR = (nr[5] = "Invalid character", 
+5), rr.NO_DATA_ALLOWED_ERR = (nr[6] = "No data allowed", 6), rr.NO_MODIFICATION_ALLOWED_ERR = (nr[7] = "No modification allowed", 
+7), rr.NOT_FOUND_ERR = (nr[8] = "Not found", 8)), pr = (rr.NOT_SUPPORTED_ERR = (nr[9] = "Not supported", 
+9), rr.INUSE_ATTRIBUTE_ERR = (nr[10] = "Attribute in use", 10));
+rr.INVALID_STATE_ERR = (nr[11] = "Invalid state", 11), rr.SYNTAX_ERR = (nr[12] = "Syntax error", 
+12), rr.INVALID_MODIFICATION_ERR = (nr[13] = "Invalid modification", 13), rr.NAMESPACE_ERR = (nr[14] = "Invalid namespace", 
+14), rr.INVALID_ACCESS_ERR = (nr[15] = "Invalid access", 15);
 }
-xmldom_dom$DOMException.prototype = Error.prototype, xmldom_dom$copy(xmldom_dom$ExceptionCode, xmldom_dom$DOMException), 
-xmldom_dom$NodeList.prototype = {
+yr.prototype = Error.prototype, je(rr, yr), br.prototype = {
 length: 0,
-item: function(index) {
-return this[index] || null;
+item: function(t) {
+return this[t] || null;
 },
 toString: function() {
-for (var buf = [], i = 0; i < this.length; i++) xmldom_dom$serializeToString(this[i], buf);
-return buf.join("");
+for (var t = [], e = 0; e < this.length; e++) Kr(this[e], t);
+return t.join("");
 }
-}, xmldom_dom$LiveNodeList.prototype.item = function(i) {
-return xmldom_dom$_updateLiveList(this), this[i];
-}, xmldom_dom$_extends(xmldom_dom$LiveNodeList, xmldom_dom$NodeList), xmldom_dom$NamedNodeMap.prototype = {
+}, Nr.prototype.item = function(t) {
+return xr(this), this[t];
+}, Be(Nr, br), Er.prototype = {
 length: 0,
-item: xmldom_dom$NodeList.prototype.item,
-getNamedItem: function(key) {
-for (var i = this.length; i--; ) {
-var attr = this[i];
-if (attr.nodeName == key) return attr;
+item: br.prototype.item,
+getNamedItem: function(t) {
+for (var e = this.length; e--; ) {
+var r = this[e];
+if (r.nodeName == t) return r;
 }
 },
-setNamedItem: function(attr) {
-var el = attr.ownerElement;
-if (el && el != this._ownerElement) throw new xmldom_dom$DOMException(xmldom_dom$INUSE_ATTRIBUTE_ERR);
-var oldAttr = this.getNamedItem(attr.nodeName);
-return xmldom_dom$_addNamedNode(this._ownerElement, this, attr, oldAttr), oldAttr;
+setNamedItem: function(t) {
+var e = t.ownerElement;
+if (e && e != this._ownerElement) throw new yr(pr);
+var r = this.getNamedItem(t.nodeName);
+return Ar(this._ownerElement, this, t, r), r;
 },
-setNamedItemNS: function(attr) {
-var oldAttr, el = attr.ownerElement;
-if (el && el != this._ownerElement) throw new xmldom_dom$DOMException(xmldom_dom$INUSE_ATTRIBUTE_ERR);
-return oldAttr = this.getNamedItemNS(attr.namespaceURI, attr.localName), xmldom_dom$_addNamedNode(this._ownerElement, this, attr, oldAttr), 
-oldAttr;
+setNamedItemNS: function(t) {
+var r, e = t.ownerElement;
+if (e && e != this._ownerElement) throw new yr(pr);
+return r = this.getNamedItemNS(t.namespaceURI, t.localName), Ar(this._ownerElement, this, t, r), 
+r;
 },
-removeNamedItem: function(key) {
-var attr = this.getNamedItem(key);
-return xmldom_dom$_removeNamedNode(this._ownerElement, this, attr), attr;
+removeNamedItem: function(t) {
+var e = this.getNamedItem(t);
+return Dr(this._ownerElement, this, e), e;
 },
-removeNamedItemNS: function(namespaceURI, localName) {
-var attr = this.getNamedItemNS(namespaceURI, localName);
-return xmldom_dom$_removeNamedNode(this._ownerElement, this, attr), attr;
+removeNamedItemNS: function(t, e) {
+var r = this.getNamedItemNS(t, e);
+return Dr(this._ownerElement, this, r), r;
 },
-getNamedItemNS: function(namespaceURI, localName) {
-for (var i = this.length; i--; ) {
-var node = this[i];
-if (node.localName == localName && node.namespaceURI == namespaceURI) return node;
+getNamedItemNS: function(t, e) {
+for (var r = this.length; r--; ) {
+var n = this[r];
+if (n.localName == e && n.namespaceURI == t) return n;
 }
 return null;
 }
-}, xmldom_dom$DOMImplementation.prototype = {
-hasFeature: function(feature, version) {
-var versions = this._features[feature.toLowerCase()];
-return versions && (!version || version in versions) ? !0 : !1;
+}, Sr.prototype = {
+hasFeature: function(t, e) {
+var r = this._features[t.toLowerCase()];
+return r && (!e || e in r) ? !0 : !1;
 },
-createDocument: function(namespaceURI, qualifiedName, doctype) {
-var doc = new xmldom_dom$Document();
-if (doc.implementation = this, doc.childNodes = new xmldom_dom$NodeList(), doc.doctype = doctype, 
-doctype && doc.appendChild(doctype), qualifiedName) {
-var root = doc.createElementNS(namespaceURI, qualifiedName);
-doc.appendChild(root);
+createDocument: function(t, e, r) {
+var n = new Fr();
+if (n.implementation = this, n.childNodes = new br(), n.doctype = r, r && n.appendChild(r), 
+e) {
+var i = n.createElementNS(t, e);
+n.appendChild(i);
 }
-return doc;
+return n;
 },
-createDocumentType: function(qualifiedName, publicId, systemId) {
-var node = new xmldom_dom$DocumentType();
-return node.name = qualifiedName, node.nodeName = qualifiedName, node.publicId = publicId, 
-node.systemId = systemId, node;
+createDocumentType: function(t, e, r) {
+var n = new Hr();
+return n.name = t, n.nodeName = t, n.publicId = e, n.systemId = r, n;
 }
-}, xmldom_dom$Node.prototype = {
+}, Cr.prototype = {
 firstChild: null,
 lastChild: null,
 previousSibling: null,
@@ -1521,323 +1449,311 @@ nodeValue: null,
 namespaceURI: null,
 prefix: null,
 localName: null,
-insertBefore: function(newChild, refChild) {
-return xmldom_dom$_insertBefore(this, newChild, refChild);
+insertBefore: function(t, e) {
+return $r(this, t, e);
 },
-replaceChild: function(newChild, oldChild) {
-this.insertBefore(newChild, oldChild), oldChild && this.removeChild(oldChild);
+replaceChild: function(t, e) {
+this.insertBefore(t, e), e && this.removeChild(e);
 },
-removeChild: function(oldChild) {
-return xmldom_dom$_removeChild(this, oldChild);
+removeChild: function(t) {
+return Mr(this, t);
 },
-appendChild: function(newChild) {
-return this.insertBefore(newChild, null);
+appendChild: function(t) {
+return this.insertBefore(t, null);
 },
 hasChildNodes: function() {
 return null != this.firstChild;
 },
-cloneNode: function(deep) {
-return xmldom_dom$cloneNode(this.ownerDocument || this, this, deep);
+cloneNode: function(t) {
+return Qr(this.ownerDocument || this, this, t);
 },
 normalize: function() {
-for (var child = this.firstChild; child; ) {
-var next = child.nextSibling;
-next && next.nodeType == xmldom_dom$TEXT_NODE && child.nodeType == xmldom_dom$TEXT_NODE ? (this.removeChild(next), 
-child.appendData(next.data)) : (child.normalize(), child = next);
+for (var t = this.firstChild; t; ) {
+var e = t.nextSibling;
+e && e.nodeType == Ve && t.nodeType == Ve ? (this.removeChild(e), t.appendData(e.data)) : (t.normalize(), 
+t = e);
 }
 },
-isSupported: function(feature, version) {
-return this.ownerDocument.implementation.hasFeature(feature, version);
+isSupported: function(t, e) {
+return this.ownerDocument.implementation.hasFeature(t, e);
 },
 hasAttributes: function() {
 return this.attributes.length > 0;
 },
-lookupPrefix: function(namespaceURI) {
-for (var el = this; el; ) {
-var map = el._nsMap;
-if (map) for (var n in map) if (map[n] == namespaceURI) return n;
-el = 2 == el.nodeType ? el.ownerDocument : el.parentNode;
+lookupPrefix: function(t) {
+for (var e = this; e; ) {
+var r = e._nsMap;
+if (r) for (var n in r) if (r[n] == t) return n;
+e = 2 == e.nodeType ? e.ownerDocument : e.parentNode;
 }
 return null;
 },
-lookupNamespaceURI: function(prefix) {
-for (var el = this; el; ) {
-var map = el._nsMap;
-if (map && prefix in map) return map[prefix];
-el = 2 == el.nodeType ? el.ownerDocument : el.parentNode;
+lookupNamespaceURI: function(t) {
+for (var e = this; e; ) {
+var r = e._nsMap;
+if (r && t in r) return r[t];
+e = 2 == e.nodeType ? e.ownerDocument : e.parentNode;
 }
 return null;
 },
-isDefaultNamespace: function(namespaceURI) {
-var prefix = this.lookupPrefix(namespaceURI);
-return null == prefix;
+isDefaultNamespace: function(t) {
+var e = this.lookupPrefix(t);
+return null == e;
 }
-}, xmldom_dom$copy(xmldom_dom$NodeType, xmldom_dom$Node), xmldom_dom$copy(xmldom_dom$NodeType, xmldom_dom$Node.prototype), 
-xmldom_dom$Document.prototype = {
+}, je(We, Cr), je(We, Cr.prototype), Fr.prototype = {
 nodeName: "#document",
-nodeType: xmldom_dom$DOCUMENT_NODE,
+nodeType: Ze,
 doctype: null,
 documentElement: null,
 _inc: 1,
-insertBefore: function(newChild, refChild) {
-if (newChild.nodeType == xmldom_dom$DOCUMENT_FRAGMENT_NODE) {
-for (var child = newChild.firstChild; child; ) {
-var next = child.nextSibling;
-this.insertBefore(child, refChild), child = next;
+insertBefore: function(t, e) {
+if (t.nodeType == tr) {
+for (var r = t.firstChild; r; ) {
+var n = r.nextSibling;
+this.insertBefore(r, e), r = n;
 }
-return newChild;
+return t;
 }
-return null == this.documentElement && 1 == newChild.nodeType && (this.documentElement = newChild), 
-xmldom_dom$_insertBefore(this, newChild, refChild), newChild.ownerDocument = this, 
-newChild;
+return null == this.documentElement && 1 == t.nodeType && (this.documentElement = t), 
+$r(this, t, e), t.ownerDocument = this, t;
 },
-removeChild: function(oldChild) {
-return this.documentElement == oldChild && (this.documentElement = null), xmldom_dom$_removeChild(this, oldChild);
+removeChild: function(t) {
+return this.documentElement == t && (this.documentElement = null), Mr(this, t);
 },
-importNode: function(importedNode, deep) {
-return xmldom_dom$importNode(this, importedNode, deep);
+importNode: function(t, e) {
+return Zr(this, t, e);
 },
-getElementById: function(id) {
-var rtv = null;
-return xmldom_dom$_visitNode(this.documentElement, function(node) {
-return 1 == node.nodeType && node.getAttribute("id") == id ? (rtv = node, !0) : void 0;
-}), rtv;
+getElementById: function(t) {
+var e = null;
+return Ir(this.documentElement, function(r) {
+return 1 == r.nodeType && r.getAttribute("id") == t ? (e = r, !0) : void 0;
+}), e;
 },
-createElement: function(tagName) {
-var node = new xmldom_dom$Element();
-node.ownerDocument = this, node.nodeName = tagName, node.tagName = tagName, node.childNodes = new xmldom_dom$NodeList();
-var attrs = node.attributes = new xmldom_dom$NamedNodeMap();
-return attrs._ownerElement = node, node;
+createElement: function(t) {
+var e = new Lr();
+e.ownerDocument = this, e.nodeName = t, e.tagName = t, e.childNodes = new br();
+var r = e.attributes = new Er();
+return r._ownerElement = e, e;
 },
 createDocumentFragment: function() {
-var node = new xmldom_dom$DocumentFragment();
-return node.ownerDocument = this, node.childNodes = new xmldom_dom$NodeList(), node;
+var t = new zr();
+return t.ownerDocument = this, t.childNodes = new br(), t;
 },
-createTextNode: function(data) {
-var node = new xmldom_dom$Text();
-return node.ownerDocument = this, node.appendData(data), node;
+createTextNode: function(t) {
+var e = new Br();
+return e.ownerDocument = this, e.appendData(t), e;
 },
-createComment: function(data) {
-var node = new xmldom_dom$Comment();
-return node.ownerDocument = this, node.appendData(data), node;
+createComment: function(t) {
+var e = new Ur();
+return e.ownerDocument = this, e.appendData(t), e;
 },
-createCDATASection: function(data) {
-var node = new xmldom_dom$CDATASection();
-return node.ownerDocument = this, node.appendData(data), node;
+createCDATASection: function(t) {
+var e = new Wr();
+return e.ownerDocument = this, e.appendData(t), e;
 },
-createProcessingInstruction: function(target, data) {
-var node = new xmldom_dom$ProcessingInstruction();
-return node.ownerDocument = this, node.tagName = node.target = target, node.nodeValue = node.data = data, 
-node;
+createProcessingInstruction: function(t, e) {
+var r = new Gr();
+return r.ownerDocument = this, r.tagName = r.target = t, r.nodeValue = r.data = e, 
+r;
 },
-createAttribute: function(name) {
-var node = new xmldom_dom$Attr();
-return node.ownerDocument = this, node.name = name, node.nodeName = name, node.localName = name, 
-node.specified = !0, node;
+createAttribute: function(t) {
+var e = new Yr();
+return e.ownerDocument = this, e.name = t, e.nodeName = t, e.localName = t, e.specified = !0, 
+e;
 },
-createEntityReference: function(name) {
-var node = new xmldom_dom$EntityReference();
-return node.ownerDocument = this, node.nodeName = name, node;
+createEntityReference: function(t) {
+var e = new Xr();
+return e.ownerDocument = this, e.nodeName = t, e;
 },
-createElementNS: function(namespaceURI, qualifiedName) {
-var node = new xmldom_dom$Element(), pl = qualifiedName.split(":"), attrs = node.attributes = new xmldom_dom$NamedNodeMap();
-return node.childNodes = new xmldom_dom$NodeList(), node.ownerDocument = this, node.nodeName = qualifiedName, 
-node.tagName = qualifiedName, node.namespaceURI = namespaceURI, 2 == pl.length ? (node.prefix = pl[0], 
-node.localName = pl[1]) : node.localName = qualifiedName, attrs._ownerElement = node, 
-node;
+createElementNS: function(t, e) {
+var r = new Lr(), n = e.split(":"), i = r.attributes = new Er();
+return r.childNodes = new br(), r.ownerDocument = this, r.nodeName = e, r.tagName = e, 
+r.namespaceURI = t, 2 == n.length ? (r.prefix = n[0], r.localName = n[1]) : r.localName = e, 
+i._ownerElement = r, r;
 },
-createAttributeNS: function(namespaceURI, qualifiedName) {
-var node = new xmldom_dom$Attr(), pl = qualifiedName.split(":");
-return node.ownerDocument = this, node.nodeName = qualifiedName, node.name = qualifiedName, 
-node.namespaceURI = namespaceURI, node.specified = !0, 2 == pl.length ? (node.prefix = pl[0], 
-node.localName = pl[1]) : node.localName = qualifiedName, node;
+createAttributeNS: function(t, e) {
+var r = new Yr(), n = e.split(":");
+return r.ownerDocument = this, r.nodeName = e, r.name = e, r.namespaceURI = t, r.specified = !0, 
+2 == n.length ? (r.prefix = n[0], r.localName = n[1]) : r.localName = e, r;
 }
-}, xmldom_dom$_extends(xmldom_dom$Document, xmldom_dom$Node), xmldom_dom$Element.prototype = {
-nodeType: xmldom_dom$ELEMENT_NODE,
-hasAttribute: function(name) {
-return null != this.getAttributeNode(name);
+}, Be(Fr, Cr), Lr.prototype = {
+nodeType: He,
+hasAttribute: function(t) {
+return null != this.getAttributeNode(t);
 },
-getAttribute: function(name) {
-var attr = this.getAttributeNode(name);
-return attr && attr.value || "";
+getAttribute: function(t) {
+var e = this.getAttributeNode(t);
+return e && e.value || "";
 },
-getAttributeNode: function(name) {
-return this.attributes.getNamedItem(name);
+getAttributeNode: function(t) {
+return this.attributes.getNamedItem(t);
 },
-setAttribute: function(name, value) {
-var attr = this.ownerDocument.createAttribute(name);
-attr.value = attr.nodeValue = "" + value, this.setAttributeNode(attr);
+setAttribute: function(t, e) {
+var r = this.ownerDocument.createAttribute(t);
+r.value = r.nodeValue = "" + e, this.setAttributeNode(r);
 },
-removeAttribute: function(name) {
-var attr = this.getAttributeNode(name);
-attr && this.removeAttributeNode(attr);
+removeAttribute: function(t) {
+var e = this.getAttributeNode(t);
+e && this.removeAttributeNode(e);
 },
-appendChild: function(newChild) {
-return newChild.nodeType === xmldom_dom$DOCUMENT_FRAGMENT_NODE ? this.insertBefore(newChild, null) : xmldom_dom$_appendSingleChild(this, newChild);
+appendChild: function(t) {
+return t.nodeType === tr ? this.insertBefore(t, null) : Pr(this, t);
 },
-setAttributeNode: function(newAttr) {
-return this.attributes.setNamedItem(newAttr);
+setAttributeNode: function(t) {
+return this.attributes.setNamedItem(t);
 },
-setAttributeNodeNS: function(newAttr) {
-return this.attributes.setNamedItemNS(newAttr);
+setAttributeNodeNS: function(t) {
+return this.attributes.setNamedItemNS(t);
 },
-removeAttributeNode: function(oldAttr) {
-return this.attributes.removeNamedItem(oldAttr.nodeName);
+removeAttributeNode: function(t) {
+return this.attributes.removeNamedItem(t.nodeName);
 },
-removeAttributeNS: function(namespaceURI, localName) {
-var old = this.getAttributeNodeNS(namespaceURI, localName);
-old && this.removeAttributeNode(old);
+removeAttributeNS: function(t, e) {
+var r = this.getAttributeNodeNS(t, e);
+r && this.removeAttributeNode(r);
 },
-hasAttributeNS: function(namespaceURI, localName) {
-return null != this.getAttributeNodeNS(namespaceURI, localName);
+hasAttributeNS: function(t, e) {
+return null != this.getAttributeNodeNS(t, e);
 },
-getAttributeNS: function(namespaceURI, localName) {
-var attr = this.getAttributeNodeNS(namespaceURI, localName);
-return attr && attr.value || "";
+getAttributeNS: function(t, e) {
+var r = this.getAttributeNodeNS(t, e);
+return r && r.value || "";
 },
-setAttributeNS: function(namespaceURI, qualifiedName, value) {
-var attr = this.ownerDocument.createAttributeNS(namespaceURI, qualifiedName);
-attr.value = attr.nodeValue = "" + value, this.setAttributeNode(attr);
+setAttributeNS: function(t, e, r) {
+var n = this.ownerDocument.createAttributeNS(t, e);
+n.value = n.nodeValue = "" + r, this.setAttributeNode(n);
 },
-getAttributeNodeNS: function(namespaceURI, localName) {
-return this.attributes.getNamedItemNS(namespaceURI, localName);
+getAttributeNodeNS: function(t, e) {
+return this.attributes.getNamedItemNS(t, e);
 },
-getElementsByTagName: function(tagName) {
-return new xmldom_dom$LiveNodeList(this, function(base) {
-var ls = [];
-return xmldom_dom$_visitNode(base, function(node) {
-node === base || node.nodeType != xmldom_dom$ELEMENT_NODE || "*" !== tagName && node.tagName != tagName || ls.push(node);
-}), ls;
+getElementsByTagName: function(t) {
+return new Nr(this, function(e) {
+var r = [];
+return Ir(e, function(n) {
+n === e || n.nodeType != He || "*" !== t && n.tagName != t || r.push(n);
+}), r;
 });
 },
-getElementsByTagNameNS: function(namespaceURI, localName) {
-return new xmldom_dom$LiveNodeList(this, function(base) {
-var ls = [];
-return xmldom_dom$_visitNode(base, function(node) {
-node === base || node.nodeType !== xmldom_dom$ELEMENT_NODE || "*" !== namespaceURI && node.namespaceURI !== namespaceURI || "*" !== localName && node.localName != localName || ls.push(node);
-}), ls;
+getElementsByTagNameNS: function(t, e) {
+return new Nr(this, function(r) {
+var n = [];
+return Ir(r, function(i) {
+i === r || i.nodeType !== He || "*" !== t && i.namespaceURI !== t || "*" !== e && i.localName != e || n.push(i);
+}), n;
 });
 }
-}, xmldom_dom$Document.prototype.getElementsByTagName = xmldom_dom$Element.prototype.getElementsByTagName, 
-xmldom_dom$Document.prototype.getElementsByTagNameNS = xmldom_dom$Element.prototype.getElementsByTagNameNS, 
-xmldom_dom$_extends(xmldom_dom$Element, xmldom_dom$Node), xmldom_dom$Attr.prototype.nodeType = xmldom_dom$ATTRIBUTE_NODE, 
-xmldom_dom$_extends(xmldom_dom$Attr, xmldom_dom$Node), xmldom_dom$CharacterData.prototype = {
+}, Fr.prototype.getElementsByTagName = Lr.prototype.getElementsByTagName, Fr.prototype.getElementsByTagNameNS = Lr.prototype.getElementsByTagNameNS, 
+Be(Lr, Cr), Yr.prototype.nodeType = qe, Be(Yr, Cr), jr.prototype = {
 data: "",
-substringData: function(offset, count) {
-return this.data.substring(offset, offset + count);
+substringData: function(t, e) {
+return this.data.substring(t, t + e);
 },
-appendData: function(text) {
-text = this.data + text, this.nodeValue = this.data = text, this.length = text.length;
+appendData: function(t) {
+t = this.data + t, this.nodeValue = this.data = t, this.length = t.length;
 },
-insertData: function(offset, text) {
-this.replaceData(offset, 0, text);
+insertData: function(t, e) {
+this.replaceData(t, 0, e);
 },
 appendChild: function() {
-throw new Error(xmldom_dom$ExceptionMessage[3]);
+throw new Error(nr[3]);
 },
-deleteData: function(offset, count) {
-this.replaceData(offset, count, "");
+deleteData: function(t, e) {
+this.replaceData(t, e, "");
 },
-replaceData: function(offset, count, text) {
-var start = this.data.substring(0, offset), end = this.data.substring(offset + count);
-text = start + text + end, this.nodeValue = this.data = text, this.length = text.length;
+replaceData: function(t, e, r) {
+var n = this.data.substring(0, t), i = this.data.substring(t + e);
+r = n + r + i, this.nodeValue = this.data = r, this.length = r.length;
 }
-}, xmldom_dom$_extends(xmldom_dom$CharacterData, xmldom_dom$Node), xmldom_dom$Text.prototype = {
+}, Be(jr, Cr), Br.prototype = {
 nodeName: "#text",
-nodeType: xmldom_dom$TEXT_NODE,
-splitText: function(offset) {
-var text = this.data, newText = text.substring(offset);
-text = text.substring(0, offset), this.data = this.nodeValue = text, this.length = text.length;
-var newNode = this.ownerDocument.createTextNode(newText);
-return this.parentNode && this.parentNode.insertBefore(newNode, this.nextSibling), 
-newNode;
+nodeType: Ve,
+splitText: function(t) {
+var e = this.data, r = e.substring(t);
+e = e.substring(0, t), this.data = this.nodeValue = e, this.length = e.length;
+var n = this.ownerDocument.createTextNode(r);
+return this.parentNode && this.parentNode.insertBefore(n, this.nextSibling), n;
 }
-}, xmldom_dom$_extends(xmldom_dom$Text, xmldom_dom$CharacterData), xmldom_dom$Comment.prototype = {
+}, Be(Br, jr), Ur.prototype = {
 nodeName: "#comment",
-nodeType: xmldom_dom$COMMENT_NODE
-}, xmldom_dom$_extends(xmldom_dom$Comment, xmldom_dom$CharacterData), xmldom_dom$CDATASection.prototype = {
+nodeType: Ke
+}, Be(Ur, jr), Wr.prototype = {
 nodeName: "#cdata-section",
-nodeType: xmldom_dom$CDATA_SECTION_NODE
-}, xmldom_dom$_extends(xmldom_dom$CDATASection, xmldom_dom$CharacterData), xmldom_dom$DocumentType.prototype.nodeType = xmldom_dom$DOCUMENT_TYPE_NODE, 
-xmldom_dom$_extends(xmldom_dom$DocumentType, xmldom_dom$Node), xmldom_dom$Notation.prototype.nodeType = xmldom_dom$NOTATION_NODE, 
-xmldom_dom$_extends(xmldom_dom$Notation, xmldom_dom$Node), xmldom_dom$Entity.prototype.nodeType = xmldom_dom$ENTITY_NODE, 
-xmldom_dom$_extends(xmldom_dom$Entity, xmldom_dom$Node), xmldom_dom$EntityReference.prototype.nodeType = xmldom_dom$ENTITY_REFERENCE_NODE, 
-xmldom_dom$_extends(xmldom_dom$EntityReference, xmldom_dom$Node), xmldom_dom$DocumentFragment.prototype.nodeName = "#document-fragment", 
-xmldom_dom$DocumentFragment.prototype.nodeType = xmldom_dom$DOCUMENT_FRAGMENT_NODE, 
-xmldom_dom$_extends(xmldom_dom$DocumentFragment, xmldom_dom$Node), xmldom_dom$ProcessingInstruction.prototype.nodeType = xmldom_dom$PROCESSING_INSTRUCTION_NODE, 
-xmldom_dom$_extends(xmldom_dom$ProcessingInstruction, xmldom_dom$Node), xmldom_dom$XMLSerializer.prototype.serializeToString = function(node, attributeSorter) {
-return node.toString(attributeSorter);
-}, xmldom_dom$Node.prototype.toString = function(attributeSorter) {
-var buf = [];
-return xmldom_dom$serializeToString(this, buf, attributeSorter), buf.join("");
+nodeType: Xe
+}, Be(Wr, jr), Hr.prototype.nodeType = Qe, Be(Hr, Cr), qr.prototype.nodeType = er, 
+Be(qr, Cr), Vr.prototype.nodeType = Ge, Be(Vr, Cr), Xr.prototype.nodeType = ze, 
+Be(Xr, Cr), zr.prototype.nodeName = "#document-fragment", zr.prototype.nodeType = tr, 
+Be(zr, Cr), Gr.prototype.nodeType = Je, Be(Gr, Cr), Jr.prototype.serializeToString = function(t, e) {
+return t.toString(e);
+}, Cr.prototype.toString = function(t) {
+var e = [];
+return Kr(this, e, t), e.join("");
 };
 try {
-Object.defineProperty && (Object.defineProperty(xmldom_dom$LiveNodeList.prototype, "length", {
+Object.defineProperty && (Object.defineProperty(Nr.prototype, "length", {
 get: function() {
-return xmldom_dom$_updateLiveList(this), this.$$length;
+return xr(this), this.$$length;
 }
-}), Object.defineProperty(xmldom_dom$Node.prototype, "textContent", {
+}), Object.defineProperty(Cr.prototype, "textContent", {
 get: function() {
-return xmldom_dom$getTextContent(this);
+return en(this);
 },
-set: function(data) {
+set: function(t) {
 switch (this.nodeType) {
 case 1:
 case 11:
 for (;this.firstChild; ) this.removeChild(this.firstChild);
-(data || String(data)) && this.appendChild(this.ownerDocument.createTextNode(data));
+(t || String(t)) && this.appendChild(this.ownerDocument.createTextNode(t));
 break;
 default:
-this.data = data, this.value = value, this.nodeValue = data;
+this.data = t, this.value = value, this.nodeValue = t;
 }
 }
-}), xmldom_dom$__set__ = function(object, key, value) {
-object["$$" + key] = value;
+}), tn = function(t, e, r) {
+t["$$" + e] = r;
 });
-} catch (xmldom_dom$e) {}
-var xmldom_sax$nameStartChar = /[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/, xmldom_sax$nameChar = new RegExp("[\\-\\.0-9" + xmldom_sax$nameStartChar.source.slice(1, -1) + "·̀-ͯ\\u203F-⁀]"), xmldom_sax$tagNamePattern = new RegExp("^" + xmldom_sax$nameStartChar.source + xmldom_sax$nameChar.source + "*(?::" + xmldom_sax$nameStartChar.source + xmldom_sax$nameChar.source + "*)?$"), xmldom_sax$S_TAG = 0, xmldom_sax$S_ATTR = 1, xmldom_sax$S_ATTR_S = 2, xmldom_sax$S_EQ = 3, xmldom_sax$S_V = 4, xmldom_sax$S_E = 5, xmldom_sax$S_S = 6, xmldom_sax$S_C = 7;
-return xmldom_sax$XMLReader.prototype = {
-parse: function(source, defaultNSMap, entityMap) {
-var domBuilder = this.domBuilder;
-domBuilder.startDocument(), xmldom_sax$_copy(defaultNSMap, defaultNSMap = {}), xmldom_sax$parse(source, defaultNSMap, entityMap, domBuilder, this.errorHandler), 
-domBuilder.endDocument();
+} catch (rn) {}
+var nn = /[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/, an = new RegExp("[\\-\\.0-9" + nn.source.slice(1, -1) + "·̀-ͯ\\u203F-⁀]"), on = new RegExp("^" + nn.source + an.source + "*(?::" + nn.source + an.source + "*)?$"), sn = 0, un = 1, cn = 2, ln = 3, hn = 4, fn = 5, pn = 6, vn = 7;
+return dn.prototype = {
+parse: function(t, e, r) {
+var n = this.domBuilder;
+n.startDocument(), xn(e, e = {}), mn(t, e, r, n, this.errorHandler), n.endDocument();
 }
-}, xmldom_sax$ElementAttributes.prototype = {
-setTagName: function(tagName) {
-if (!xmldom_sax$tagNamePattern.test(tagName)) throw new Error("invalid tagName:" + tagName);
-this.tagName = tagName;
+}, An.prototype = {
+setTagName: function(t) {
+if (!on.test(t)) throw new Error("invalid tagName:" + t);
+this.tagName = t;
 },
-add: function(qName, value, offset) {
-if (!xmldom_sax$tagNamePattern.test(qName)) throw new Error("invalid attribute:" + qName);
+add: function(t, e, r) {
+if (!on.test(t)) throw new Error("invalid attribute:" + t);
 this[this.length++] = {
-qName: qName,
-value: value,
-offset: offset
+qName: t,
+value: e,
+offset: r
 };
 },
 length: 0,
-getLocalName: function(i) {
-return this[i].localName;
+getLocalName: function(t) {
+return this[t].localName;
 },
-getOffset: function(i) {
-return this[i].offset;
+getOffset: function(t) {
+return this[t].offset;
 },
-getQName: function(i) {
-return this[i].qName;
+getQName: function(t) {
+return this[t].qName;
 },
-getURI: function(i) {
-return this[i].uri;
+getURI: function(t) {
+return this[t].uri;
 },
-getValue: function(i) {
-return this[i].value;
+getValue: function(t) {
+return this[t].value;
 }
-}, xmldom_sax$_set_proto_({}, xmldom_sax$_set_proto_.prototype) instanceof xmldom_sax$_set_proto_ || (xmldom_sax$_set_proto_ = function(thiz, parent) {
-function p() {}
-p.prototype = parent, p = new p();
-for (parent in thiz) p[parent] = thiz[parent];
-return p;
+}, Dn({}, Dn.prototype) instanceof Dn || (Dn = function(t, e) {
+function r() {}
+r.prototype = e, r = new r();
+for (e in t) r[e] = t[e];
+return r;
 }), {
-load: example_greek_alphabet$load
+load: u
 };
 }();</script>
 </head>

@@ -11,7 +11,8 @@ canvas{/*transform-origin:0 0;transform:scale(0.5,0.5);/* */}
 </style><script>var greek = function() {
 function example_greek_alphabet$play(n) {
 var audio = document.createElement("audio");
-audio.src = "http://www.xidea.club/lan/" + n + ".wav", audio.loop = !1, audio.play();
+audio.src = "http://www.xidea.club/greek/sound/" + n + ".wav", audio.loop = !1, 
+audio.play();
 }
 function example_greek_alphabet$findContent(k) {
 for (var i = example_greek_alphabet$content.indexOf(k + ":"), j = i + 1; j < example_greek_alphabet$content.length; j++) {
@@ -164,7 +165,7 @@ idx2 != idx && this.onchange(idx2, idx), this.repaint();
 }
 function liteui_ui_text$TextView(maxWidth, maxHeight, text, color, font) {
 liteui_uibase$Widget.apply(this, [ maxWidth, maxHeight, liteui_ui_text$textPainter, liteui_ui_text$textEvent ]), 
-this.text = text, this.color = color, this.font = font || "32px " + liteui_uiconfig$fontFamily, 
+this.text = text, this.color = color, this.font = font || "26px " + liteui_uiconfig$fontFamily, 
 this.patterns = [], this.colors = [], this.fonts = [];
 }
 function liteui_ui_text$textEvent() {}
@@ -172,7 +173,7 @@ function liteui_ui_text$textPainter(ctx, width, height) {
 this.background && (ctx.fillStyle = this.background, ctx.fillRect(0, 0, width, height));
 var padding = this.padding || 0, rows = liteui_ui_text$buildTextLines(this.text, this.width - 2 * padding, this.font, this.patterns, this.fonts), textAlign = this.textAlign, lineHeight = this.lineHeight || 1.5 * this.font.replace(/.*?([\d\.]+)px.*/, "$1") | 0, len = rows.length, y = lineHeight + padding, contentHeight = rows.length * lineHeight + 2 * padding;
 if (contentHeight != height && (contentHeight > height && (this.parentWidget.supportScroll = !0), 
-this.parentWidget.supportScroll)) return this.resize(width, contentHeight), void console.log("resize text view:", contentHeight);
+this.parentWidget.supportScroll)) return void this.resize(width, contentHeight);
 for (var i = 0; len > i; i++) {
 var line = rows[i], x = padding;
 if ("center" == textAlign) {
@@ -1084,7 +1085,7 @@ get: function() {
 return example_greek_alphabet$findContent(k);
 }
 }), example_greek_alphabet$values.push(v), k;
-}), example_greek_alphabet$source = '<Layout width=\'100%\' height=\'100%\' background=\'#FFF\' arguments="keys,contents,index">\n	<List width="16%" height="100%" background=\'#ddd\' \n		var=\'key\' value="${keys}" observe="${index}">\n		<Button color="#333" textAlign="center" action=\'${index = for.index}\' width="100%" height="60" \n			background="${for.index == index? \'#bbb\':\'#eee\'}" value="  ${key}"/>\n	</List>\n	<Card id="content" background=\'#ddd\' \n		width="84%" height="100%" left=\'16.2%\' top=\'0\'\n		index="${index}" var="content" value=\'${contents}\'>\n		<Text padding="12" color="#000" background="#ddd"\n		     action="${content.play()}"\n		     width="100%" height="7%" value="${content.title}"/>\n		<Layout width="100%" height="93%" top="7%" background="#fd6" >\n			<Text padding="12" color="#333" width="100%" height="100%" \n				value="${content.value}"\n				keywordPattern="/^[^\\s]+/gm"\n				keywordStyle="#933"\n				\n				/>\n		</Layout>\n	</Card>\n</Layout>', example_greek_alphabet$load = function() {
+}), example_greek_alphabet$source = '<Layout width=\'100%\' height=\'100%\' background=\'#FFF\' arguments="keys,contents,index">\n	<List width="16%" height="100%" background=\'#ddd\' \n		var=\'key\' value="${keys}" observe="${index}">\n		<Button color="#333" textAlign="center" action=\'${index = for.index}\' width="100%" height="60" \n			background="${for.index == index? \'#bbb\':\'#eee\'}" value="  ${key}"/>\n	</List>\n	<Card id="content" background=\'#ddd\' \n		width="84%" height="100%" left=\'16.2%\' top=\'0\'\n		index="${index}" var="content" value=\'${contents}\'>\n		<Text padding="12" color="#000" background="#ccc"\n		     action="${content.play()}"\n		     width="100%" height="8%" value="${content.title}"/>\n		<Layout width="100%" height="92%" top="8%" background="#ddd" >\n			<Text padding="12" color="#333" width="100%" height="100%" \n				value="${content.value}"\n				keywordPattern="/^[^\\s]+/gm"\n				keywordStyle="#933"\n				\n				/>\n		</Layout>\n	</Card>\n</Layout>', example_greek_alphabet$load = function() {
 liteui_liteui$load(example_greek_alphabet$source || "./assets/greek-xul.xml", [ example_greek_alphabet$keys, example_greek_alphabet$values, 1 ]);
 };
 window.onload = liteui_liteui$init;

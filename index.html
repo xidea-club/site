@@ -1894,7 +1894,7 @@ if (u > 0) var p = "明", g = "后"; else {
 u = -u;
 var p = "昨", g = "前";
 }
-if (1 == u) d.endsWith("上") ? (d = d.substring(0, 1), s.push(p, d)) : s.push(d), 
+if (1 == u) d.slice(-1)=="上" ? (d = d.substring(0, 1), s.push(p, d)) : s.push(d), 
 f = [ p + "天" ]; else {
 var m = 2 == u ? g + "天" : u + "天" + g;
 f = [ m ], s.push(d);

@@ -1417,8 +1417,8 @@ r.addColorStop(1, "#ccc"), t.fillStyle = r, t.fillRect(0, 0, e, a);
 for (var i = 4, n = this.bx + this.ox, l = un.length, o = e / i * l; l--; ) {
 var v = e * (i - l) / i + n;
 v %= o, 0 > v && (v += o);
-var f = a / 6, s = (a - f - Math.pow(2 * v / e - 1, 3) * a) / 2, h = (.8 * e - v) / e;
-h = 1 - h / (h > 0 ? 1.6 : -.4), t.save(), t.translate(v - f, s + f), t.globalAlpha = h, 
+var f = a / 6, s = (a - f + Math.pow(2 * v / e - 1, 3) * a) / 2, h = (.8 * e - v) / e;
+v = e - v, h = 1 - h / (h > 0 ? 1.6 : -.4), t.save(), t.translate(v - f, s), t.globalAlpha = h, 
 t.scale(h *= f / 100, h);
 var c = un[l], u = pn(c), d = u[0];
 if (u[1] != f) {

@@ -349,8 +349,8 @@ yo(dt);
 }
 function ut(t) {
 var e = t.getContext("2d"), a = t.height, r = a / $, n = (U[0], U[1]);
-e.save(), e.beginPath(), e.rect(0, 0, a, a), e.clip(), e.scale(r, r), e.translate(0, ($ - H) * n / H), 
-it = -1, pt(e, e), pt(e, e), it = null, e.restore();
+return e.save(), e.beginPath(), e.rect(0, 0, a, a), e.clip(), e.scale(r, r), e.translate(0, ($ - H) * n / H), 
+it = -1, pt(e, e), pt(e, e), it = null, e.restore(), U[K].data.title;
 }
 function dt() {
 return U ? pt(L, q, "#FFF") : void 0;
@@ -1414,9 +1414,8 @@ e.depth = a++, t.push(e);
 for (var r = e.children, i = r.length, n = 0; i > n; n++) cn(t, r[n], a);
 }
 function wn() {
-var t = new nv(), e = dn = t.width, a = (pn = t.height) / 3, r = pn - a, i = new iv(e, a, bn, xn), n = .15 * a, l = .4 * dn, o = new Ql(l, n, "修改同步");
-o.boxColor = "#f96", o.align = "right", i.bx = i.ox = 0, t.add(i, 0, r), i.add(o, e - l, a - n), 
-t.popup();
+var t = new nv(), e = dn = t.width, a = (pn = t.height) / 4, r = pn - a, i = new iv(e, a, bn, xn);
+i.bx = i.ox = 0, t.add(i, 0, r), t.popup();
 }
 function xn(t, e, a, r, i, n) {
 this.px = i, this.py = n, -3 == t ? (this.bx += this.ox, this.ox = 0, 0 == this.px) : -2 == t ? (this.ox = i - a, 
@@ -1424,26 +1423,29 @@ this.repaint()) : -1 == t ? (this.token = +new Date(), this.hited = -1, this.rep
 }
 function bn(t, e, a) {
 var r = t.createLinearGradient(0, 0, 0, a);
-r.addColorStop(0, "rgba(255,255,255,0.0)"), r.addColorStop(.13, "rgba(255,255,255,0)"), 
+r.addColorStop(0, "rgba(255,255,255,0.0)"), r.addColorStop(.05, "rgba(255,255,255,.4)"), 
 r.addColorStop(.15, "#fff"), r.addColorStop(.9, "#ddd"), r.addColorStop(1, "#ccc"), 
 t.fillStyle = r, t.fillRect(0, 0, e, a);
-var i = yn(bn), n = i[0], l = n.getContext("2d"), o = .5 * a, v = 2.5 * o, f = .16 * o | 0, h = 1.1 * o;
-(null == i[1] || i[1] != this.token) && (i[1] = this.token, n.width = v, n.height = o, 
-r = t.createLinearGradient(0, 0, 0, o), r.addColorStop(0, "#ccc"), r.addColorStop(.1, "#eee"), 
-r.addColorStop(1, "rgba(255,255,255,0.9)"), l.fillStyle = r, dv(l, 0, 0, v, o, o / 16), 
-l.fill(), un(n), l.font = "" + f + "px " + Ee, l.fillStyle = "#333", l.fillText("思维分享", h, .4 * o), 
-l.font = (.8 * f | 0) + "px " + Ee, l.fillStyle = "#333", l.fillText("一起头脑风暴吧^_^", h, .7 * o)), 
-t.drawImage(n, .03 * o, 0);
-for (var s = 4, c = this.bx + this.ox, u = gn.length, d = e / s * u; u--; ) {
-var p = a / 6, g = e * (s - u) / s - c - p;
-g %= d, 0 > g && (g += d);
-var m = (a - p + Math.pow(2 * g / e - 1, 3) * a) / 2, y = (.8 * e - g) / e;
-g = e - g, y = 1 - y / (y > 0 ? 1.6 : -.4), t.save(), t.translate(g, m), t.globalAlpha = y, 
-t.scale(y *= p / 100, y);
-var w = gn[u], x = yn(w), n = x[0], l = n.getContext("2d"), b = this.px, M = this.py, S = b && b > g && g + p > b - p && M > m && m + p > M - p || !1;
-S && (this.hited = u), x[1] != S && (x[1] = S, n.width = 220, n.height = 300, l.translate(110, 110), 
-w(l), l.fillStyle = "#333", l.font = "bold 50px " + Ee, l.textBaseline = "middle", 
-l.textAlign = "center", l.fillText(mn[u], 0, 150), l.lineWidth = 10, l.strokeStyle = S ? "#ff9" : "#eee", 
+var i = yn(bn), n = i[0], l = n.getContext("2d"), o = .5 * a, v = .9 * e, f = .16 * o | 0, h = 1.1 * o;
+if (null == i[1] || i[1] != this.token) {
+i[1] = this.token, n.width = v, n.height = o, r = t.createLinearGradient(0, 0, 0, o), 
+r.addColorStop(0, "#eee"), r.addColorStop(.1, "#fff"), r.addColorStop(.9, "#fff"), 
+r.addColorStop(1, "#ddd"), l.fillStyle = r, dv(l, 0, 0, v, o, o / 16), l.fill(), 
+l.translate(o / 4, 0);
+var s = un(n);
+l.font = "" + f + "px " + Ee, l.fillStyle = "#333", l.fillText("思维分享:" + s, h, .4 * o), 
+l.font = (.8 * f | 0) + "px " + Ee, l.fillStyle = "#333", l.fillText("一起头脑风暴吧^_^", h, .7 * o);
+}
+t.drawImage(n, (e - v) / 2, 0);
+for (var c = 4, u = this.bx + this.ox, d = gn.length, p = e / c * d; d--; ) {
+var g = a / 6, m = e * (c - d) / c + u - g;
+m %= p, 0 > m && (m += p);
+var y = 1 - 2 * Math.pow((e / 2 - m) / e, 2), w = a - g * y * 2;
+t.save(), t.translate(m - g, w - g), t.globalAlpha = y, t.scale(y *= g / 100, y);
+var x = gn[d], b = yn(x), n = b[0], l = n.getContext("2d"), M = this.px, S = this.py, T = M && M > m - g && m + g > M && S > w - g && w + g > S || !1;
+T && (this.hited = d), b[1] != T && (b[1] = T, n.width = 220, n.height = 300, l.translate(110, 110), 
+x(l), l.fillStyle = "#333", l.font = "bold 50px " + Ee, l.textBaseline = "middle", 
+l.textAlign = "center", l.fillText(mn[d], 0, 150), l.lineWidth = 10, l.strokeStyle = T ? "#ff9" : "#eee", 
 l.beginPath(), l.arc(0, 0, 105, 0, 2 * Math.PI, !0), l.stroke()), t.drawImage(n, 0, 0), 
 t.restore();
 }
